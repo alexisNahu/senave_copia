@@ -1,54 +1,91 @@
 ---
 // FaqDenuncias.astro
 const faqs = [
-    { pregunta: "¿Qué es el SENAVE?", href: "#" },
-    { pregunta: "¿Cómo puedo certificar mi producción frutihortícola?", href: "#" },
-    { pregunta: "¿Qué son las Acreditaciones Fitosanitarias de Importación?", href: "#" },
-    { pregunta: "¿Qué necesito para exportar productos vegetales?", href: "#" },
+    {
+        pregunta: "¿Qué es el SENAVE?",
+        respuesta: "El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), creado por la Ley 2459/04, es el ente encargado de regular y certificar la calidad de productos vegetales y fitosanitarios en Paraguay. El SENAVE otorga o cancela los registros de importación de las empresas dedicadas a la producción o importación de agroquímicos; registra e inhabilita la inscripción de semillas; certifica la calidad y sanidad de los productos y subproductos vegetales en estado natural, orgánicos y convencionales, y las semillas. Registra, habilita y fiscaliza a personas físicas o jurídicas, públicas o privadas, encargadas de certificar los productos vegetales orgánicos. Además, registra, fiscaliza y audita los laboratorios acreditados, depósitos y los medios de transporte de plaguicidas en el país."
+    },
+    {
+        pregunta: "¿Cómo puedo certificar mi producción frutihortícola?",
+        respuesta: "El productor debe acercarse a la oficina regional más cercana y solicitar el inicio de los procesos de certificación. El técnico de la institución realiza la verificación de la parcela y del rubro a certificar. Esta verificación conlleva varios procesos, entre los cuales se encuentran las pruebas analíticas y de calidad. Una vez que se haya comprobado que el producto reúne las condiciones y cumple con los requisitos técnicos, se considera que es apto para la certificación. Los rubros que pueden ser certificados son: Tomate, locote, cebolla, papa, zanahoria, sandía, piña, mamón, frutilla, mango, aguacate, melón, naranja."
+    },
+    {
+        pregunta: "¿Qué son las Acreditaciones Fitosanitarias de Importación?",
+        respuesta: "La Acreditación Fitosanitaria de Importación (AFIDI) es el documento emitido por el SENAVE y forman parte del proceso para la importación de productos vegetales. La AFIDI garantiza que los productos importados cumplen con los estándares fitosanitarios requeridos. La AFIDI asegura que todas las importaciones sean evaluadas y autorizadas previamente para su ingreso al mercado nacional, contribuyendo a la protección del estatus fitosanitario, asegurando que los productos no representen un riesgo para la sanidad vegetal del país. Las emisiones de la AFIDI se realizan de acuerdo con las disposiciones del Ministerio de Agricultura y Ganadería (MAG)."
+    },
+    {
+        pregunta: "¿Qué necesito para exportar productos vegetales?",
+        respuesta: "El exportador debe solicitar los certificados fitosanitarios utilizando el sistema VUE, ingresando una solicitud con la documentación adjunta y anexos necesarios de acuerdo a los requisitos por país, especie y condición. Luego disponibilizar el producto para la inspección fitosanitaria. El exportador debe estar inscripto en la Ventanilla Única de Exportación (VUE) www.vue.org.py. Realizar solicitud de exportación utilizando el sistema VUE, especificando el producto a ser exportado (especie vegetal, presentación ej., secado, triturado u otros, uso destinado ej. consumo, propagación u otros, país destino). Contar con los requisitos del país de destino y adjuntar los documentos que avalen el cumplimiento de dichos requisitos. Pago de montos a percibir por prestación de servicios del SENAVE. Disponibilizar el producto a exportar para la correspondiente inspección fitosanitaria."
+    },
 ];
 ---
 
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
             <div>
-                <h2 class="text-[#22c55e] font-bold text-2xl underline decoration-2 underline-offset-8 mb-8">
+                <h2 class="text-[#22c55e] font-bold text-2xl underline decoration-2 underline-offset-8 mb-10">
                     Preguntas Frecuentes
                 </h2>
 
                 <div class="space-y-4">
                     {faqs.map((faq) => (
-                            <a
-                                    href={faq.href}
-                                    class="flex items-center justify-between p-5 bg-slate-50 border border-slate-100 rounded-lg group hover:bg-white hover:shadow-md transition-all"
-                            >
-              <span class="text-[#4b5563] font-bold text-lg group-hover:text-[#22c55e] transition-colors pr-4">
-                {faq.pregunta}
-              </span>
-                                <div class="flex-shrink-0 w-10 h-10 bg-white rounded-md border border-slate-200 flex items-center justify-center shadow-sm group-hover:border-[#22c55e]">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-[#22c55e]">
-                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
-                                    </svg>
+                            <details class="group bg-slate-50 border border-slate-100 rounded-xl overflow-hidden transition-all duration-300 open:bg-white open:shadow-lg">
+                                <summary class="flex items-center justify-between p-6 cursor-pointer list-none focus:outline-none">
+                                <span class="text-[#4b5563] font-bold text-[18px] group-open:text-[#22c55e] transition-colors pr-4">
+                                    {faq.pregunta}
+                                </span>
+                                    <div class="flex-shrink-0 w-10 h-10 bg-white rounded-md border border-slate-200 flex items-center justify-center shadow-sm group-open:border-[#22c55e] group-open:bg-[#22c55e] group-open:text-white transition-all">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 transition-transform duration-300 group-open:rotate-90">
+                                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </summary>
+
+                                <div class="px-6 pb-6 text-gray-600 leading-relaxed text-[16px] border-t border-slate-50 pt-4 animate-fadeIn">
+                                    {faq.respuesta}
                                 </div>
-                            </a>
+                            </details>
                     ))}
                 </div>
             </div>
 
-            <div class="h-full flex items-center">
-                <div class="w-full bg-[#166534] rounded-lg p-12 flex flex-col items-center justify-center text-center min-h-[400px] shadow-inner relative overflow-hidden">
-                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+            <div class="h-full">
+                <div class="w-full bg-[#1b4332] rounded-2xl p-12 flex flex-col items-center justify-center text-center min-h-[450px] shadow-2xl relative overflow-hidden group/box">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#22c55e] rounded-full blur-[100px] opacity-20 group-hover/box:opacity-30 transition-opacity"></div>
 
-                    <button class="relative z-10 bg-[#22c55e] hover:bg-green-400 text-white font-bold py-4 px-10 rounded-full flex items-center space-x-3 transition-all transform hover:scale-105 shadow-xl uppercase tracking-widest text-sm">
+                    <a
+                            href="https://www.senave.gov.py/denuncias-y-quejas/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="relative z-10 bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold py-5 px-12 rounded-full flex items-center space-x-4 transition-all transform hover:scale-105 shadow-xl uppercase tracking-[0.2em] text-sm"
+                    >
                         <span>Denuncias y Quejas</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
-                    </button>
+                    </a>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+
+<style>
+    /* Estilos para quitar la flecha por defecto de Chrome/Safari */
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    /* Animación suave para el texto */
+    .animate-fadeIn {
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
