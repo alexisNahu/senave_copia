@@ -1,0 +1,39 @@
+---
+// ShortcutsBar.astro
+const links = [
+    { name: "MESA DE ENTRADA", href: "https://secure.senave.gov.py/MEWEB/servlet/com.sisemweb33.loginsenave_meweb" },
+    { name: "TRÁMITES ELECTRÓNICOS DEL SENAVE", href: "https://secure.senave.gov.py/LoginSenave/servlet/com.sisemweb33.loginsenave" },
+    { name: "AVISO PREVIO DE PULVERIZACIÓN AÉREA", href: "https://secure.senave.gov.py/Fumigacion/servlet/com.fumigacion.me_fumigacion" },
+    { name: "CONSULTA DE REGISTRO", href: "https://secure.senave.gov.py/registros/servlet/com.consultaregistros2.login" },
+];
+---
+
+<div class="bg-rojo-mitic border-t border-white/20">
+    <div class="max-w-7xl mx-auto px-4">
+        <ul class="flex flex-wrap justify-center lg:justify-end items-center py-3 gap-x-8 gap-y-2">
+            {
+                links.map((link) => (
+                        <li>
+                            <a
+                                    href={link.href}
+                                    target="_blank"
+                                    class="flex items-center text-white text-[11px] md:text-xs font-bold tracking-widest hover:opacity-80 transition-opacity uppercase"
+                            >
+                                {link.name}
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="ml-2 h-4 w-6"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        stroke-width="1.5"
+                                >
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                                </svg>
+                            </a>
+                        </li>
+                ))
+            }
+        </ul>
+    </div>
+</div>

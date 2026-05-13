@@ -1,0 +1,36 @@
+---
+// LogosInstitucionales.astro
+const logosSistemas = [
+    { src: "https://www.senave.gov.py/wp-content/uploads/2025/04/mecip-logo.jpg", alt: "MECIP" },
+    { src: "https://www.senave.gov.py/wp-content/uploads/2024/11/senavenetlogo.png", alt: "SENAVE.net" },
+    { src: "https://www.senave.gov.py/wp-content/uploads/2024/09/vui-logo.png", alt: "VUI" },
+    { src: "https://www.senave.gov.py/wp-content/uploads/2024/09/vue-logo.png", alt: "VUE" },
+];
+
+const certificaciones = [
+    { src: "https://www.senave.gov.py/wp-content/uploads/2024/12/CERTIF-FITO.png", alt: "Certificado Fitosanitario" },
+    { src: "https://www.senave.gov.py/img/btn-nuevo-formato.png", alt: "Nuevo Formato Certificado" },
+];
+---
+
+<section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 mb-16">
+            {logosSistemas.map((logo) => (
+                    <div class="transition-all duration-300 transform hover:scale-105">
+                        <img src={logo.src} alt={logo.alt} class="h-16 md:h-20 w-auto object-contain" />
+                    </div>
+            ))}
+
+            <div class="flex flex-col gap-4">
+                {certificaciones.map((cert) => (
+                        <div class="transition-all duration-300 transform hover:scale-105">
+                            <img src={cert.src} alt={cert.alt} class="h-12 w-auto object-contain" />
+                        </div>
+                ))}
+            </div>
+        </div>
+
+    </div>
+</section>

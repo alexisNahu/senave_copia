@@ -1,0 +1,65 @@
+---
+// Audiovisuales.astro
+const secciones = [
+    {
+        idioma: "Español",
+        principal: { url: "https://www.youtube.com/embed/C1c7Fsd9CbA", titulo: "¿Cómo aplicamos productos fitosanitarios de forma segura?" },
+        secundarios: [
+            { url: "https://www.youtube.com/embed/QgyCdgkT-DE", titulo: "¿Para qué sirve el Equipo de Protección?" },
+            { url: "https://www.youtube.com/embed/JzIYLhgrEZQ", titulo: "¿Qué son los productos fitosanitarios?" }
+        ]
+    },
+    {
+        idioma: "Guaraní",
+        principal: { url: "https://www.youtube.com/embed/pePLeVY1S6c", titulo: "Mba'éichapa jaipuru porãta pohã ñana?" },
+        secundarios: [
+            { url: "https://www.youtube.com/embed/S3ENEKdzF3M", titulo: "Ma'erãpa serves equipo de protección?" },
+            { url: "https://www.youtube.com/embed/LZgfzlwoWh4", titulo: "Mba'e piko hína productos fitosanitarios?" }
+        ]
+    }
+];
+---
+
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+            {secciones.map((seccion) => (
+                    <div class="flex flex-col">
+                        <div class="flex items-center space-x-2 text-[#22c55e] font-bold text-sm mb-2">
+                            <span class="h-[1px] w-6 bg-[#22c55e]"></span>
+                            <span class="text-[18px]">{seccion.idioma}</span>
+                        </div>
+                        <h2 class="text-[40px] font-extrabold text-[#374151] mb-6">Audiovisuales Institucionales</h2>
+
+                        <div class="relative aspect-video rounded-lg overflow-hidden shadow-lg mb-4">
+                            <iframe
+                                    class="absolute inset-0 w-full h-full"
+                                    src={seccion.principal.url}
+                                    title={seccion.principal.titulo}
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            {seccion.secundarios.map((video) => (
+                                    <div class="relative aspect-video rounded-md overflow-hidden shadow-md border border-gray-100 hover:scale-[1.02] transition-transform cursor-pointer">
+                                        <iframe
+                                                class="absolute inset-0 w-full h-full"
+                                                src={video.url}
+                                                title={video.titulo}
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
+                                        </iframe>
+                                    </div>
+                            ))}
+                        </div>
+                    </div>
+            ))}
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,115 @@
+---
+// Banner.astro
+---
+
+<section class="relative w-full h-[450px] overflow-hidden group bg-gray-900">
+    <div id="slider" class="flex h-full transition-transform duration-500 ease-out">
+
+        <div class="min-w-full h-full relative">
+            <img
+                    src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?q=80&w=2000&auto=format&fit=crop"
+                    class="w-full h-full object-cover opacity-60"
+                    alt="Banner 1"
+            />
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
+                <div class="flex items-center space-x-6 mb-4">
+                    <img src="https://www.senave.gov.py/templates/senave/images/logo-senave.png" class="h-20 drop-shadow-lg" alt="Logo">
+                    <div class="bg-green-500 rounded-full p-4 animate-bounce">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-2 drop-shadow-md">Nueva app <span class="text-green-400">SENAVE DTV</span></h2>
+                <p class="text-xl md:text-2xl font-light max-w-2xl">Documento de Trazabilidad Vegetal <br/> Más segura y eficiente</p>
+                <button class="mt-6 bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full flex items-center space-x-2 transition-all transform hover:scale-105 shadow-xl">
+                    <i class="fas fa-hand-pointer"></i>
+                    <span>Click aquí para ver tutoriales</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="min-w-full h-full relative bg-blue-900">
+            <div class="absolute inset-0 flex items-center justify-center text-white">
+                <h2 class="text-5xl font-bold">Segundo Anuncio Informativo</h2>
+            </div>
+        </div>
+    </div>
+
+    <button id="prev" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+        <i class="fas fa-chevron-left text-2xl"></i>
+    </button>
+    <button id="next" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+        <i class="fas fa-chevron-right text-2xl"></i>
+    </button>
+
+    <div class="absolute bottom-0 left-0 w-full h-2 bg-black/20">
+        <div id="progress-bar" class="h-full bg-green-500 w-0 transition-none"></div>
+    </div>
+</section>
+<script>
+    // 1. Tipamos los elementos y usamos "as" para asegurar que no son null
+    const slider = document.getElementById('slider') as HTMLElement;
+    const progressBar = document.getElementById('progress-bar') as HTMLElement;
+    const prevBtn = document.getElementById('prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next') as HTMLButtonElement;
+
+    let currentSlide = 0;
+    const totalSlides = 2;
+    const autoTime = 5000;
+
+    // 2. Definimos el tipo de timerId (ReturnType de setInterval)
+    let timerId: ReturnType<typeof setInterval>;
+
+    function updateSlider() {
+        if (slider) {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            resetProgressBar();
+        }
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    }
+
+    function resetProgressBar() {
+        if (progressBar) {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            // Forzar un reflujo (reflow) para que el navegador note el cambio a 0%
+            void progressBar.offsetWidth;
+
+            setTimeout(() => {
+                progressBar.style.transition = `width ${autoTime}ms linear`;
+                progressBar.style.width = '100%';
+            }, 50);
+        }
+    }
+
+    function startAutoSlide() {
+        resetProgressBar();
+        timerId = setInterval(nextSlide, autoTime);
+    }
+
+    // 3. Agregamos comprobaciones de existencia antes de los listeners
+    nextBtn?.addEventListener('click', () => {
+        clearInterval(timerId);
+        nextSlide();
+        startAutoSlide();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        clearInterval(timerId);
+        prevSlide();
+        startAutoSlide();
+    });
+
+    // Iniciar
+    startAutoSlide();
+</script>

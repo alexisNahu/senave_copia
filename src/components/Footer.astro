@@ -1,0 +1,82 @@
+---
+// FooterFinal.astro
+const redes = [
+    { icon: "fa-facebook-f", href: "#" },
+    { icon: "fa-x-twitter", href: "#" },
+    { icon: "fa-instagram", href: "#" },
+    { icon: "fa-youtube", href: "#" },
+    { icon: "fa-linkedin-in", href: "#" },
+    { icon: "fa-tiktok", href: "#" },
+];
+
+const videoEmbedUrl = "https://www.youtube.com/embed/e6sZPNzdECs";
+---
+
+<footer class="bg-white pt-16">
+    <div class="max-w-[1400px] mx-auto px-6 pb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.5fr] gap-12 items-start">
+
+            <div class="flex justify-center md:justify-start">
+                <img
+                        src="https://precdn.mitic.gov.py/cms/logo_footer600x93.png"
+                        alt="Gobierno del Paraguay"
+                        class="h-24 w-auto object-contain"
+                />
+            </div>
+
+            <div class="text-[#374151]">
+                <h2 class="text-3xl font-bold mb-6 text-gray-800 tracking-tight uppercase">Contacto</h2>
+                <div class="space-y-4 text-lg">
+                    <p><span class="font-bold text-gray-900">Dirección:</span> Humaitá e/ Alberdi, Asunción</p>
+                    <p><span class="font-bold text-gray-900">Teléfono:</span> +595 21 444 444</p>
+                    <p><span class="font-bold text-gray-900">Correo Electrónico:</span> comunicacion@senave.gov.py</p>
+                </div>
+
+                <div class="flex space-x-5 mt-8">
+                    {redes.map((red) => (
+                            <a href={red.href} target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-gray-600 transition-colors text-2xl">
+                                <i class={`fa-brands ${red.icon}`}></i>
+                            </a>
+                    ))}
+                </div>
+            </div>
+
+            <div class="flex flex-col space-y-4 w-full">
+                <div class="relative aspect-video overflow-hidden shadow-2xl bg-black border border-gray-100">
+                    <iframe
+                            class="absolute inset-0 w-full h-full"
+                            src={videoEmbedUrl}
+                            title="Poder Digital - Episodio 1"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="text-sm text-center text-gray-500 font-medium italic">
+                    Poder Digital - Ciudadanía Electrónica
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="bg-[#004a87] py-8 px-6 text-center text-white relative">
+        <div class="max-w-7xl mx-auto flex flex-col items-center space-y-4">
+            <p class="text-sm font-bold opacity-90 tracking-wide">Basado en la Guía estándar para sitios web del Gobierno</p>
+            <div class="bg-white rounded-md px-4 py-2 inline-block shadow-sm">
+                <img
+                        src="https://templatev2.mitic.gov.py/wp-content/themes/mitic/assets/img/marca-senatics-desarrollado-por.png"
+                        alt="Desarrollado por MITIC"
+                        class="h-8 w-auto"
+                />
+            </div>
+        </div>
+
+        <a href="#" class="absolute right-8 bottom-8 bg-[#002d52] p-3 rounded-md hover:bg-[#001d36] transition-colors shadow-lg group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7" />
+            </svg>
+        </a>
+    </div>
+</footer>

@@ -1,0 +1,95 @@
+---
+// EnlacesTransparencia.astro
+const enlaces = [
+    { nombre: "Sistema de control interno", href: "#" },
+    { nombre: "Rendición de cuentas al ciudadano", href: "#" },
+    { nombre: "Consejo Nacional de Donación de Alimentos", href: "#" },
+    { nombre: "Datos Abiertos Gubernamentales", href: "#" },
+    { nombre: "Información Pública Ley 5.282", href: "#" },
+    { nombre: "Solicita Información pública aquí. Ley 5.282", href: "#" },
+    { nombre: "Requisitos Fitosanitarios IMPORTACIÓN", href: "#" },
+    { nombre: "Requisitos Fitosanitarios EXPORTACIÓN", href: "#" },
+    { nombre: "AFIDIS Emitidos", href: "#" },
+];
+
+// TransparenciaLey.astro
+const documentos = [
+    { nombre: "Informe de Gestión SENAVE 2025", href: "#" },
+    { nombre: "Inventario de Bienes", href: "#" },
+    { nombre: "Comisionamientos", href: "#" },
+    { nombre: "Anexo de Personal del Ejercicio Fiscal", href: "#" },
+    { nombre: "Presupuestos de Ingresos y Gastos", href: "#" },
+    { nombre: "Manual de Funciones", href: "#" },
+    { nombre: "Nómina", href: "#" },
+    { nombre: "Resumen Total de Ingresos Anuales", href: "#" },
+    { nombre: "Informe de Viáticos", href: "#" },
+    { nombre: "Histórico", href: "#" },
+];
+---
+
+<section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {
+                enlaces.map((enlace) => (
+                        <a
+                                href={enlace.href}
+                                class="flex items-center p-4 bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-md hover:border-[#22c55e] transition-all group"
+                        >
+                            <div class="flex-shrink-0 w-10 h-10 bg-[#22c55e] rounded-full flex items-center justify-center mr-4 transition-transform group-hover:scale-110">
+                                <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                        class="w-5 h-5 text-white ml-0.5"
+                                >
+                                    <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+
+                            <span class="text-[#374151] font-bold text-[18px] md:text-base group-hover:text-[#22c55e] transition-colors">
+              {enlace.nombre}
+            </span>
+                        </a>
+                ))
+            }
+        </div>
+    </div>
+
+        <div class="max-w-7xl mx-auto px-4 mt-28">
+
+            <div class="mb-10">
+                <div class="flex items-center space-x-2 text-[#22c55e] font-bold text-sm mb-1">
+                    <span class="h-[1px] w-8 bg-[#22c55e]"></span>
+                    <span>Ley 5.189</span>
+                </div>
+                <h2 class="text-4xl font-extrabold text-[#1f2937]">Transparencia</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                {
+                    documentos.map((doc) => (
+                            <a
+                                    href={doc.href}
+                                    class="flex items-center group py-1"
+                            >
+                                <div class="flex-shrink-0 w-5 h-5 border-2 border-[#22c55e] rounded flex items-center justify-center mr-3 group-hover:bg-[#22c55e] transition-colors">
+                                    <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            class="w-3 h-3 text-[#22c55e] group-hover:text-white ml-0.5"
+                                    >
+                                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+
+                                <span class="text-[#4b5563] font-medium text-base group-hover:text-[#22c55e] text-[16px] transition-colors">
+              {doc.nombre}
+            </span>
+                            </a>
+                    ))
+                }
+            </div>
+        </div>
+</section>
