@@ -1,19 +1,10 @@
 ---
 // Servicios.astro
-const servicios = [
-    { id: "01", nombre: "Semillas", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/semillas.png" },
-    { id: "02", nombre: "Calidad, Inocuidad y Agricultura Orgánica", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/calidadeino.png" },
-    { id: "03", nombre: "Sistema de Trazabilidad Vegetal (DTVe)", img: "https://www.senave.gov.py/wp-content/uploads/2025/02/trazabillidad.png" },
-    { id: "04", nombre: "Agroquímicos", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/agroquimicos.png" },
-    { id: "05", nombre: "Laboratorios", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/labora.png" },
-    { id: "06", nombre: "Bioseguridad Agrícola", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/10/iconos-senave-biose.png" },
-    { id: "07", nombre: "Protección Vegetal", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/iconos-senave-protecvege.png" },
-    { id: "08", nombre: "Operaciones", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/iconos-senave-operaciones.png" },
-    { id: "09", nombre: "Geo-Estadísticas", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/iconos-senave-geo.png" },
-    { id: "10", nombre: "Capacitaciones", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/capacitaciones.png" },
-    { id: "11", nombre: "Normativas", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/normativas.png" },
-    { id: "12", nombre: "Unidad de Registros", img: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/registro.png" },
-];
+
+// Estiramos todos los servicios de manera asíncrona desde el Service
+
+import {ServiciosService} from "../servicios/service";
+const servicios = await ServiciosService.getAll();
 ---
 
 <section class="bg-[#f8f9fa] py-16 px-4">
@@ -26,8 +17,8 @@ const servicios = [
                             <div class="flex justify-between items-start">
                                 <div class="w-20 h-20 transition-transform duration-500 group-hover:scale-110">
                                     <img
-                                            src={item.img}
-                                            alt={item.nombre}
+                                            src={item.icono_url}
+                                            alt={item.title}
                                             class="w-full h-full object-contain object-left-top"
                                     />
                                 </div>
@@ -39,13 +30,13 @@ const servicios = [
 
                             <div class="z-10">
                                 <h3 class="text-[#2c3e50] font-bold text-[20px] leading-tight max-w-[90%] transition-colors group-hover:text-[#22c55e]">
-                                    {item.nombre}
+                                    {item.title}
                                 </h3>
                             </div>
 
                             <div class="absolute inset-0 bg-[#22c55e]/90 flex flex-col items-center justify-center transition-all duration-500 opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 z-20">
                                 <a
-                                        href="#"
+                                        href={`/${item.slug}`}
                                         class="flex items-center text-white font-bold text-xl"
                                 >
                                     Ingresar

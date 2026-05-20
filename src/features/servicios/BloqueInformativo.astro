@@ -1,0 +1,37 @@
+---
+import {type BloqueInformativo} from "../models";
+
+interface Props {
+    informacion_general: BloqueInformativo[] | undefined;
+}
+
+const { informacion_general } = Astro.props;
+---
+
+<div class="space-y-10 max-w-7xl ">
+    {informacion_general?.map((bloque) => (
+            <div class="space-y-6"> {bloque.titulo_bloque && (
+                    <h2 class="text-2xl font-bold text-gray-800 border-b border-gray-200 pb-4">
+                        {bloque.titulo_bloque}
+                    </h2>
+            )}
+
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+                    {bloque.parrafos.map((parrafo) => (
+                            <p>{parrafo}</p>
+                    ))}
+                </div>
+
+                {bloque.enlaces_utiles && (
+                        <div class="space-y-3 pt-2">
+                            {bloque.enlaces_utiles.map((link) => (
+                                    <a href={link.url} class="flex items-center space-x-3 text-[#22c55e] font-bold hover:underline">
+                                        <span>🔗</span>
+                                        <span>{link.texto}</span>
+                                    </a>
+                            ))}
+                        </div>
+                )}
+            </div>
+    ))}
+</div>

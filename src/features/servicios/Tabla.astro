@@ -1,0 +1,61 @@
+---
+import {type TablaInformativa} from "../models";
+
+interface Props {
+    tabla: TablaInformativa[] | undefined;
+}
+
+const { tabla } = Astro.props;
+---
+
+{tabla && tabla.length > 0 && (
+<div class="max-w-7xl mx-auto px-4 md:px-6 mt-12 animate-slide-up">
+    {tabla.map((t) => (
+            <div class="bg-white border border-gray-100 rounded-2xl shadow-sm mb-8 overflow-hidden">
+                <h3 class="text-lg md:text-xl font-bold text-gray-800 border-b border-gray-100 p-6 md:p-8 pb-4 tracking-wide">
+                    {t.titulo}
+                </h3>
+
+                <div class="w-full overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-[14px]">
+                        <thead>
+                        <tr class="border-b-2 border-gray-200 text-gray-500 font-bold bg-slate-50/70">
+                            {t.headers.map((header) => (
+                                    <th class="py-4 px-6 uppercase tracking-wider text-xs whitespace-nowrap">
+                                        {header}
+                                    </th>
+                            ))}
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                        {t.rows.map((fila) => (
+                                <tr class="hover:bg-slate-50/60 transition-colors">
+                                    {t.headers.map((header) => {
+                                        const esColumnaLink = ["Descripción", "Nombre", "Documento"].includes(header);
+
+                                        return (
+                                                <td class="py-4 px-6 text-gray-600 font-medium leading-relaxed">
+                                                    {esColumnaLink && fila.url ? (
+                                                            <a
+                                                                    href={fila.url}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                    class="text-[#22c55e] hover:underline font-semibold block"
+                                                            >
+                                                                {fila[header]}
+                                                            </a>
+                                                    ) : (
+                                                            <span class="text-gray-700 block">{fila[header]}</span>
+                                                    )}
+                                                </td>
+                                        );
+                                    })}
+                                </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    ))}
+</div>
+        )}
