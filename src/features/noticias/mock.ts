@@ -17,7 +17,7 @@ export const noticias: Noticias[] = [
         categoria: "Noticias y Blog",
         fecha: "Mayo 7, 2026",
         slug: "alerta-ante-presion-de-ingreso-de-plagas-que-afectan-a-la-soja",
-        imagen: "https://www.senave.gov.py/wp-content/uploads/2026/05/soja.jpg", // Nombre corregido para asociarlo al campo de soja de la imagen
+        imagen: "https://www.senave.gov.py/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-08.00.45.jpeg", // Nombre corregido para asociarlo al campo de soja de la imagen
         excerpt: "El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), recuerda a productores...",
         content: "El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), recuerda a productores y técnicos la importancia de extremar los monitoreos ante la presión de ingreso de plagas perjudiciales para el cultivo de la soja.\nSe insta a la comunicación inmediata ante cualquier detección sospechosa en los cultivos a fin de activar los protocolos de contingencia correspondientes de manera oportuna."
     },
@@ -37,7 +37,7 @@ export const noticias: Noticias[] = [
         categoria: "Noticias y Blog",
         fecha: "Mayo 6, 2026",
         slug: "se-reune-en-asuncion-la-comision-de-semillas-del-mercosur",
-        imagen: "https://www.senave.gov.py/wp-content/uploads/2026/05/reunion.jpeg",
+        imagen: "https://www.senave.gov.py/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-08.00.45.jpeg",
         excerpt: "Con presencia de delegaciones de los países miembros se dio inicio a la reunión técnica...",
         content: "Con presencia de delegaciones de los países miembros se dio inicio a la reunión técnica ordinaria de la Comisión de Semillas del MERCOSUR en la ciudad de Asunción.\nEl encuentro apunta a armonizar los estándares de certificación y los mecanismos de libre tránsito de materiales de propagación vegetal en la región."
     }

@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Datos oficiales extraídos del HTML provisto de Resoluciones MAG
+const resolucionesMag = [
+    {
+        nro: "465",
+        año: "2025",
+        url: "https://www.senave.gov.py/documentos/resoluciones/98f851eeb007c0f7ec6a24c24101e760.pdf",
+        nombre: "“POR LA CUAL SE AUTORIZA LA CONVOCATORIA DEL LLAMADO Y SE APRUEBA EL PLIEGO DE BASES Y CONDICIONES, MODIFICACIONES Y ADENDAS PARA LA LICITACIÓN MENOR CUANTÍA NACIONAL (LMCN) N° 16/25 “ADQUISICIÓN DE CALADOR”, ID N° 464.518, CONVOCADO POR EL SERVICIO NACIONAL DE CALIDAD Y SANIDAD VEGETAL Y DE SEMILLAS (SENAVE)”."
+    },
+    {
+        nro: "100",
+        año: "2011",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res100-11.pdf",
+        nombre: "POR LA CUAL SE CONFORMA EL COMITÉ TÉCNICO DE PROMOCIÓN DE LA PRODUCCIÓN ORGÁNICA"
+    },
+    {
+        nro: "200",
+        año: "2008",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res200-08-Amplia.pdf",
+        nombre: "Por la cual amplía el Articulo Nº2 de la Resolución Nº 139/07 en lo referente a pasos de frontera unicos para el ingreso terrestre de plaguicidas de uso agricola"
+    },
+    {
+        nro: "789",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res789.pdf",
+        nombre: "POR LA CUAL SE ACTUALIZA LA NORMATIVA PARA EL CONTROL DE LOS FERTILIZANTES, BIOFERTILIZANTES, INOCULANTES ENMIENDAS DE USO AGRÍCOLA."
+    },
+    {
+        nro: "1471",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res1471-04.pdf",
+        nombre: "POR LA CUAL SE REGLAMENTA EL USO DE SEMILLA PROPIA DE ESPECIES DE REPRODUCCIÓN SEXUAL, A FIN DE SALVAGUARDAR EL DERECHO DE OBTENTOR."
+    },
+    {
+        nro: "318",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res318-04.pdf",
+        nombre: "POR LA CUAL SE DISPONE LA VIGENCIA EN LA REPUBLICA DEL PARAGUAY DE LAS RESOLUCIONES APROBADAS POR EL GRUPO MERCADO COMÚN (GMC) DEL MERCOSUR, REFERENTES A SEMILLAS"
+    },
+    {
+        nro: "468",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res468-04.pdf",
+        nombre: "POR LA CUAL SE ESTABLECE LA OBLIGATORIEDAD PARA EL COMERCIANTE DE SEMILLAS DE CONTAR CON UN BOLETÍN DE ANÁLISIS DE SEMILLAS DE CADA LOTE COMERCIALIZADO"
+    },
+    {
+        nro: "1691",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res1691-04.pdf",
+        nombre: "POR LA CUAL SE ESTABLECE UN RÉGIMEN ESPECIAL DE MULTIPLICACIÓN DE SEMILLAS DE SOJA TRANSGÉNICA RR, AJUSTADA A LAS NORMAS DE PRODUCCIÓN DE SEMILLA COMÚN, PREVISTA EN EL ART. 6° DEL DECRETO N° 7797/00, A SER APLICADO EXCLUSIVAMENTE EN LA CAMPAÑA AGRÍCOLA 2004/2005"
+    },
+    {
+        nro: "1630",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res1630-04.pdf",
+        nombre: "POR LA CUAL SE RECTIFICA PARCIALMENTE EL ARTICULO 1°, INC “E”, DE LA RESOLUCIÓN N° 1471/04"
+    },
+    {
+        nro: "1105",
+        año: "2004",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res_ARP_1105.pdf",
+        nombre: "POR LA CUAL SE ESTABLECEN LOS NUEVOS LINEAMIENTOS TÉCNICOS Y PRINCIPIOS PARA ELABORAR LOS ANÁLISIS DE RIESGO DE PLAGAS PARA LA IMPORTACIÓN DE PRODUCTOS Y SUB PRODUCTOS DE ORIGEN VEGETAL DE PAISES O REGIONES DONDE EXISTEN PLAGAS DE IMPORTANCIA CUARENTENARIA"
+    },
+    {
+        nro: "485",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res485-03.pdf",
+        nombre: "POR LA CUAL SE ESTABLECEN MEDIDAS PARA EL USO CORRECTO DE PLAGUICIDAS EN LA PRODUCCIÓN AGROPECUARIA"
+    },
+    {
+        nro: "293",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res293-03.pdf",
+        nombre: "POR LA CUAL SE ESTABLECE EL PROCEDIMIENTO DE VINCULACION CON ESTE MINISTERIO DE LAS PERSONAS FISICAS O JURIDICAS, DE DERECHO PUBLICO O PRIVADO QUE REALICEN ENSAYOS DE EVALUACION AGRONOMICA Y DE CALIDAD CON FINES DE INSCRIPCIÓN EN EL REGISTRO NACIONAL DE CULTIVARES COMERCIALES (RNCC) HABILITADO EN LA DIRECCIÓN DE SEMILLAS (DISE)"
+    },
+    {
+        nro: "290",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res290-03.pdf",
+        nombre: "POR LA CUAL ESTABLECEN NORMAS MINIMAS PARA LOS ENSAYOS DE EVALUACIÓN AGRONOMICA Y DE CALIDAD DE VARIEDADES CON FINES DE INSCRIPCIÓN EN EL REGISTRO NACIONAL DE CULTIVARES COMERCIALES (RNCC), LOS RESPECTIVOS FORMULARIOS DE DESCRIPCION VARIETAL Y DE EVALUACION AGRONOMICA Y DE CALIDAD, Y LA SOLICITUD DE INSCRIPCION DE VARIEDADES EN EL REGISTRO NACIONAL DE CULTIVARES COMERCIALES (RNCC)"
+    },
+    {
+        nro: "488",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res488-03.pdf",
+        nombre: "POR LA CUAL SE PROHÍBE EL REGISTRO, LA IMPORTACIÓN, SÍNTESIS, FORMULACIÓN Y COMERCIALIZACIÓN DE LOS PRODUCTOS A BASE DE METIL Y ETIL PARATIÓN"
+    },
+    {
+        nro: "295",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res295.pdf",
+        nombre: "POR LA CUAL SE ESTABLECEN NUEVAS NORMAS PARA EL ETIQUETADO DE PLAGUICIDAS DE USO AGRICOLA"
+    },
+    {
+        nro: "689",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res689-03.pdf",
+        nombre: "POR LA CUAL SE IMPLEMENTA LOS LINEAMIENTOS PARA HABILITACION DE DEPOSITOS DE ALMACENAMIENTO Y CONTROL DE EXISTENCIAS DE PRODUCTOS FITOSANITARIOS"
+    },
+    {
+        nro: "493",
+        año: "2003",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res493.pdf",
+        nombre: "POR LA CUAL SE PROHIBE EL REGISTRO, LA IMPORTACIÓN, SINTESIS, FORMULACION Y COMERCIALIZACION DE LOS PRODUCTOS A BASE DE MONOCROTOFOS EN CONCENTRACIONES SUPERIORES AL 40% Y METAMIDOFOS SUPERIORES AL 60%, RESTRINGIÉNDOSE SU USO Y COMERCIALIZACIÓN."
+    },
+    {
+        nro: "440",
+        año: "2001",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res440-01.pdf",
+        nombre: "POR LA CUAL SE AMPLIAN LOS REGISTROS NACIONALES DE CULTIVARES PROTEGIDOS Y COMERCIALES A TODAS LAS ESPECIES Y GENEROS BOTÁNICOS"
+    },
+    {
+        nro: "511",
+        año: "2001",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res511-01.pdf",
+        nombre: "Por la cual se establecen normas para envases y condiciones de transporte de frutas y hortalizas que se comercialicen para consumption In Natura"
+    },
+    {
+        nro: "485",
+        año: "2000",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res485-00.pdf",
+        nombre: "POR LA CUAL SE APRUEBAN LAS NORMAS PARA LA PROVISION DE ETIQUETAS DE HOMOLOGACION DE SEMILLAS NACIONALES E IMPORTADAS, PARA SU COMERCIALIZACIÓN DENTRO DEL TERRITORIO NACIONAL."
+    },
+    {
+        nro: "290",
+        año: "2000",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res290-00.pdf",
+        nombre: "POR LA CUAL SE APRUEBAN LAS NORMAS PARA LA PRODUCCIÓN Y COMERCIALIZACION DE SEMILLAS CERTIFICADAS Y/O FISCALIZADAS"
+    },
+    {
+        nro: "470",
+        año: "1999",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res470-99.pdf",
+        nombre: "POR LA CUAL SE DISPONE LA INCLUSION EN EL REGISTRO NACIONAL DE CULTIVARES PROTEGIDOS (RNCP) LAS VARIEDADES DE LAS SIGUIENTES ESPECIES: CAÑA DE AZUCAR (SACCHARUM OFFICINARUM L.), HABILLA (PHASEOLUS VULGARIS L.), MELÓN (CUCUMIS MELO L.), TOMATE (LYCOPERSICOM LYCOPERSIUM L.) Y LAS FORRAJERAS (DIGITARIA MILANJIANA),(DIGITARIA NATALENSIS), (DESMANTHUS VIRGATUS), (ALYSICARPUS VAGINALIS)”."
+    },
+    {
+        nro: "443",
+        año: "1994",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res443-94.pdf",
+        nombre: "Por la cual se aprueban las normas para la inscripción de las etiquetas de los plaguicidas de uso agrícola."
+    },
+    {
+        nro: "241",
+        año: "1999",
+        url: "http://web.senave.gov.py:8081/docs/web/resoluciones/mag/Res241-99.pdf",
+        nombre: "POR LA CUAL SE APRUEBAN LAS NORMAS GENERALES PARA LA PRODUCCIÓN DE PLANTAS DE VIVERO (MUDAS) FISCALIZADAS Y LAS NORMAS ESPECIFICAS PARA LA PRODUCCIÓN Y COMERCIALIZACION DE MUDAS DE CITRICOS Y CAÑA DE AZUCAR"
+    }
+];
+---
+
+<Layout>
+    <Header title="Resoluciones MAG" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 pb-24">
+
+            <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                    <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
+                        <th class="py-4 px-5 text-center w-24">N°</th>
+                        <th class="py-4 px-5 text-center w-28">Año</th>
+                        <th class="py-4 px-5">Nombre / Descripción de la Resolución MAG</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                    {resolucionesMag.map((res) => (
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="py-4 px-5 text-center font-medium text-gray-600 whitespace-nowrap">
+                                    {res.nro}
+                                </td>
+                                <td class="py-4 px-5 text-center text-gray-600">
+                                    {res.año}
+                                </td>
+                                <td class="py-4 px-5 font-medium leading-relaxed">
+                                    <a
+                                            href={res.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-[#00A240] hover:text-green-700 hover:underline block"
+                                    >
+                                        {res.nombre}
+                                    </a>
+                                </td>
+                            </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Suavizado tipográfico institucional */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

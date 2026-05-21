@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+const title = "Consulta de requisitos fitosanitarios exportación";
+---
+<Layout title={title}>
+    <Header title={'Consulta de requisitos fitosanitarios importación'} />
+
+    <main class="w-full">
+
+        <!-- Intro + Form -->
+        <section class="bg-white">
+            <div class="max-w-6xl mx-auto px-6 py-10">
+                <p class="text-sm text-gray-600 mb-8">
+                    Estimado importador, esta aplicación en línea le permitirá consultar los requisitos fitosanitarios de importación establecidos por el SENAVE, para los diferentes productos de origen vegetal, en base a antecedentes.
+                    Los requisitos fitosanitarios puestos a su disposición podrán ser modificados en cualquier momento, sin previo aviso; por lo tanto, se recomienda que sean previamente verificados por el importador conforme a lo establecido en la Autorización Fitosanitaria de Importación (AFIDI). Para consultas, comunicarse con el Departamento de Cuarentena Vegetal al correo electrónico: cuarentena.vegetal@senave.gov.py
+                </p>
+
+                <form class="bg-white">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-xs font-medium text-gray-700">Buscar por nombre</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                                <option>Común</option>
+                                <option>Nombre científico</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-medium text-gray-700">Producto</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                                <option>Todos</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="text-xs font-medium text-gray-700">País destino</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                                <option>Todos</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2 md:col-span-1">
+                            <label class="text-xs font-medium text-gray-700">Uso propuesto</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                                <option>Todos</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-2 md:col-span-1">
+                            <label class="text-xs font-medium text-gray-700">Parte producto</label>
+                            <select class="w-full border border-gray-300 rounded px-3 py-2 text-sm">
+                                <option>Todos</option>
+                            </select>
+                        </div>
+
+                        <div class="flex items-end md:justify-end md:col-span-1">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded text-sm font-medium">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Results table -->
+                <div class="mt-8 overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 border">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nombre Común</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Nombre Científico</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">País</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Uso</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Parte</th>
+                            <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Detalles</th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-4 py-3 text-sm text-gray-700">Ejemplo</td>
+                            <td class="px-4 py-3 text-sm text-gray-700">Ejemplo scientificus</td>
+                            <td class="px-4 py-3 text-sm text-gray-700">País X</td>
+                            <td class="px-4 py-3 text-sm text-gray-700">Consumo</td>
+                            <td class="px-4 py-3 text-sm text-gray-700">Fruto</td>
+                            <td class="px-4 py-3 text-sm">
+                                <a class="text-green-600 hover:underline text-sm font-medium" href="#">Ver</a>
+                            </td>
+                        </tr>
+                        <!-- filas dinámicas -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>

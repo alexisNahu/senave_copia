@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+---
+
+<Layout>
+    <Header title="Organigrama" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-5xl mx-auto px-6 py-12 md:py-16 pb-24 space-y-10">
+
+            <div class="space-y-4 text-sm md:text-base text-gray-600 leading-relaxed max-w-4xl">
+                <p>
+                    El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), fue creado por Ley Nº 2459/04, del 11 de setiembre de 2004, mediante la fusión de cuatro instituciones del sector público agrícola, vinculadas a las áreas de sanidad vegetal y de semillas.
+                </p>
+                <p>
+                    Como ente descentralizado y autónomo, cuenta con personería jurídica, patrimonio propio y autonomía de gestión, relacionándose con el Poder Ejecutivo a través del Ministerio de Agricultura y Ganadería (MAG).
+                </p>
+                <p>
+                    La estructura orgánica básica (organigrama) y el manual de funciones del SENAVE fueron modificados mediante el <strong class="text-gray-900">Decreto Nº 6.070/2005</strong>.
+                </p>
+            </div>
+
+            <div class="pt-2">
+                <a
+                        href="https://www.senave.gov.py/docs/servidor/docs/institucion/organigrama-senave.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-[#00A240] hover:text-green-700 font-semibold text-sm md:text-base hover:underline group"
+                >
+                    <svg
+                            class="w-5 h-5 transition-transform group-hover:translate-y-0.5"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Descargar Organigrama Institucional (Formato PDF)
+                </a>
+            </div>
+
+            <div class="w-full border border-gray-100 rounded-xl overflow-hidden shadow-md bg-gray-50 p-4 md:p-8 flex justify-center">
+                <img
+                        src="https://www.senave.gov.py/images/institucion/organigrama.png"
+                        alt="Organigrama Oficial del SENAVE"
+                        class="max-w-full h-auto object-contain rounded"
+                        loading="lazy"
+                />
+            </div>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Suavizado tipográfico institucional */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

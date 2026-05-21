@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+const oficinas = [
+    { nombre: 'Presidencia', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 5' },
+    { nombre: 'Secretaría de Gabinete', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 5' },
+    { nombre: 'Secretaría General', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 2' },
+    { nombre: 'Secretaría de Planificación', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 19' },
+    { nombre: 'Dirección de Tecnología de la Información y Comunicación', direccion: 'Edificio Planeta I – Humaitá 145 c/ Nuestra Señora – Piso 2' },
+    { nombre: 'Auditoría Interna Institucional', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 3' },
+    { nombre: 'Dirección General Técnica', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Planta Baja' },
+    { nombre: 'Dirección de Calidad, Inocuidad y Agricultura Orgánica', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 17' },
+    { nombre: 'Dirección de Protección Vegetal', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Planta Baja' },
+    { nombre: 'Dirección de Operaciones', direccion: 'Av. Rodríguez de Francia c/ Mcal. López – San Lorenzo' },
+    { nombre: 'Dirección de Agroquímicos e Insumos Agrícolas', direccion: 'Luís A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 16' },
+    { nombre: 'Dirección de Semillas', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 13' },
+    { nombre: 'Dirección de Laboratorios', direccion: 'Arsenales casi Angola – San Lorenzo' },
+    { nombre: 'Dirección Oficinas Regionales', direccion: 'Av. Rodríguez de Francia c/ Mcal. López – San Lorenzo' },
+    { nombre: 'Dirección de Bioseguridad Agrícola', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 18' },
+    { nombre: 'Dirección General de Administración y Finanzas', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 6' },
+    { nombre: 'Dirección de Finanzas', direccion: 'Edificio Planeta I Humaitá 145 c/ Nuestra Señora – Piso 13' },
+    { nombre: 'Dirección Administrativa', direccion: 'Edificio Planeta I – Humaitá 145 c/ Nuestra Señora – Piso 3' },
+    { nombre: 'Dirección de Contrataciones', direccion: 'Edificio Planeta I – Humaitá 145 c/ Nuestra Señora – Piso 14' },
+    { nombre: 'Dirección de Gestión de Personas', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 18' },
+    { nombre: 'Dirección General de Asuntos Jurídicos', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 7' },
+    { nombre: 'Dirección de Asesoría Jurídica', direccion: 'Luis A. de Herrera 195 esq. Yegros, Edif. Inter Express – Piso 7' },
+];
+---
+
+<Layout>
+    <Header title="Contacto" />
+
+    <section class="py-14 md:py-16">
+        <div class="max-w-6xl mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            <!-- Columna izquierda: info de contacto -->
+            <div>
+                <div class="mb-6">
+          <span class="block text-xs font-bold uppercase tracking-widest text-[#00A240] mb-1">
+            Contactenos
+          </span>
+                    <p class="text-sm font-semibold text-gray-700">
+                        CENTRAL TELEFÓNICA: 021 490 153
+                    </p>
+                </div>
+
+                <ul class="divide-y divide-gray-200">
+                    {oficinas.map((oficina) => (
+                            <li class="py-3">
+                                <p class="flex items-start gap-2 font-bold text-sm text-gray-800 mb-1">
+                                    <i class="far fa-address-card text-[#00A240] mt-0.5 shrink-0"></i>
+                                    {oficina.nombre}
+                                </p>
+                                <p class="text-xs text-gray-500 pl-[22px]">{oficina.direccion}</p>
+                            </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Columna derecha: formulario -->
+            <div class="bg-white rounded-lg shadow-md p-8 lg:sticky lg:top-24">
+                <form method="post" action="/contactenos/" novalidate class="flex flex-col gap-5">
+
+                    <!-- Nombre -->
+                    <div class="flex flex-col gap-1.5">
+                        <label for="nombre" class="text-xs font-semibold uppercase tracking-wide text-gray-600">
+                            Nombre
+                        </label>
+                        <div class="relative">
+                            <input
+                                    type="text"
+                                    id="nombre"
+                                    name="your-name"
+                                    placeholder="Ingresa tu nombre"
+                                    required
+                                    maxlength="400"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded bg-gray-50 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#00A240] focus:ring-2 focus:ring-[#00A240]/10 focus:bg-white transition"
+                            />
+                            <i class="fa fa-user absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-300 text-sm pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex flex-col gap-1.5">
+                        <label for="email" class="text-xs font-semibold uppercase tracking-wide text-gray-600">
+                            Email
+                        </label>
+                        <div class="relative">
+                            <input
+                                    type="email"
+                                    id="email"
+                                    name="your-email"
+                                    placeholder="Ingresa tu Email"
+                                    required
+                                    maxlength="400"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded bg-gray-50 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#00A240] focus:ring-2 focus:ring-[#00A240]/10 focus:bg-white transition"
+                            />
+                            <i class="fa fa-envelope absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-300 text-sm pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Asunto -->
+                    <div class="flex flex-col gap-1.5">
+                        <label for="asunto" class="text-xs font-semibold uppercase tracking-wide text-gray-600">
+                            Asunto o Departamento
+                        </label>
+                        <div class="relative">
+                            <input
+                                    type="text"
+                                    id="asunto"
+                                    name="your-subject"
+                                    placeholder="Escribe aquí"
+                                    required
+                                    maxlength="400"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded bg-gray-50 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#00A240] focus:ring-2 focus:ring-[#00A240]/10 focus:bg-white transition"
+                            />
+                            <i class="fa fa-folder absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-300 text-sm pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Mensaje -->
+                    <div class="flex flex-col gap-1.5">
+                        <label for="mensaje" class="text-xs font-semibold uppercase tracking-wide text-gray-600">
+                            Mensaje
+                        </label>
+                        <div class="relative">
+              <textarea
+                      id="mensaje"
+                      name="your-message"
+                      placeholder="Escribe el mensaje"
+                      rows="10"
+                      maxlength="2000"
+                      class="w-full px-4 py-3 border border-gray-300 rounded bg-gray-50 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#00A240] focus:ring-2 focus:ring-[#00A240]/10 focus:bg-white transition resize-y"
+              ></textarea>
+                            <i class="fa fa-comments absolute right-3.5 top-4 text-gray-300 text-sm pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Botón -->
+                    <div>
+                        <button
+                                type="submit"
+                                class="bg-[#00A240] hover:bg-[#00560E] active:scale-[0.98] text-white font-bold text-sm uppercase tracking-wide px-8 py-3.5 rounded cursor-pointer transition-all duration-200"
+                        >
+                            Enviar
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+</Layout>

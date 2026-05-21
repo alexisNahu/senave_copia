@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Datos extraídos directamente de tu HTML estructurados por año
+const rendicionData = [
+    {
+        year: 2026,
+        docs: [
+            { text: "Informe de Rendición de Cuentas Enero a Marzo 2026 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano Enero a Marzo 2026 (Excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano Enero a Marzo 2026.xlsx", type: "excel" },
+            { text: "Acta de RCC.pdf", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Acta de RCC.pdf", type: "pdf" },
+            { text: "Resolución Nº 156 Plan Rendición de Cuentas Ciudadano 2026 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Resolucion_156_Plan Rendicion de Cuentas Ciudadano 2026.pdf", type: "pdf" },
+            { text: "Plan anual de transparencia e integridad pública", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Resolucion_175_Aprobacion Plan Anual de Transparecencia_2026 (1).pdf", type: "pdf" }
+        ]
+    },
+    {
+        year: 2025,
+        docs: [
+            { text: "Informe de Rendición de Cuentas al Ciudadano Enero a Diciembre 2025 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano Enero a Diciembre 2025.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano Enero a Diciembre 2025 (Excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano Enero a Diciembre 2025.xlsx", type: "excel" },
+            { text: "Nota 06 a la CGR Informe PATIP 2025 SENAVE", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Nota 06 a la CGR Informe PATIP 2025 SENAVE.pdf", type: "pdf" },
+            { text: "Informe Patip 2025 SENAVE", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe Patip 2025 SENAVE.pdf", type: "pdf" },
+            { text: "Informe Matriz_PATIP_2025_ SENAVE", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe Matriz_PATIP_2025_ SENAVE.xlsx", type: "excel" },
+            { text: "Informe de rendición de cuentas al ciudadano Julio a Septiembre 2025", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de rendicion de cuentas al ciudadano jul-set Ejer. Fisc 2025.pdf", type: "pdf" },
+            { text: "Resolución Nº053 Plan Anual de Transparencia e Integridad 2025 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Resolucion_053_Plan Anual Transparencia e Integridad 2025.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Junio 2025 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/2do Informe de Rendicion de Cuentas al ciudadano Enero a junio 2025.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Junio 2025 (excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/2do Informe de Rendicion de Cuentas al ciudadano Enero a junio 2025.xlsx", type: "excel" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Marzo 2025 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al ciudadano Enero a Marzo 2025.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Marzo 2025 (excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al ciudadano Enero a Marzo 2025.xlsx", type: "excel" },
+            { text: "Resolución Nº 285-25 – Plan Anual de Rendicion de Cuentas al Ciudadano", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Resolucion 285-25 Plan Anual de Rendicion de Cuentas al Ciudadano.pdf", type: "pdf" }
+        ]
+    },
+    {
+        year: 2024,
+        docs: [
+            { text: "Informe de Rendición de Cuentas al ciudadano Octubre a Diciembre 2024 (pdf)", url: "https://www.senave.gov.py/wp-content/uploads/2025/01/4to-Informe-de-Rendicion-de-Cuentas-al-ciudadano-octubre-a-Diciembre-2024.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Octubre a Diciembre 2024 (excel)", url: "https://www.senave.gov.py/wp-content/uploads/2025/01/4to-Informe-de-Rendicion-de-Cuentas-al-ciudadano-Octubre-a-diciembre-2024.xlsx", type: "excel" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Setiembre 2024", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al ciudadano Enero a Setiembre 2024.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Junio 2024 (pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al ciudadano Enero a Junio 2024.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Junio 2024 (excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe-de-Rendicion-de-Cuentas-al-ciudadano-Enero-a-Junio-2024.xlsx", type: "excel" },
+            { text: "Resolución SENAVE Nº 155/24 – Plan Anual Rendición Cuentas Ciudadano 2024", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Res-SENAVE-155-24–Plan-anual-Rendicion-Cuentas-Ciudadano-2024.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al ciudadano Enero a Marzo 2024 (Pdf)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe-de-Rendicion-de-Cuentas-al-ciudadano-Enero-a-Marzo-2024.pdf", type: "pdf" },
+            { text: "Informe de Rendicion de Cuentas al ciudadano Enero a Marzo 2024 (Excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al ciudadano Enero a Marzo 2024 - copia.xlsx", type: "excel" }
+        ]
+    },
+    {
+        year: 2023,
+        docs: [
+            { text: "Informe Final de Rendicion de Cuentas Enero a Diciembre 2023", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe Final de Rendicion de Cuentas Enero a Diciembre 2023.xlsx", type: "excel" },
+            { text: "Informe de Rendicion de Cuentas al Ciudadano – Julio a Setiembre 2023", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano - Julio a Setiembre 2023.xlsx", type: "excel" },
+            { text: "Informe de Rendicion de Cuentas al Ciudadano – Abril a Junio 2023", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano - Abril a Junio 2023.xlsx", type: "excel" },
+            { text: "Informe de Rendicion de Cuentas al Ciudadano – Enero a Marzo 2023", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Informe de Rendicion de Cuentas al Ciudadano - Enero a Marzo 2023.xlsx", type: "excel" },
+            { text: "Resolución Nº 106/2023 Plan de Rendición de Cuentas al Ciudadano 2023", url: "http://web.senave.gov.py:8081/docs/resoluciones/senave/web/9a16a43bf44ce77032f9ccf0be7dc8b2.pdf", type: "pdf" }
+        ]
+    },
+    {
+        year: 2022,
+        docs: [
+            { text: "Matriz Rendición de Cuentas 2022 SENAVE (Anual - PDF)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Matriz Rendición de Cuentas 2022 SENAVE (Anual).pdf", type: "pdf" },
+            { text: "Matriz Rendición de Cuentas 2022 SENAVE (Anual - Excel)", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Matriz Rendición de Cuentas 2022 SENAVE (Anual).xlsx", type: "excel" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Julio a Setiembre 2022", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Matriz Rendición de Cuentas 2022 (Tercer Trimestre).xlsx", type: "excel" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Abril a Junio 2022", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Matriz Rendición de Cuentas 2022 (Segundo Trimestre).xlsx", type: "excel" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Enero a Marzo 2022", url: "https://www.senave.gov.py/docs/rendicion-de-cuentas-al-ciudadano/Matriz Rendición de Cuentas 2022 (Primer Trimestre).xlsx", type: "excel" },
+            { text: "Resolución Nº 114/22 Plan de Rendición de Cuentas al Ciudadano 2022", url: "http://web.senave.gov.py:8081/docs/resoluciones/senave/web/17c943c59f9ac0b4f395260c30f2a736.pdf", type: "pdf" }
+        ]
+    },
+    {
+        year: 2021,
+        docs: [
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Octubre a Diciembre 2021", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuentas al Ciudadano Oct.Dic 2021.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Julio a Setiembre 2021", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuentas al Ciudadano.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Abril a Junio 2021", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuenta al Ciudadano de Abril a Junio -2021.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Enero a Marzo 2021", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuenta al Ciudadano de Enero a Marzo-2021.pdf", type: "pdf" },
+            { text: "Resolución Nº 104 – Plan de Rendición de Cuenta al Ciudadano 2021", url: "http://web.senave.gov.py:8081/docs/web/Resolucion-N104-Por-la-cual-se-aprueba-el-Plan-de-Rendicion-de-Cuenta-al-Ciudadano.pdf", type: "word" }
+        ]
+    },
+    {
+        year: 2020,
+        docs: [
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Octubre a Diciembre 2020", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuenta al Ciudadano de Octubre a Diciembre - PDF.pdf", type: "pdf" },
+            { text: "Informe de Rendición de Cuentas al Ciudadano – Enero a Setiembre 2020", url: "http://web.senave.gov.py:8081/docs/web/Informe de Rendicion de Cuentas al Ciudadano_2020 PDF.pdf", type: "word" },
+            { text: "Resolución Nº 453", url: "http://web.senave.gov.py:8081/docs/web/Resolucion N 453.pdf", type: "word" },
+            { text: "Resolución 453 Aprobación Plan Rendición de Cuentas al Ciudadano 2020 Anexo I", url: "http://web.senave.gov.py:8081/docs/web/Resolucion 453 Aprobacion Plan Rendicion de Cuentas al Ciudadano 2020 Anexo I.pdf", type: "word" }
+        ]
+    }
+];
+---
+
+<Layout title="Rendición de cuentas al ciudadano">
+    <main class="bg-white min-h-screen">
+
+        <Header title="Rendición de cuentas al ciudadano" />
+
+        <section class="max-w-4xl mx-auto px-4 py-12">
+            <div class="border border-gray-200 rounded-sm overflow-hidden bg-white shadow-sm">
+
+                {rendicionData.map((item) => (
+                        <div class="border-b border-gray-200 last:border-b-0 accordion-item">
+                            {/* Botón del Año */}
+                            <button
+                                    class="w-full flex justify-between items-center px-5 py-4 text-[#2563eb] hover:bg-gray-50 font-medium text-sm transition-colors text-left accordion-trigger"
+                                    data-year={item.year}
+                            >
+                                <span>{item.year}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 transform transition-transform duration-200 icon-chevron">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </button>
+
+                            {/* Contenedor Oculto de Documentos */}
+                            <div class="accordion-content hidden bg-gray-50 border-t border-gray-100 p-5">
+                                <ul class="divide-y divide-gray-200 border border-gray-200 rounded-sm bg-white">
+                                    {item.docs.map((doc) => (
+                                            <li>
+                                                <a
+                                                        href={doc.url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        class="flex items-center gap-3 px-4 py-3 text-xs sm:text-sm text-[#10b981] hover:bg-gray-50 transition-colors font-medium group"
+                                                >
+                                                    {/* Icono condicional por tipo de archivo */}
+                                                    {doc.type === 'excel' && (
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-green-600 flex-shrink-0">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 0 1-1.125-1.125M3.375 19.5h1.5H3.375Zm17.25 0c.621 0 1.125-.504 1.125-1.125M20.625 19.5h-1.5h1.5Zm-1.5-12h-1.5M20.625 7.5c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125m-17.25 0a1.125 1.125 0 0 1-1.125-1.125V3.375c0-.621.504-1.125 1.125-1.125h9.75c.621 0 1.125.504 1.125 1.125v3.375m7.5 0h-1.5m1.5 0v1.5m0-1.5v-1.5m0 1.5h1.5m-10.5-3v1.5m0-1.5h-1.5m1.5 0h1.5m-3 3v1.5m0-1.5h-1.5m1.5 0h1.5m6 3v1.5m0-1.5h-1.5m1.5 0h1.5m-3 3v1.5m0-1.5h-1.5m1.5 0h1.5" />
+                                                            </svg>
+                                                    )}
+                                                    {doc.type === 'word' && (
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-blue-600 flex-shrink-0">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                                            </svg>
+                                                    )}
+                                                    {doc.type === 'pdf' && (
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-red-500 flex-shrink-0">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                                                            </svg>
+                                                    )}
+
+                                                    <span class="group-hover:underline text-gray-700">{doc.text}</span>
+                                                </a>
+                                            </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                ))}
+
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<script>
+    // Script del lado del cliente para manejar el colapso interactivo nativo
+    const triggers = document.querySelectorAll('.accordion-trigger');
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const content = trigger.nextElementSibling;
+            const chevron = trigger.querySelector('.icon-chevron');
+
+            // Toggle de visibilidad de la lista de documentos
+            content.classList.toggle('hidden');
+
+            // Rotar la flechita
+            chevron.classList.toggle('rotate-180');
+        });
+    });
+</script>
