@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Datos oficiales extraídos de la tabla de Leyes de la captura
+const leyes = [
+    {
+        nro: "4866",
+        año: "2013",
+        nombre: "QUE AMPLIA EL ARTICULO 6° Y MODIFICA EL ARTICULO 20 DE LA LEY N° 2459/04 \"QUE CREA EL SERVICIO NACIONAL DE CALIDAD Y SANIDAD VEGETAL Y DE SEMILLAS (SENAVE)\""
+    },
+    {
+        nro: "3742",
+        año: "2009",
+        nombre: "DE CONTROL DE PRODUCTOS FITOSANITARIOS DE USO AGRÍCOLA."
+    },
+    {
+        nro: "3481",
+        año: "2008",
+        nombre: "DE FOMENTO Y CONTROL DE PRODUCCIÓN ORGÁNICA"
+    },
+    {
+        nro: "2721",
+        año: "2005",
+        nombre: "QUE APRUEBA LA CONVENCIÓN INTERNACIONAL DE PROTECCIÓN FITOSANITARIA"
+    },
+    {
+        nro: "2459",
+        año: "2004",
+        nombre: "QUE CREA EL SERVICIO NACIONAL DE CALIDAD Y SANIDAD VEGETAL Y DE SEMILLAS (SENAVE)"
+    },
+    {
+        nro: "2135",
+        año: "2003",
+        nombre: "QUE APRUEBA EL CONVENIO DE RÓTTERDAM SOBRE EL PROCEDIMIENTO DE CONSENTIMIENTO FUNDAMENTADO PREVIO APLICABLE A CIERTOS PLAGUICIDAS Y PRODUCTOS QUÍMICOS PELIGROSOS OBJETO DE COMERCIO INTERNACIONAL."
+    },
+    {
+        nro: "988",
+        año: "1996",
+        nombre: "QUE APRUEBA EL CONVENIO INTERNACIONAL PARA LA PROTECCIÓN DE LAS OBTENCIONES DE VEGETALES"
+    },
+    {
+        nro: "385",
+        año: "1994",
+        nombre: "DE SEMILLAS Y PROTECCIÓN DE CULTIVARES EL CONGRESO DE LA NACIÓN PARAGUAYA SANCIONA CON FUERZA DE LEY"
+    },
+    {
+        nro: "48",
+        año: "1992",
+        nombre: "QUE APRUEBA LAS ENMIENDAS INTRODUCIDAS A LA CONVENCIÓN INTERNACIONAL DE PROTECCIÓN FITOSANITARIA"
+    },
+    {
+        nro: "123",
+        año: "1991",
+        nombre: "Que adoptan nuevas Normas de Protección Fitosanitaria"
+    },
+    {
+        nro: "21",
+        año: "1990",
+        nombre: "QUE APRUEBA Y RATIFICA EL CONVENIO SOBRE LA CONSTITUCION DEL COMITE REGIONAL DE SANIDAD VEGETAL (COSAVE)\"."
+    },
+    {
+        nro: "166",
+        año: "1969",
+        nombre: "QUE ESTABLECE EL REGIMEN FISCAL PARA LA IMPORTACIÓN DE INSECTICIDAS, FUNGICIDAS, HERBICIDAS, FERTILIZANTES, BULBOS Y SEMILLAS PARA SIEMBRA Y MATERIAS PRIMAS UTILIZABLES PARA LA INDUSTRIALIZACIÓN DE FERTILIZANTES DE TODO TIPO Y ABONO EN GENERAL"
+    },
+    {
+        nro: "672",
+        año: "1924",
+        nombre: "LEY ORGANICA DE LA DIRECCION DE DEFENSA AGRICOLA Y POLICIA SANITARIA VEGETAL"
+    },
+    {
+        nro: "581",
+        año: "1923",
+        nombre: "DEFENSA Y SELECCIÓN DEL CULTIVO DEL ALGODÓN"
+    }
+];
+---
+
+<Layout>
+    <Header title="Leyes" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 pb-24">
+
+            <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                    <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
+                        <th class="py-4 px-5 text-center w-20">N°</th>
+                        <th class="py-4 px-5 text-center w-24">Año</th>
+                        <th class="py-4 px-5">Nombre</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                    {leyes.map((ley) => (
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="py-4 px-5 text-center font-medium text-gray-600">
+                                    {ley.nro}
+                                </td>
+                                <td class="py-4 px-5 text-center text-gray-600">
+                                    {ley.año}
+                                </td>
+                                <td class="py-4 px-5 font-medium leading-relaxed">
+                                    <a
+                                            href={`https://www.senave.gov.py/docs/servidor/docs/leyes/Ley${ley.nro}-${ley.año}.pdf`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class="text-[#00A240] hover:text-green-700 hover:underline block"
+                                    >
+                                        {ley.nombre}
+                                    </a>
+                                </td>
+                            </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Optimizaciones tipográficas institucionales */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

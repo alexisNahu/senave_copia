@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+---
+
+<Layout>
+    <Header title="Movilidad Interinstitucional" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-5xl mx-auto px-6 py-12 md:py-16 pb-24">
+
+            <h1 class="text-2xl md:text-3xl font-bold text-[#1E293B] mb-8 tracking-tight">
+                Movilidad Interinstitucional (Comisionamiento temporal)
+            </h1>
+
+            <ul class="space-y-4 text-sm md:text-base leading-relaxed text-gray-700 max-w-4xl">
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Perfil de la Convocatoria – Puesto:</strong> Profesional de la Unidad de Obras
+                    (<a href="#" class="text-[#00A240] hover:underline font-medium">descargar PDF</a>)
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Nota de Postulación</strong> (Currículum Vitae)
+                    (<a href="#" class="text-[#00A240] hover:underline font-medium">Descargar Nota de postulación</a>)
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Período de recepción de postulaciones:</strong> 05 (cinco) días hábiles, a partir del miércoles 09 de abril de 2025.
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    Las postulaciones deberán ser remitidas en formato PDF, junto con las documentaciones requeridas en el perfil, al correo electrónico:
+                    <a href="mailto:capacacionsenave@gmail.com" class="text-[#00A240] hover:underline font-medium">capacacionsenave@gmail.com</a>
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Contacto para aclaraciones:</strong>
+                    <span class="block sm:inline text-gray-600">Departamento Técnico y de Capacitación del Personal (Liliana Medina / José Rodríguez).</span>
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Teléfonos:</strong> 021490234 / 021450954.
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Días y horarios:</strong> lunes a viernes de 07:00 a 15:00 horas.
+                </li>
+
+                <li class="list-disc list-outside ml-5">
+                    <strong class="text-gray-900">Correo electrónico:</strong>
+                    <a href="mailto:capacacionsenave@gmail.com" class="text-[#00A240] hover:underline font-medium">capacacionsenave@gmail.com</a>
+                </li>
+            </ul>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Suavizado tipográfico institucional para mejorar la lectura */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Asegura que los viñetas de las listas no se encimen con los textos largos indentados */
+    .list-outside {
+        list-style-position: outside;
+    }
+</style>

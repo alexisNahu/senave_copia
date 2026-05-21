@@ -2,36 +2,59 @@
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
 
         <ul class="flex flex-wrap text-[15px] h-[68px] justify-center items-center space-x-6 font-bold">
-            <li><a href="#" class="hover:underline">Inicio</a></li>
+            <li><a href="/" class="hover:underline">Inicio</a></li>
 
+            <!-- Institucional -->
             <li class="relative group">
                 <button class="flex items-center hover:underline focus:outline-none">
                     Institucional
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </button>
+                <ul class="absolute left-0 top-full mt-1 w-56 bg-white text-gray-800 shadow-lg rounded-md
+                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                   transition-all duration-200 z-50">
+                    <li><a href="/institucional" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Quiénes somos</a></li>
+                    <li><a href="/autoridades" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Autoridades</a></li>
+                    <li><a href="/institucional" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Organigrama</a></li>
+                    <li><a href="/convenios-del-senave" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Convenios</a></li>
+                    <li><a href="/llamados-a-concursos" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Llamados a Concursos</a></li>
+                    <li><a href="/audiovisual" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Audiovisual</a></li>
+                </ul>
             </li>
 
+            <!-- Marco Jurídico -->
             <li class="relative group">
                 <button class="flex items-center hover:underline focus:outline-none">
                     Marco Jurídico
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
                 </button>
+                <ul class="absolute left-0 top-full mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md
+                   opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                   transition-all duration-200 z-50">
+                    <li><a href="/leyes" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Leyes</a></li>
+                    <li><a href="/marco-juridico/decretos" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Decretos</a></li>
+                    <li><a href="/marco-juridico/resoluciones-senave" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones del SENAVE</a></li>
+                    <li><a href="/marco-juridico/resoluciones-mercosur" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones del MERCOSUR</a></li>
+                    <li><a href="/marco-juridico/resoluciones-mag" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones MAG</a></li>
+                </ul>
             </li>
 
-            <li><a href="#" class="hover:underline">Oficinas Regionales</a></li>
-            <li><a href="#" class="hover:underline">Contacto</a></li>
+            <li><a href="/oficinas-regionales" class="hover:underline">Oficinas Regionales</a></li>
+            <li><a href="/contacto" class="hover:underline">Contacto</a></li>
         </ul>
 
         <div class="flex items-center space-x-4 mt-4 md:mt-0">
-
             <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#ee2d24] transition-colors">
                 <i class="fas fa-search text-sm"></i>
             </button>
-
             <button class="bg-[#006400] hover:bg-green-900 text-white font-bold py-6 px-6 rounded-md uppercase text-sm tracking-wider flex items-center shadow-lg">
                 ¿Qué estás buscando?
             </button>
-
         </div>
+
     </div>
 </nav>

@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Definición de los videos institucionales con sus respectivos títulos y URLs
+const videotutoriales = [
+    {
+        titulo: "Sistema emisión de etiquetas por permiso",
+        url: "https://www.senave.gov.py/videos/ET-normal.mp4"
+    },
+    {
+        titulo: "Sistema normal y sistema con contingencia",
+        url: "https://www.senave.gov.py/videos/ET-con-contingencia.mp4"
+    }
+];
+---
+
+<Layout>
+    <Header title="Audiovisual" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-4xl mx-auto px-6 py-12 md:py-16 pb-24 space-y-16">
+
+            {videotutoriales.map((video) => (
+                    <section class="space-y-6 text-center">
+                        <h2 class="text-xl md:text-2xl font-bold text-[#00A240] hover:underline decoration-2 offset-4 inline-block">
+                            {video.titulo}
+                        </h2>
+
+                        <div class="w-full aspect-video rounded-xl overflow-hidden shadow-lg bg-black border border-gray-100 max-w-3xl mx-auto">
+                            <video
+                                    class="w-full h-full object-contain"
+                                    controls
+                                    preload="metadata"
+                                    playsinline
+                            >
+                                <source src={video.url} type="video/mp4" />
+                                Tu navegador no soporta la reproducción de videos en HTML5. Por favor,
+                                <a href={video.url} class="text-[#00A240] underline">descarga el video aquí</a>.
+                            </video>
+                        </div>
+                    </section>
+            ))}
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Optimizaciones institucionales de fuentes y suavizado */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

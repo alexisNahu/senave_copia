@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+import { Image } from 'astro:assets';
+
+// Definición de tipos para la estructura de datos
+interface Funcionario {
+    cargo: string;
+    nombre: string;
+}
+
+interface SeccionOrganigrama {
+    titulo: string;
+    funcionarios: Funcionario[];
+}
+
+// Datos simulados extraídos de las capturas de pantalla
+const organigramaData: SeccionOrganigrama[] = [
+    {
+        titulo: 'DIRECCIONES GENERALES',
+        funcionarios: [
+            { cargo: 'Dirección General Técnica', nombre: 'Ing. Agr. María del Carmen Berni Flores.' },
+            { cargo: 'Dirección General de Administración y Finanzas', nombre: 'Lic. José Antonio Núñez Giménez' },
+            { cargo: 'Dirección General de Asuntos Jurídicos', nombre: 'Abg. Juan Fernando Lebrón González' },
+        ],
+    },
+    {
+        titulo: 'ASESORES',
+        funcionarios: [
+            { cargo: 'Asesor Técnico de Presidencia', nombre: 'Ing. Agr. Alejandro René Ayala Núñez' },
+            { cargo: 'Asesor de Gestión de Presidencia', nombre: 'Abg. Juan Esteban María Aguirre Orué' },
+        ],
+    },
+    {
+        titulo: 'SECRETARIA PRIVADA',
+        funcionarios: [
+            { cargo: 'Secretaría Privada', nombre: 'Lic. Yami Jiménez' },
+        ],
+    },
+    {
+        titulo: 'DIRECTORES STAFF',
+        funcionarios: [
+            { cargo: 'Secretaría de Gabinete', nombre: 'Ing. Agr. Alejandro Hunicken Fretes' },
+            { cargo: 'Secretaría General', nombre: 'Abg. Miguel Caballero' },
+            { cargo: 'Secretaría de Planificación', nombre: 'Ing. Agr. Iván Espinoza' },
+            { cargo: 'Dirección de Tecnología de la Información y la Comunicación', nombre: 'Ing. Inf. César Llano' },
+            { cargo: 'Auditoría Interna Institucional', nombre: 'Lic. Alex F. Martínez Franco' },
+        ],
+    },
+    {
+        titulo: 'DIRECCIONES DGT',
+        funcionarios: [
+            { cargo: 'Dirección de Bioseguridad Agrícola', nombre: 'Ing. Agr. Hugo Francisco Bruning Alvarenga.' },
+            { cargo: 'Dirección de Semillas', nombre: 'Ing. Agr. Lourdes Romero' },
+            { cargo: 'Dirección de Laboratorios', nombre: 'Lic. Olga Pavón' },
+            { cargo: 'Dirección de Agroquímicos e Insumos Agrícolas', nombre: 'Ing. Agr. Rubén De los Ríos' },
+            { cargo: 'Dirección de Protección Vegetal', nombre: 'Ing. Agr. Mirian Cristina Galeano Martínez.' },
+            { cargo: 'Dirección de Operaciones', nombre: 'Ing. Agr. Luis Antonio Vera Vallejos.' },
+            { cargo: 'Dirección de Oficinas Regionales', nombre: 'Ing. Agr. Cristian Ramón Marecos' },
+            { cargo: 'Dirección de Calidad, Inocuidad y Agricultura Orgánica', nombre: 'Ing. Agr. Magalí Delgado Godoy' },
+        ],
+    },
+    {
+        titulo: 'DIRECCIONES DGAF',
+        funcionarios: [
+            { cargo: 'Dirección de Finanzas', nombre: 'Lic. Cinthia Carolina Cáceres Rotela' },
+            { cargo: 'Dirección Administrativa', nombre: 'Lic. Julio Sosa' },
+            { cargo: 'Dirección de Contrataciones', nombre: 'Econ. Juan Carlos Jiménez' },
+            { cargo: 'Dirección de Gestión de Personas', nombre: 'Lic. Alberto Yakisich' },
+        ],
+    },
+    {
+        titulo: 'DIRECCIÓN DGAJ',
+        funcionarios: [
+            { cargo: 'Dirección de Asesoría Jurídica', nombre: 'Abg. María Florencia Chávez Meza' },
+        ],
+    },
+];
+---
+
+<Layout>
+    <Header title="Autoridades" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+            <div class="flex flex-col items-center">
+                <div class="w-full max-w-3xl mb-12 shadow-xl rounded-lg overflow-hidden border-4 border-gray-100">
+                    <Image
+                            src="https://www.senave.gov.py/wp-content/uploads/2025/07/Presidente-Ramiro-Samaniego.jpg"
+                            alt="Ing. Agr. Luis Ramiro Samaniego Montiel - Presidente SENAVE"
+                            width={1200}
+                            height={800}
+                            class="w-full h-auto object-cover"
+                    />
+                </div>
+
+                <div class="w-full max-w-5xl">
+                    <div class="text-center mb-10">
+                        <h2 class="text-[16px] font-bold uppercase text-[#00A240] tracking-widest mb-3">Presidente</h2>
+                        <p class="md:text-[16px] font-bold text-gray-900 leading-snug">Ing. Agr. Luis Ramiro Samaniego Montiel</p>
+                    </div>
+
+                    <div class="space-y-10 text-gray-700">
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-gray-800 mb-4 border-l-4 border-[#00A240] pl-3">Perfil profesional</h3>
+                            <p class="text-sm md:text-base leading-relaxed text-justify">
+                                Ingeniero Agrónomo con maestría en Ciencias de Suelos por la Universidade Federal de Santa María (UFSM) y Maestría en Administración de Empresas (MBA).
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-gray-800 mb-4 border-l-4 border-[#00A240] pl-3">Experiencia y logros destacados</h3>
+                            <ul class="list-disc list-outside ml-5 space-y-3 text-sm md:text-base text-justify">
+                                <li>Fundador y CEO de Organitec Fertilizantes: Empresa pionera dedicada a la elaboración de fertilizantes diferenciados en Latinoamérica.</li>
+                                <li>Fundador de Sustentap, Consultora agrícola con más de 15 años en agricultura de precisión y laboratorio de análisis de suelo.</li>
+                                <li>Ex Vice Ministro de Industria.</li>
+                                <li>Ex docente universitario e investigador del CONACYT.</li>
+                                <li>Disertante en congresos y charlas nacionales e internacionales.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-base md:text-lg font-bold text-gray-800 mb-4 border-l-4 border-[#00A240] pl-3">Reconocimientos</h3>
+                            <ul class="list-disc list-outside ml-5 space-y-3 text-sm md:text-base text-justify">
+                                <li>Premio Nacional y Regional PyMES al Éxito del Banco BBVA.</li>
+                                <li>Reconocimiento como joven empresario por la ADEC.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-t border-gray-100 my-8" />
+
+        <div class="max-w-7xl mx-auto px-4 py-12 md:py-16">
+            <div class="space-y-16">
+                {organigramaData.map((seccion) => (
+                        <section>
+                            <div class="text-center mb-12">
+                                <h2 class="text-sm md:text-base font-bold uppercase text-[#00A240] tracking-widest inline-block pb-2 border-b-2 border-[#00A240]">
+                                    {seccion.titulo}
+                                </h2>
+                            </div>
+
+                            <div class="space-y-8 max-w-5xl mx-auto">
+                                {seccion.funcionarios.map((funcionario, index) => (
+                                        <div class={`${index < seccion.funcionarios.length - 1 ? 'border-b border-gray-100 pb-8' : ''}`}>
+                                            <div class="flex items-start gap-4">
+                    <span class="text-[#00A240] mt-1 hidden sm:block">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </span>
+                                                <div class="flex-1">
+                                                    <h3 class="text-base md:text-lg font-bold text-gray-900 mb-1 tracking-tight">
+                                                        {funcionario.cargo}
+                                                    </h3>
+                                                    <p class="text-sm md:text-base text-gray-700 font-medium">
+                                                        {funcionario.nombre}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                ))}
+                            </div>
+                        </section>
+                ))}
+            </div>
+        </div>
+
+    </main>
+</Layout>
+
+<style>
+    /* Ajustes tipográficos y de legibilidad */
+    :global(html) {
+        scroll-behavior: smooth;
+    }
+
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Asegura un buen contraste de texto */
+    .text-justify {
+        text-align: justify;
+        hyphens: auto;
+    }
+</style>

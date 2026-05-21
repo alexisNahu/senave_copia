@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Datos extraídos directamente de la tabla institucional de las capturas
+const oficinas = [
+    {
+        dependencia: "DIRECCIÓN DE OFICINAS REGIONALES",
+        contacto: "0983-927007",
+        correo: "cristian.marecos@senave.gov.py",
+        direccion: "Gaspar R. de Francia N° 685 casi Mcal. Estigarribia–San Lorenzo"
+    },
+    {
+        dependencia: "DEPARTAMENTO DE FISCALIZACIÓN",
+        contacto: "0983-428205",
+        correo: "carmina.camelli@senave.gov.py",
+        direccion: "Gaspar R. de Francia N° 685 casi Mcal. Estigarribia–San Lorenzo"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CONCEPCIÓN",
+        contacto: "0986-280519",
+        correo: "arnaldo.cantero@senave.gov.py",
+        direccion: "Ruta PY 05 km 106 Y-by Ya'u"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CONCEPCION",
+        contacto: "0986-280519",
+        correo: "arnaldo.cantero@senave.gov.py",
+        direccion: "Nanawa esq. Pedro J. Caballero, Barrio San Roque Horqueta"
+    },
+    {
+        dependencia: "OFICINA REGIONAL SAN PEDRO",
+        contacto: "0983-418870",
+        correo: "monica.castiglioni@senave.gov.py",
+        direccion: "Ruta PY 08 Km. 243 Guayaibi - Frente a la Municipalidad"
+    },
+    {
+        dependencia: "OFICINA REGIONAL SAN PEDRO",
+        contacto: "0983-418870",
+        correo: "monica.castiglioni@senave.gov.py",
+        direccion: "Ruta PY 8–Santa Rosa del Aguaray"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CORDILLERA",
+        contacto: "0983-686119",
+        correo: "mariano.franco@senave.gov.py",
+        direccion: "Centro Expo Flora - Caacupé"
+    },
+    {
+        dependencia: "OFICINA REGIONAL GUAIRÁ",
+        contacto: "0983-634204",
+        correo: "miryan.candia@senave.gov.py",
+        direccion: "Ruta PY 08 Dr. Gaspar. R. de Francia-Villarrica"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CAAGUAZÚ",
+        contacto: "0983-516743",
+        correo: "antonio.escandriolo@senave.gov.py",
+        direccion: "Ytororó Casi Ruta PY 02–Cnel. Oviedo"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CAAZAPÁ",
+        contacto: "0983-432185",
+        correo: "elicer.diaz@senave.gov.py",
+        direccion: "12 de octubre c/ Edgar Insfrán–San Juan Nepomuceno Calle 14 de mayo casi Mcal. Estigarribia–Caazapá"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CAAZAPÁ",
+        contacto: "0983-432185",
+        correo: "elicer.diaz@senave.gov.py",
+        direccion: "Calle 14 de mayo casi Mcal. Estigarribia–Caazapá"
+    },
+    {
+        dependencia: "OFICINA REGIONAL ITAPÚA NORTE",
+        contacto: "0983-280088",
+        correo: "miguel.gonzalez@senave.gov.py",
+        direccion: "Dr. Juan León Mallorquín Km 258 -Tomás Romero Pereira"
+    },
+    {
+        dependencia: "OFICINA REGIONAL ITAPÚA SUR",
+        contacto: "0983-548848",
+        correo: "diego.gasko@senave.gov.py",
+        direccion: "Mcal. Estigarribia y Adolfo Riquelme– Coronel Bogado"
+    },
+    {
+        dependencia: "OFICINA REGIONAL MISIONES",
+        contacto: "0983-967001",
+        correo: "laura.ruiz@senave.gov.py",
+        direccion: "Ruta PY 04 entre II y III Proyectada–San Ignacio"
+    },
+    {
+        dependencia: "OFICINA REGIONAL PARAGUARÍ",
+        contacto: "0983-415554",
+        correo: "jorge.torres@senave.gov.py",
+        direccion: "Gral Barrios y Tte Darlis Cáceres–Paraguarí"
+    },
+    {
+        dependencia: "OFICINA REGIONAL ALTO PARANÁ - SEDE CETAPAR",
+        contacto: "0981-812985",
+        correo: "guido.servian@senave.gov.py",
+        direccion: "Ruta PY 02 Km 45–Colonia Yguazú."
+    },
+    {
+        dependencia: "OFICINA REGIONAL ALTO PARANÁ - SEDE CIUDAD DEL ESTE",
+        contacto: "0983-321931",
+        correo: "derlis.cardozo@senave.gov.py",
+        direccion: "Ciudad del Este km 6.5 Lado Monday –Ciudad del Este"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CENTRAL",
+        contacto: "0983-358088",
+        correo: "ruben.celosrios@senave.gov.py",
+        direccion: "Gaspar Rodríguez de Francia y Julia Miranda Cueto–San Lorenzo"
+    },
+    {
+        dependencia: "OFICINA REGIONAL AMAMBAY",
+        contacto: "0983-681335",
+        correo: "proto.prieto@senave.gov.py",
+        direccion: "Ruta PY 05 y Toledo–Pedro Juan Caballero"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CANINDEYÚ",
+        contacto: "0983-571013",
+        correo: "delsi.acosta@senave.gov.py",
+        direccion: "Calle 7 c/ Luis Alberto del Paraná–Katueté"
+    },
+    {
+        dependencia: "OFICINA REGIONAL CHACO",
+        contacto: "0983-274703",
+        correo: "sergio.rodriguez@senave.gov.py",
+        direccion: "Ruta PY 15 - Filadelfia"
+    },
+    {
+        dependencia: "OFICINA REGIONAL ÑEEMBUCÚ",
+        contacto: "0994-575887",
+        correo: "miriam.vega@senave.gov.py",
+        direccion: "Ruta PY 19 - Pilar"
+    }
+];
+---
+
+<Layout>
+    <Header title="Dirección de Oficinas Regionales" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16 pb-24">
+
+            <p class="text-sm md:text-base text-gray-600 max-w-5xl mb-10 leading-relaxed">
+                La Dirección de Oficinas Regionales tiene como objetivo dirigir las acciones en todo el país, a través de sus diferentes Oficinas Regionales, las mismas tienen la tarea de representar y ejercer acciones técnicas, operativas y administrativas de la institución en el ámbito geográfico regional. Se cuenta con 16 Oficinas distribuidos en los diferentes departamentos del territorio nacional, entre sus funciones se encuentran las de fiscalizar productos y sub productos vegetales, productos fitosanitarios y semillas, implementar y ejecutar programas establecidos por las áreas técnicas, entre otros.
+            </p>
+
+            <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                <table class="w-full text-left border-collapse text-xs md:text-sm">
+                    <thead>
+                    <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
+                        <th class="py-4 px-4 min-w-[220px]">Dependencia</th>
+                        <th class="py-4 px-4 min-w-[130px]">Nro. de Contacto</th>
+                        <th class="py-4 px-4 min-w-[220px]">Correo Electrónico</th>
+                        <th class="py-4 px-4 min-w-[300px]">Dirección</th>
+                    </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                    {oficinas.map((oficina) => (
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="py-4 px-4 font-semibold text-gray-700">
+                                    {oficina.dependencia}
+                                </td>
+                                <td class="py-4 px-4 font-medium text-[#00A240] whitespace-nowrap">
+                                    {oficina.contacto}
+                                </td>
+                                <td class="py-4 px-4 text-gray-600">
+                                    <a href={`mailto:${oficina.correo}`} class="hover:text-[#00A240] hover:underline">
+                                        {oficina.correo}
+                                    </a>
+                                </td>
+                                <td class="py-4 px-4 text-gray-600 leading-normal">
+                                    {oficina.direccion}
+                                </td>
+                            </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Optimizaciones tipográficas */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>

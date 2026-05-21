@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro'
+---
+
+<Layout>
+    <Header title="Institucional" />
+
+    <div class="max-w-7xl mx-auto px-4 py-10 text-[16px]">
+
+        <!-- Quiénes somos -->
+        <div class="mb-2 text-[#00A240] font-semibold underline text-[22px] tracking-wide">Quienes somos</div>
+        <p class="mb-4 text-gray-700">Creado por Ley Nº 2459, del 4 de octubre de 2004, el Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE) es un ente autárquico formado a partir de la fusión de la Dirección de Defensa Vegetal, la Dirección de Semillas, la Oficina Fiscalizadora de Algodón y Tabaco y el Departamento de Comercialización Interna y Externa de Productos y Subproductos Vegetales. Estos organismos correspondían originalmente al Ministerio de Agricultura y Ganadería. Pero el SENAVE recién funciona como institución en el 2005.</p>
+
+        <p class="font-bold mb-1 text-gray-800">Misión</p>
+        <p class="mb-4 text-gray-700">Apoyar la política agro-productiva del Estado, contribuyendo al incremento de los niveles de competitividad, sostenibilidad y equidad del sector agrícola, a través del mejoramiento de la situación de los recursos productivos respecto a sus condiciones de calidad, fitosanidad, pureza genética y de la prevención de afectaciones al hombre, los animales, las plantas y al medio ambiente, asegurando su inocuidad.</p>
+
+        <p class="font-bold mb-1 text-gray-800">Visión</p>
+        <p class="mb-4 text-gray-700">Ser la institución referente en la protección fitosanitaria del país, garantizando seguridad, sostenibilidad y competitividad de la agricultura paraguaya, mediante la excelencia técnica, la innovación y el compromiso con los valores institucionales.</p>
+
+        <p class="font-bold mb-1 text-gray-800">Valores</p>
+        <ol class="list-decimal list-inside mb-4 text-gray-700 space-y-1">
+            <li>Imparcialidad</li>
+            <li>Compromiso</li>
+            <li>Responsabilidad</li>
+            <li>Innovación</li>
+            <li>Trabajo en equipo</li>
+            <li>Confidencialidad</li>
+        </ol>
+
+        <p class="mb-4 text-gray-700">El SENAVE será el órgano de aplicación de los convenios y acuerdos internacionales relacionados a la calidad y sanidad vegetal, a las semillas y a la protección de las obtenciones vegetales y a las especies vegetales provenientes de la biotecnología, de los que Paraguay sea miembro o Estado parte.</p>
+
+        <p class="mb-4 text-gray-700">Para cumplir con sus funciones de control, el SENAVE otorga o cancela los registros de importación de las empresas dedicadas a la producción o importación de agroquímicos; registra e inhabilita la inscripción de semillas; certifica la calidad y sanidad de los productos y subproductos vegetales en estado natural, orgánicos y convencionales, y las semillas. Registra, habilita y fiscaliza a personas físicas o jurídicas, públicas o privadas, encargadas de certificar los productos vegetales orgánicos. Además, registra, fiscaliza y audita los laboratorios acreditados, depósitos y los medios de transporte de plaguicidas en el país.</p>
+
+        <p class="font-bold mb-1 text-gray-800">Son objetivos del SENAVE</p>
+        <ul class="list-disc list-inside mb-4 text-gray-700 space-y-1">
+            <li>Contribuir al desarrollo agrícola del país mediante la protección, el mantenimiento e incremento de la condición fitosanitaria y la calidad de productos de origen vegetal.</li>
+            <li>Controlar los insumos de uso agrícola sujetos a regulación, conforme a normas legales y reglamentarias.</li>
+        </ul>
+
+        <p class="font-bold mb-1 text-gray-800">Son fines del SENAVE</p>
+        <ul class="list-disc list-inside mb-6 text-gray-700 space-y-1">
+            <li>Evitar la introducción y el establecimiento en el país de plagas exóticas de vegetales.</li>
+            <li>Preservar un estado fitosanitario que permita a los productos agrícolas nacionales el acceso a los mercados externos.</li>
+            <li>Asegurar la calidad de los productos y subproductos vegetales, plaguicidas, fertilizantes, enmiendas, y afines, con riesgo mínimo para la salud humana, animal, las plantas y el medio ambiente.</li>
+            <li>Asegurar que los niveles de residuos de plaguicidas en productos y subproductos vegetales estén dentro de límites máximos permitidos.</li>
+            <li>Asegurar la identidad y la calidad de las semillas y protege el derecho de los creadores de nuevos cultivares.</li>
+            <li>Entender los asuntos vinculados con la biotecnología.</li>
+        </ul>
+
+        <!-- Política de calidad -->
+        <div class="mb-2 text-[#00A240] font-semibold underline text-[22px] tracking-wide">Política de calidad institucional</div>
+        <p class="mb-10 text-gray-700">Cumplimos la misión con imparcialidad, transparencia e independencia; brindando servicios de excelencia a todas las partes interesadas, basados en la competencia técnica y profesionalismo de nuestros servidores públicos, suministrando los recursos necesarios; asumiendo el compromiso de mantener y mejorar el Sistema de Gestión de Calidad Integrado, en base a los requisitos de las Normas NP-ISO 9001, NP-ISO/IEC 17020, NP-ISO/IEC 17025 en sus versiones vigentes y la Norma de Requisitos Mínimos – MECIP 2015, como componentes del Sistema de Control Interno implementado en la institución, a fin de lograr el reconocimiento nacional e internacional por la calidad de la gestión institucional.</p>
+
+        <!-- Organigrama -->
+        <div id="organigrama" class="mb-2 text-[#00A240] font-semibold underline text-[22px] tracking-wide">Organigrama</div>
+        <img
+                src="https://www.senave.gov.py/wp-content/uploads/2024/09/organigrama-general.jpg"
+                alt="Organigrama General SENAVE"
+                class="w-full mb-6 rounded"
+        />
+
+        <div class="flex flex-col gap-4 mt-4">
+            <a
+                    href="https://www.senave.gov.py/docs/institucional/organigrama/Organigrama-General-SENAVE-APROBADO-RES.124.24.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-[#00A240] hover:bg-[#00560E] text-white font-bold py-3 px-6 rounded-md uppercase text-sm tracking-wider inline-flex items-center justify-center sm:justify-start gap-2 transition-colors cursor-pointer w-full sm:w-max"
+            >
+                Descargar Organigrama Institucional
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+            </a>
+
+            <a
+                    href="https://www.senave.gov.py/documentos/sistema-gestion-calidad/manuales/cc09c4e5c72c949e6690d605722690ad.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="bg-[#00A240] hover:bg-[#00560E] text-white font-bold py-3 px-6 rounded-md uppercase text-sm tracking-wider inline-flex items-center justify-center sm:justify-start gap-2 transition-colors cursor-pointer w-full sm:w-max"
+            >
+                Manual de Funciones
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</Layout>

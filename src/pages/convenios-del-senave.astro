@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Tipado estricto para los convenios
+interface Convenio {
+    nombre: string;
+    url: string;
+}
+
+const convenios: Record<number, Convenio[]> = {
+    2025: [
+        { nombre: "Convenio Marco FAO", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Marco FAO.pdf" },
+        { nombre: "Convenio Tembiapora", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Tembiapora.pdf" },
+        { nombre: "Convenio Marco UNI", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Marco UNI.pdf" },
+        { nombre: "Acuerdo Específico 86 COPACO", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo-Especifico-86-COPACO.pdf" },
+        { nombre: "Convenio Marco UNA", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio-Marco-UNA.pdf" },
+        { nombre: "Convenio Marco SENASAG SENAVE", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio-Marco-SENASAG-SENAVE.pdf" },
+        { nombre: "Convenio Marco Fundacion Nikkei CETAPAR", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio-Marco-Fundacion-Nikkei-CETAPAR.pdf" },
+        { nombre: "Acuerdo Especifico 1 CETAPAR", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo-Especifico-1-CETAPAR.pdf" },
+        { nombre: "Acuerdo Aso de Jóvenes Emprendedores", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Aso de Jovenes Emprendedores.pdf" },
+        { nombre: "Acuerdo APROFUI", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo APROFUI.pdf" },
+        { nombre: "Acuerdo Comite de Agricultores Paso Yobai", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Comite de Agricultores Paso Yobai.pdf" },
+        { nombre: "Acuerdo Comunidad Ache, Primero de Mayo", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Comunidad Ache Primero de m.pdf" },
+        { nombre: "Acuerdo específico 1 Gobernación del Guairá usufructo", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo especifico 1 Gobernacion del Guaira usufructo.pdf" },
+        { nombre: "Acuerdo Específico CETAPAR N° 5", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Especifico CETAPAR N5.pdf" },
+        { nombre: "Acuerdo Específico con CETAPAR sobre Diplomado", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Específico con CETAPAR sobre Diplomado.pdf" },
+        { nombre: "Acuerdo Especifico COPACO", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Especifico COPACO.pdf" },
+        { nombre: "Acuerdo Específico de Cooperación con el MAG", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Especifico de Cooperacion con el MAG.pdf" },
+        { nombre: "Acuerdo Especifico Guaira Inmueble", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Especifico Guaira Inmueble.pdf" },
+        { nombre: "Acuerdo Fundación Colonias", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Fundacion Colonias.pdf" },
+        { nombre: "Acuerdo Productores de Humaita", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Productores de Humaita.pdf" },
+        { nombre: "Acuerdo Tecnomyl", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Acuerdo Tecnomyl.pdf" },
+        { nombre: "Convenio AEP", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio AEP.pdf" },
+        { nombre: "Convenio Aso prod Pirapey Poty", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Aso prod Pirapey Poty.pdf" },
+        { nombre: "Convenio Comite de Agricultores OJOAJUPA", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio comite de Agricultores OJOAJUPA.pdf" },
+        { nombre: "Convenio con ANNP Infante Rivarola", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio con ANNP Infante Rivarola.pdf" },
+        { nombre: "Convenio con Gobernación de Ñeembucu", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio con Gobernacion de Neembucu.pdf" },
+        { nombre: "Convenio Marco de Cooperación con el MAG", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Marco de Cooperacion con el MAG.pdf" },
+        { nombre: "Convenio Marco Gobernacion del Guaira", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Marco Gobernacion del Guaira.pdf" },
+        { nombre: "Convenio Marco Un Pilar", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Marco Un Pilar.pdf" },
+        { nombre: "Convenio Municipalidad Carlos Lopez", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Municipalidad Carlos Lopez.pdf" },
+        { nombre: "Convenio Municipalidad San Juan", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Municipalidad San Juan.pdf" },
+        { nombre: "Convenio Organización Productores Misiones", url: "https://www.senave.gov.py/docs/informacion-publica/2025/Convenio Organizacion Productores Misiones.pdf" },
+    ],
+    2024: [
+        { nombre: "ACUERDO ESPECIFICO N°3 CETAPAR", url: "https://www.senave.gov.py/docs/informacion-publica/2024/ACUERDO-ESPECIFICO-N3-CETAPAR.pdf" },
+        { nombre: "CONVENIO SENAVE CON LA AIAP", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024-CONVENIO-SENAVE-CON-LA-AIAP.pdf" },
+        { nombre: "Acuerdo entre SENAVE y la Asociación de Apicultores Kurugua Re'e de Curuguaty", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024-CONVENIO-SENAVE-CON-LA-MUNICIPALIDAD-DE-CURUGUATY.pdf" },
+        { nombre: "Acuerdo entre SENAVE y la Asociación Distrital de Productores del Municipio de Hohenau", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024-CONVENIO-SENAVE-CON-LA-MUNICIPALIDAD-DE-HOHENAU.pdf" },
+        { nombre: "ACUERDO ESPECÍFICO CON IPTA", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024-ACUERDO-ESPECIFICO-CON-IPTA.pdf" },
+        { nombre: "ACUERDO CON ANNP", url: "https://www.senave.gov.py/docs/informacion-publica/2024/Acuerdo-con-ANNP.pdf" },
+        { nombre: "ACUERDO MARCO ENTRE SENAVE – MUNICIPALIDAD DE HOHENAU", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 ACUERDO MARCO ENTRE SENAVE - MUNICIPALIDAD DE HOHENAU.pdf" },
+        { nombre: "CONVENIO MARCO ENTRE SENAVE – IICA", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO MARCO ENTRE SENAVE - IICA.pdf" },
+        { nombre: "CONVENIO MARCO ENTRE SENAVE – INTN", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO MARCO ENTRE SENAVE - INTN.pdf" },
+        { nombre: "CONVENIO MARCO ENTRE SENAVE – MTESS – SINAFOCAL", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO MARCO ENTRE SENAVE - MTESS - SINAFOCAL.pdf" },
+        { nombre: "CONVENIO MARCO DE COOPERACION ENTRE SENAVE – MUNICIPALIDAD DE ASUNCIÓN", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO MARCO DE COOPERACION ENTRE SENAVE - MUNI ASU.pdf" },
+        { nombre: "CONVENIO ESPECIFICO ENTRE SENAVE – USC", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO ESPECIFICO ENTRE SENAVE - USC.pdf" },
+        { nombre: "CONVENIO DE COOPERACION ENTRE SENAVE – BNF", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 CONVENIO DE COOPERACION ENTRE SENAVE - BNF.pdf" },
+        { nombre: "ACUERDO MARCO DE COOPERACION ENTRE SENAVE – UNICOOP", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 ACUERDO MARCO DE COOPERACION ENTRE SENAVE - UNICOOP.pdf" },
+        { nombre: "ACUERDO DE USUFRUCTO DE ESPACIOS ENTRE SENAVE – ABASTO NORTE", url: "https://www.senave.gov.py/docs/informacion-publica/2024/2024 ACUERDO DE USUFRUCTO DE ESPACIOS ENTRE SENAVE - ABASTO NORTE.pdf" },
+    ],
+    2023: [
+        { nombre: "Acuerdo Específico N° 1 entre SENAVE – PARPOV – APROSEMP", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023-Acuerdo-Especifico-N1-entre-SENAVE-PARPOV-APROSEMP.pdf" },
+        { nombre: "Convenio entre SENAVE – AEP", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023-Convenio-entre-SENAVE-AEP.pdf" },
+        { nombre: "Convenio Marco entre SENAVE – GOBERNACIÓN DEL GUAIRA", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023-Convenio-Marco-entre-SENAVE-GOBERNACION-DEL-GUAIRA.pdf" },
+        { nombre: "Subordinado al Acuerdo Especifico entre SENAVE – FCA-UNA", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Subordinado al Acuerdo Especifico entre SENAVE - FCA-UNA.pdf" },
+        { nombre: "Acuerdo de Coop entre SENAVE – SYNGENTA – MUNICIPALIDAD DE NARANJAL", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Acuerdo de Coop entre SENAVE - SYNGENTA - MUNICIPALIDAD DE NARANJAL.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – COPACO", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Acuerdo Especifico entre SENAVE - COPACO.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – MAG PROGRAMA 2KR", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Acuerdo Especifico entre SENAVE - MAG PROGRAMA 2KR.pdf" },
+        { nombre: "Acuerdo Especifico N2 entre SENAVE – CETAPAR", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Acuerdo Especifico N2 entre SENAVE - CETAPAR.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – COOP CAPIATA", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio de Coop entre SENAVE - COOP CAPIATA.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – FEPASIDIAS", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio de Coop entre SENAVE - FEPASIDIAS.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – Municipalidad de San Lorenzo", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio de Coop entre SENAVE - Municipalidad de San Lorenzo.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – UCPY ANEXO 1", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio de Coop entre SENAVE - UCPY ANEXO 1.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – UCPY", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio de Coop entre SENAVE - UCPY.pdf" },
+        { nombre: "Convenio Marco entre SENAVE – COPACO", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio Marco entre SENAVE - COPACO.pdf" },
+        { nombre: "Convenio Marco entre SENAVE – IDEAGRO", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio Marco entre SENAVE - IDEAGRO.pdf" },
+        { nombre: "Convenio Marco entre SENAVE – MSPYBS – SENACSA", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Convenio Marco entre SENAVE - MSPYBS - SENACSA.pdf" },
+        { nombre: "Enmienda N01 a la Carta de Colaboracion entre SENAVE – T-FAST", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Enmienda N01 a la Carta de Colaboracion entre SENAVE - T-FAST.pdf" },
+        { nombre: "Memorando de Entendimiento – SENAVE – TAIWAN", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 Memorando de Entendimiento - SENAVE - TAIWAN.pdf" },
+        { nombre: "CONVENIO SENAVE – MSPYBS – SENACSA", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 CONVENIO SENAVE - MSPYBS - SENACSA.pdf" },
+        { nombre: "Reglamento de Funcionamiento de la Red Nacional de Laboratorios de Análisis de Alimentos del Paraguay", url: "https://www.senave.gov.py/docs/informacion-publica/2023/2023 REGLAMENTO INAN - SENACSA - SENAVE.pdf" },
+    ],
+    2022: [
+        { nombre: "Convenio de Usufructo de Espacio y Servicios entre SENAVE – DNA", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Convenio de Usufructo de Espacio y Servicios entre SENAVE - DNA.pdf" },
+        { nombre: "Acuerdo Especifico de Coop entre SENAVE – COOPERATIVA CAPITAN MIRANDA", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Acuerdo Especifico de Coop entre SENAVE - COOPERATIVA CAPITAN MIRANDA.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – ANNP – USUFRUCTO PUERTO FALCON", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Acuerdo Especifico entre SENAVE - ANNP - USUFRUCTO PUERTO FALCON.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – Municipalidad de Horqueta – DONACION DE INMUEBLE", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Acuerdo Especifico entre SENAVE - Municipalidad de Horqueta - DONACION DE INMUEBLE.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – Municipalidad de Horqueta – INSUMOS", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Acuerdo Especifico entre SENAVE - Municipalidad de Horqueta - INSUMOS.pdf" },
+        { nombre: "Acuerdo Especifico entre SENAVE – USC", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Acuerdo Especifico entre SENAVE - USC.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – AMUALPA", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Convenio de Coop entre SENAVE - AMUALPA.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – DNA", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Convenio de Coop entre SENAVE - DNA.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – Municipalidad de Horqueta", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Convenio de Coop entre SENAVE - Municipalidad de Horqueta.pdf" },
+        { nombre: "Convenio de Coop entre SENAVE – Municipalidad de Tembiapora", url: "https://www.senave.gov.py/docs/informacion-publica/2022/2022 Convenio de Coop entre SENAVE - Municipalidad de Tembiapora.pdf" },
+    ],
+};
+
+const years = Object.keys(convenios).map(Number).sort((a, b) => b - a);
+---
+
+<Layout>
+    <Header title="Convenios del Senave" />
+
+    <div class="max-w-5xl mx-auto px-4 py-12 pb-20">
+
+        <div class="mb-2 text-[#00a240] text-[22px] font-semibold tracking-wide border-b-2 border-[#00a240] pb-1 inline-block">
+            Convenios del SENAVE
+        </div>
+        <p class="text-gray-600 mb-8 mt-2">
+            Listado de convenios, acuerdos y memorandos de cooperación interinstitucional suscritos por el SENAVE.
+        </p>
+
+        <div class="space-y-3">
+            {years.map((year) => (
+                    <details class="group border border-gray-200 rounded-lg overflow-hidden">
+                        <summary class="flex items-center justify-between px-6 py-4 bg-gray-50 hover:bg-[#00a240] hover:text-white cursor-pointer font-bold text-lg transition-colors list-none">
+                            <span>{year}</span>
+                            <svg class="w-5 h-5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
+                        <ul class="divide-y divide-gray-100 bg-white">
+                            {convenios[year].map((item) => (
+                                    <li class="flex items-center gap-3 px-6 py-3 hover:bg-green-50 transition-colors text-sm">
+                                        <svg class="w-4 h-4 text-[#00a240] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20H7a2 2 0 01-2-2V6a2 2 0 012-2h7l5 5v9a2 2 0 01-2 2z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M9 16h4" />
+                                        </svg>
+
+                                        <a
+                                                href={item.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                class="text-gray-700 hover:text-[#00a240] hover:underline flex-1"
+                                        >
+                                            {item.nombre}
+                                        </a>
+                                    </li>
+                            ))}
+                        </ul>
+                    </details>
+            ))}
+        </div>
+
+    </div>
+</Layout>

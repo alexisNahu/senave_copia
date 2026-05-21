@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Transformamos el arreglo para incluir las rutas correspondientes
+const opcionesConcursos = [
+    {
+        nombre: "Movilidad Interinstitucional (Comisionamiento temporal)",
+        url: "/movilidad-interinstitucional"
+    },
+    {
+        nombre: "Pasantía con ayuda económica",
+        url: "/pasantia-con-ayuda-economica"
+    }
+];
+---
+
+<Layout>
+    <Header title="Llamados a Concursos" />
+
+    <main class="bg-white min-h-[50vh]">
+        <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+
+            <ul class="space-y-4 max-w-2xl pl-4 md:pl-12">
+                {opcionesConcursos.map((item) => (
+                        <li class="flex items-center gap-3 text-gray-700 font-medium text-sm md:text-base">
+                            <svg
+                                    class="w-5 h-5 text-[#00A240] shrink-0"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    viewBox="0 0 24 24"
+                            >
+                                <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                            </svg>
+
+                            <a
+                                    href={item.url}
+                                    class="hover:text-[#00A240] hover:underline transition-colors flex-1"
+                            >
+                                {item.nombre}
+                            </a>
+                        </li>
+                ))}
+            </ul>
+
+        </div>
+    </main>
+</Layout>
+
+<style>
+    /* Optimizaciones de renderizado de fuentes y suavizado */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
