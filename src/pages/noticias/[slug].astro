@@ -1,0 +1,105 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {NoticiasService} from "../../features/noticias/services";
+import Header from "../../features/servicios/Header.astro";
+import Card from "../../features/noticias/Card.astro";
+
+// 1. DEFINIR RUTAS ESTÁTICAS
+export async function getStaticPaths() {
+    const todasLasNoticias = await NoticiasService.getAll();
+    return todasLasNoticias.map((noticia) => ({
+        params: { slug: noticia.slug },
+    }));
+}
+
+// 2. OBTENER EL SLUG ACTUAL
+const { slug } = Astro.params;
+
+if (!slug) {
+    return Astro.redirect("/404");
+}
+
+// 3. RECUPERAR LA NOTICIA
+const noticia = await NoticiasService.getBySlug(slug);
+
+if (!noticia) {
+    return Astro.redirect("/404");
+}
+
+// 4. GENERAR LOS ARTÍCULOS RELACIONADOS
+const todasLasNoticias = await NoticiasService.getAll();
+const noticiasRelacionadas = todasLasNoticias
+    .filter((n) => n.slug !== slug)
+    .slice(0, 2);
+---
+
+<Layout title={noticia.titulo}>
+    <main class="min-h-screen bg-white pb-24 font-sans antialiased text-[#333333]">
+
+        <Header title={noticia.titulo}/>
+
+        <article class="max-w-7xl mx-auto px-6 mt-12">
+
+            <div class="w-full overflow-hidden rounded-2xl shadow-md border border-gray-100 mb-10 bg-gray-50 flex justify-center">
+                <img
+                        src={noticia.imagen || "/images/placeholder-grains.jpg"}
+                        alt={noticia.titulo}
+                        class="w-full h-auto object-cover max-h-[520px]"
+                />
+            </div>
+
+            <div class="space-y-5 text-[15px] md:text-base leading-[1.8] text-[#444444] text-justify font-normal tracking-normal px-1">
+                {
+                    noticia.paragraphs ? (
+                        noticia.paragraphs.map((paragraph: string) => <p>{paragraph}</p>)
+                    ) : (
+                        noticia.content?.split('\n').map((paragraph: string) => (
+                            paragraph.trim() && <p>{paragraph}</p>
+                        ))
+                    )
+                }
+            </div>
+
+            <hr class="border-t border-gray-200/80 my-12" />
+
+            <div class="flex flex-col gap-3 mb-10">
+                <span class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Share</span>
+                <div class="flex items-center gap-3">
+                    {['facebook', 'twitter', 'whatsapp', 'telegram', 'link'].map((red) => (
+                            <button class="w-[38px] h-[38px] rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-600 hover:border-gray-400 hover:shadow-sm transition-all bg-white">
+                                {red === 'facebook' && <span class="text-base font-bold font-serif">f</span>}
+                                {red === 'twitter' && <span class="text-xs font-bold">𝕏</span>}
+                                {red === 'whatsapp' && <span class="text-sm font-bold">w</span>}
+                                {red === 'telegram' && <span class="text-sm font-bold">t</span>}
+                                {red === 'link' && <span class="text-sm">🔗</span>}
+                            </button>
+                    ))}
+                </div>
+            </div>
+
+            <hr class="border-t border-gray-200/80 my-12" />
+
+            <section class="mt-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-2xl font-bold text-[#3c5043] tracking-tight">Related Posts</h2>
+
+                    <div class="flex gap-2">
+                        <button class="w-[34px] h-[34px] rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors text-lg font-light">
+                            ‹
+                        </button>
+                        <button class="w-[34px] h-[34px] rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-gray-50 transition-colors text-lg font-light">
+                            ›
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {noticiasRelacionadas.map((item) => (
+                            <Card item={item} />
+                    ))}
+                </div>
+            </section>
+
+        </article>
+    </main>
+</Layout>

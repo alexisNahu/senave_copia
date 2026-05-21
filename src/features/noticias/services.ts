@@ -1,17 +1,17 @@
 // src/services/servicios.ts
-import type { Servicio } from "./models.ts";
-import {serviciosMock} from "./mock.ts";
+import type {Noticias} from "./models.ts";
+import {noticias} from "./mock.ts";
 
 // Importamos el mock (ya sea que lo tengas en un archivo .ts o un .json)
 
-export const ServiciosService = {
+export const NoticiasService = {
     /**
      * Obtiene todos los servicios disponibles (útil para la grilla de la Home)
      */
-    async getAll(): Promise<Servicio[]> {
+    async getAll(): Promise<Noticias[]> {
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve(serviciosMock);
+                resolve(noticias);
             }, 150);
         });
     },
@@ -19,10 +19,10 @@ export const ServiciosService = {
     /**
      * Busca un servicio específico a través de su slug amigable para la URL
      */
-    async getBySlug(slug: string): Promise<Servicio | null> {
+    async getBySlug(slug: string): Promise<Noticias | null> {
         return new Promise((resolve, reject) => {
             try {
-                const servicio = serviciosMock.find(s => s.slug === slug);
+                const servicio = noticias.find(s => s.slug === slug);
 
                 if (!servicio) {
                     resolve(null);

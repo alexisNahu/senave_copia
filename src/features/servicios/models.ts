@@ -5,6 +5,7 @@ export interface DescargaDocumento {
 }
 
 export interface SeccionDocumentos {
+    main_links?: { title: string; url: string }[];
     subtitulo: string;
     docs: DescargaDocumento[];
 }
@@ -12,6 +13,7 @@ export interface SeccionDocumentos {
 export interface SubDepartamento {
     name: string;
     slug: string;
+    texto?: string;
     main_links?: { title: string; url: string }[];
     bulletins?: { title: string; type: 'pdf' | 'excel'; url: string }[];
     sections?: SeccionDocumentos[];
