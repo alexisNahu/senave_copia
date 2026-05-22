@@ -8,7 +8,7 @@ const links = [
 ];
 ---
 
-<div class="bg-rojo-mitic border-t border-white/20">
+<div class="bg-rojo-mitic border-t border-white/20" transition:animate="fade">
     <div class="max-w-7xl mx-auto px-4">
         <ul class="flex flex-wrap justify-center lg:justify-end items-center py-3 gap-x-8 gap-y-2">
             {
@@ -17,12 +17,13 @@ const links = [
                             <a
                                     href={link.href}
                                     target="_blank"
-                                    class="flex items-center text-white text-[11px] md:text-xs font-bold tracking-widest hover:opacity-80 transition-opacity uppercase"
+                                    rel="noopener noreferrer"
+                                    class="group flex items-center text-white text-[11px] md:text-xs font-bold tracking-widest hover:text-white/80 transition-all uppercase"
                             >
                                 {link.name}
                                 <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        class="ml-2 h-4 w-6"
+                                        class="ml-2 h-4 w-6 transform transition-transform duration-200 ease-out group-hover:translate-x-1"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"

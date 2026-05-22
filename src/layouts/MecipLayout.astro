@@ -55,16 +55,16 @@ import Header from "../features/index/Header.astro";
 
             <!-- Logo o Nombre de la Institución -->
             <div class="flex-shrink-0 font-bold text-lg tracking-wider text-white">
-                <a href="/index.html" class="hover:text-red-400 transition-colors">MECIP</a>
+                <a href="/mecip" class="hover:text-red-400 transition-colors">MECIP</a>
             </div>
 
             <!-- Menú desktop -->
             <ul class="hidden sm:flex items-center gap-1 text-sm font-medium">
                 {[
-                    { href: '/index.html',                                           label: 'Inicio' },
-                    { href: '/socializacion.php',                                    label: 'Implementación NRM MECIP:2015' },
+                    { href: '/mecip',                                           label: 'Inicio' },
+                    { href: '/mecip/socializacion',                             label: 'Implementación NRM MECIP:2015' },
                     { href: 'https://www.senave.gov.py/mecip/procedimientos.php?page=1', label: 'Documentos' },
-                    { href: '/calificaciones.html',                                  label: 'Calificaciones' },
+                    { href: '/mecip/calificaciones',                                  label: 'Calificaciones' },
                     { href: '#',                                                     label: 'Contacto' },
                 ].map(({ href, label }) => (
                         <li>

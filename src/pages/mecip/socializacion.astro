@@ -1,0 +1,98 @@
+---
+import MecipLayout from "../../layouts/MecipLayout.astro";
+
+// Agrupamos los enlaces por componentes para mantener el código limpio y mantenible
+const seccionesMecip = [
+    {
+        titulo: "Ambiente de Control",
+        enlaces: [
+            { href: "#", label: "Compromiso de la Alta Dirección" },
+            { href: "#", label: "Acuerdo y Compromisos Éticos" },
+            { href: "#", label: "Protocolo de Buen Gobierno" },
+            { href: "#", label: "Política de Gestión y Desarrollo de las Personas del SENAVE" }
+        ]
+    },
+    {
+        titulo: "Componente de Control de la Planificación",
+        enlaces: [
+            { href: "#", label: "Direccionamiento estratégico" },
+            { href: "#", label: "Estructura organizacional" },
+            { href: "#", label: "Gestión por procesos" },
+            { href: "#", label: "Identificación y evaluación de riesgos" }
+        ]
+    },
+    {
+        titulo: "Componente de Control de la Implementación",
+        enlaces: [
+            { href: "#", label: "Control operacional" },
+            { href: "#", label: "Competencia, Formación y toma de conciencia" },
+            { href: "#", label: "Gestión de la información" },
+            { href: "#", label: "Comunicación" }
+        ]
+    },
+    {
+        titulo: "Componente de Control de Evaluación",
+        enlaces: [
+            { href: "#", label: "Seguimiento y medición del control interno" },
+            { href: "#", label: "Auditoría Interna" }
+        ]
+    },
+    {
+        titulo: "Componente de Control para la Mejora",
+        enlaces: [
+            { href: "#", label: "Análisis crítico del sistema de control interno" },
+            { href: "#", label: "Mejora continua" }
+        ]
+    }
+];
+---
+
+<MecipLayout>
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+        <div class="border-b-2 border-slate-200 pb-4 mb-8">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-wide uppercase">
+                Implementación de la NRM / MECIP 2015
+            </h1>
+        </div>
+
+        <div class="space-y-8">
+            {seccionesMecip.map((seccion) => (
+                    <section class="bg-white/80 backdrop-blur-xs p-6 rounded-xl shadow-xs border border-slate-100 transition-all hover:shadow-md">
+
+                        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                            <span class="w-2 h-5 bg-verde rounded-xs inline-block"></span>
+                            {seccion.titulo}
+                        </h2>
+
+                        <ul class="grid gap-2.5 pl-2">
+                            {seccion.enlaces.map((enlace) => (
+                                    <li>
+                                        <a
+                                                href={enlace.href}
+                                                class="group flex items-start gap-2.5 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150 text-[15px]"
+                                        >
+                                            <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    class="h-4 w-4 text-amber-500 shrink-0 mt-1 transition-transform group-hover:translate-x-0.5"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                    stroke-width="3"
+                                            >
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                            <span class="underline decoration-blue-300 group-hover:decoration-blue-600 transition-colors">
+                    {enlace.label}
+                  </span>
+                                        </a>
+                                    </li>
+                            ))}
+                        </ul>
+
+                    </section>
+            ))}
+        </div>
+
+    </main>
+</MecipLayout>
