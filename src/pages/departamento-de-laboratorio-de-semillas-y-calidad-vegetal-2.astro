@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+---
+
+<Layout>
+    <Header title="Departamento de Laboratorio de Semillas y Calidad Vegetal" />
+
+    <div class="max-w-5xl mx-auto px-4 py-12 pb-20 text-gray-700">
+
+        <!-- Índice navegable -->
+        <div class="bg-green-50 border border-[#00a240] rounded-lg p-5 mb-10">
+            <p class="font-bold text-gray-800 mb-3">Contenido de esta página:</p>
+            <ul class="space-y-2">
+                {[
+                    { href: "#UNO", label: "Análisis de semillas" },
+                    { href: "#DOS", label: "Registro de Laboratorios de Semillas" },
+                    { href: "#TRES", label: "Registro de Muestreadores de Lotes de Semillas" },
+                    { href: "#CUATRO", label: "Capacitaciones" },
+                ].map((item) => (
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-[#00a240] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <a href={item.href} class="text-[#00a240] hover:underline">{item.label}</a>
+                        </li>
+                ))}
+            </ul>
+        </div>
+
+        <!-- Sección 1: Análisis de semillas -->
+        <div id="UNO" class="scroll-mt-24 mb-12">
+            <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Análisis de semillas</h2>
+            <p class="mb-4">A fin de determinar la calidad de las semillas, el Laboratorio ofrece servicios de análisis de calidad física, fisiológica y bioquímica, ya sea con fines de certificación o control interno.</p>
+
+            <h3 class="font-bold text-gray-800 mb-3">¿Qué análisis ofrece el laboratorio y qué costo tienen?</h3>
+            <ul class="list-disc list-inside space-y-2 text-sm mb-6">
+                <li><strong>Pureza física de semillas brozosas:</strong> 70.000 Gs.</li>
+                <li><strong>Pureza física de semillas no brozosas:</strong> 50.000 Gs.</li>
+                <li><strong>Pureza física de semillas recubiertas:</strong> 80.000 Gs.</li>
+                <li><strong>Germinación:</strong> 46.947 Gs.</li>
+                <li><strong>Primer conteo de análisis de germinación:</strong> 23.474 Gs.</li>
+                <li><strong>Determinación de otras semillas en número:</strong> 28.625 Gs.</li>
+                <li>
+                    <strong>Determinación de contenido de humedad:</strong>
+                    <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
+                        <li>Método estufa: 45.800 Gs.</li>
+                        <li>Humedímetro: 12.355 Gs.</li>
+                    </ul>
+                </li>
+                <li><strong>Viabilidad por tetrazolio:</strong> 60.000 Gs.</li>
+                <li>
+                    <strong>Vigor:</strong>
+                    <ul class="list-disc list-inside ml-6 mt-1 space-y-1">
+                        <li>Tetrazolio: 49.418 Gs.</li>
+                        <li>Envejecimiento acelerado: 30.886 Gs.</li>
+                        <li>Emergencia de radícula.</li>
+                        <li>Conductividad eléctrica.</li>
+                    </ul>
+                </li>
+                <li><strong>Peso de 1000 semillas:</strong> 9.884 Gs.</li>
+                <li><strong>Daño mecánico por hipoclorito de sodio:</strong> 19.665 Gs.</li>
+                <li><strong>Identificación de arroz rojo:</strong> 9.884 Gs.</li>
+            </ul>
+
+            <hr class="my-6 border-gray-200" />
+
+            <h3 class="font-bold text-gray-800 mb-3">¿Cómo debo proceder para un análisis de semillas?</h3>
+            <ol class="list-decimal list-inside space-y-2 text-sm mb-6">
+                <li>Acercar la muestra al laboratorio.</li>
+                <li>Adjuntar acta de muestreo de lotes de semillas, en caso de certificación de lote.</li>
+                <li>
+                    Llenar el <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-531-Solicitud-de-análisis-de-semillas.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-531</a> Solicitud de análisis.
+                </li>
+                <li>Abonar por el servicio solicitado.</li>
+                <li>
+                    Remitir comprobante de pago, a fin de dar inicio al proceso de análisis a los correos:
+                    <ul class="list-none ml-4 mt-1 space-y-1">
+                        <li><a href="mailto:laboratorio.semillas@senave.gov.py" class="text-[#00a240] hover:underline">laboratorio.semillas@senave.gov.py</a></li>
+                        <li><a href="mailto:semillaslaboratorio2021@gmail.com" class="text-[#00a240] hover:underline">semillaslaboratorio2021@gmail.com</a></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <hr class="my-6 border-gray-200" />
+
+            <h3 class="font-bold text-gray-800 mb-3">¿En cuánto tiempo estará el análisis de semillas?</h3>
+            <ul class="list-disc list-inside space-y-2 text-sm">
+                <li>El tiempo estimado depende de cada especie y según sea el análisis solicitado, siguiendo lo establecido en las Reglas ISTA.</li>
+                <li>Así también deberá tener en cuenta que las muestras son analizadas en forma correlativa conforme al número de ingreso.</li>
+                <li>Se dará inicio solo cuando se tenga el comprobante de pago correspondiente.</li>
+            </ul>
+        </div>
+
+        <hr class="my-10 border-gray-300" />
+
+        <!-- Sección 2: Registro de Laboratorios de Semillas -->
+        <div id="DOS" class="scroll-mt-24 mb-12">
+            <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Registro de Laboratorios de Semillas</h2>
+            <p class="mb-4 text-sm">Conforme a lo establecido en la Ley N°385/94 "De semillas y protección de cultivares", toda persona física o jurídica que ofrezca servicios de análisis de semillas deberá estar inscrito en el Registro Nacional de Laboratorios de Semillas.</p>
+
+            <hr class="my-4 border-gray-200" />
+
+            <h3 class="font-bold text-gray-800 mb-3">¿Cuáles son los requisitos?</h3>
+            <ul class="list-disc list-inside space-y-2 text-sm mb-4">
+                <li><a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-502-Solicitud-de-Inscripcion-modif-RNLS-V01.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-502</a> Solicitud de Inscripción/modificación del RNLS y acreditación LAS MERCOSUR.</li>
+                <li><a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-503-Termino-de-Compromiso-RNLS-V01.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-503</a> Término de Compromiso RNLS.</li>
+                <li><a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-504-Listado-de-Analistas-y-Detalle-de-Equipamientos-del-Laboratorio-de-Semillas-V011.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-504</a> Listado de analistas y detalle de equipamientos del Laboratorio de Semillas.</li>
+                <li>FOR-DLSyCV-515 Registro de Firmas.</li>
+            </ul>
+
+            <div class="bg-gray-50 border border-gray-200 rounded p-4 text-sm mb-4">
+                <p class="font-semibold mb-2">Persona física y Jurídica:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Copia de Cédula de Identidad del Representante Legal, del Técnico Patrocinante y del Responsable Técnico.</li>
+                    <li>Copia de la Matrícula Profesional, del Técnico Patrocinante y del Responsable Técnico vigente a la fecha.</li>
+                    <li>Copia de la Licencia Ambiental vigente expedida por el MADES.</li>
+                    <li>Copia del RUC.</li>
+                    <li>Plano o croquis con la localización de los sectores: indicando punto de agua e instalaciones eléctricas, mesadas, descripción del tipo de piso y paredes.</li>
+                    <li>Croquis de localización con el punto georeferencial del Laboratorio de Análisis de Semillas.</li>
+                </ul>
+                <p class="font-semibold mt-3 mb-2">Persona Jurídica (adicional):</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-700">
+                    <li>Documento o escritura por el cual se acredite al Representante Legal.</li>
+                    <li>Documento de la constitución, Acta de asamblea o contrato social de la entidad solicitante.</li>
+                </ul>
+                <p class="mt-2 text-gray-600"><strong>Nota:</strong> Todas las copias de los documentos presentados deberán estar autenticadas por escribanía.</p>
+            </div>
+
+            <hr class="my-4 border-gray-200" />
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Cómo debo proceder?</h3>
+            <ol class="list-decimal list-inside space-y-1 text-sm mb-4">
+                <li>Solicito autorización de pago por solicitud de inscripción en el RNLS.</li>
+                <li>Presento los documentos requeridos a través de mesa de entrada (física o digital) junto con el comprobante de pago.</li>
+                <li>Aguardo evaluación técnica y jurídica, notificación, evaluación in situ y aprobación.</li>
+                <li>Procedo al pago por el registro.</li>
+                <li>Emisión del RNLS.</li>
+            </ol>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Qué costo tiene?</h3>
+            <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                <li>Solicitud: 5 JMD</li>
+                <li>Registro: 10 JMD</li>
+                <li>Mantenimiento anual: 5 JMD</li>
+                <li>Auditoría anual: 953.421 guaraníes.</li>
+            </ul>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿En cuánto tiempo obtengo mi registro?</h3>
+            <p class="text-sm mb-1">A partir de la recepción de la solicitud: 50 días hábiles.</p>
+            <p class="text-sm text-gray-600 mb-4"><strong>Nota:</strong> En caso de contar con requisitos faltantes se cuenta con un plazo de 30 días hábiles para la presentación de los mismos.</p>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Cuánto tiempo dura mi registro?</h3>
+            <p class="text-sm">Duración indefinida, sujeto a auditorías de laboratorio.</p>
+        </div>
+
+        <hr class="my-10 border-gray-300" />
+
+        <!-- Sección 3: Registro de Muestreadores -->
+        <div id="TRES" class="scroll-mt-24 mb-12">
+            <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Registro de Muestreadores de Lotes de Semillas</h2>
+            <p class="mb-4 text-sm">Conforme a lo establecido en la Res. GMC N°24/2017, toda persona física que ofrezca servicios de muestreo de lotes de semillas deberá estar inscripto en el Registro Nacional de Muestreadores de Lotes de Semillas.</p>
+
+            <h3 class="font-bold text-gray-800 mb-3">¿Cuáles son los requisitos?</h3>
+            <ul class="list-disc list-inside space-y-2 text-sm mb-4">
+                <li>Participar y aprobar la capacitación en muestreo de lotes de semillas, ofrecida por el DLSyCV.</li>
+                <li><a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-507-Solicitud-de-Inscripcion-Renovación-Modif-RMLS-V011.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-507</a> Solicitud de inscripción/modificación/renovación del RNMLS.</li>
+                <li>FOR DLSyCV-515 Registro de firmas.</li>
+                <li>Copia autenticada de la Cédula de Identidad Civil.</li>
+                <li>Copia simple del RUC.</li>
+                <li>Fotos tipo carnet: 2 (dos).</li>
+            </ul>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Cómo debo proceder?</h3>
+            <ol class="list-decimal list-inside space-y-1 text-sm mb-4">
+                <li>Solicito autorización de pago por solicitud de inscripción en el RNMLS.</li>
+                <li>Presento los documentos requeridos a través de mesa de entrada (física o digital) junto con el comprobante de pago.</li>
+                <li>Aguardo evaluación documental y notificación en caso de requisito faltante o aprobación.</li>
+                <li>Procedo al pago por el registro.</li>
+                <li>Emisión del RNMLS.</li>
+            </ol>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Qué costo tiene?</h3>
+            <ul class="list-disc list-inside text-sm space-y-1 mb-4">
+                <li>Capacitación para muestreadores: 249.804 guaraníes.</li>
+                <li>Solicitud: 446.886 guaraníes.</li>
+                <li>Registro: 446.886 guaraníes.</li>
+                <li>Mantenimiento anual: 286.026 guaraníes.</li>
+            </ul>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿En cuánto tiempo obtengo mi registro?</h3>
+            <p class="text-sm mb-1">A partir de la recepción de la solicitud: 10 días hábiles.</p>
+            <p class="text-sm text-gray-600 mb-4"><strong>Nota:</strong> En caso de contar con requisitos faltantes se cuenta con un plazo de 15 días hábiles para la presentación de los mismos.</p>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Cuánto tiempo dura mi registro?</h3>
+            <p class="text-sm">5 años, sujeto a mantenimiento anual.</p>
+        </div>
+
+        <hr class="my-10 border-gray-300" />
+
+        <!-- Sección 4: Capacitaciones -->
+        <div id="CUATRO" class="scroll-mt-24 mb-12">
+            <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Capacitaciones</h2>
+            <p class="mb-4 text-sm">El DLSyCV brinda servicios de capacitación para quienes se desempeñarán como responsables técnicos, analistas y muestreadores de lotes de semillas.</p>
+
+            <hr class="my-4 border-gray-200" />
+
+            <h3 class="font-bold text-gray-800 mb-3">¿Cuáles son los requisitos?</h3>
+            <ul class="list-disc list-inside text-sm mb-4">
+                <li>
+                    <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-DLSyCV-505-Solicitud-de-capacitación-para-Responsable-Tecnico-Analista-de-Semillas-V011.docx" class="text-[#00a240] hover:underline">FOR-DLSyCV-505</a> Solicitud de capacitación para Responsable Técnico – Analista de semillas.
+                </li>
+            </ul>
+
+            <h3 class="font-bold text-gray-800 mb-2">¿Cómo debo proceder?</h3>
+            <ol class="list-decimal list-inside space-y-1 text-sm">
+                <li>Solicito autorización de pago por solicitud de capacitación.</li>
+                <li>Presento los documentos requeridos a través de mesa de entrada (física o digital) junto con el comprobante de pago.</li>
+                <li>Aguardo confirmación de fecha para capacitación.</li>
+                <li>Participación y evaluación de capacitación.</li>
+                <li>Emisión del certificado de capacitación.</li>
+            </ol>
+        </div>
+
+        <hr class="my-10 border-gray-300" />
+
+        <!-- Pago de servicios -->
+        <div class="bg-green-50 border border-[#00a240] rounded-lg p-6">
+            <h2 class="text-[#00a240] text-[18px] font-bold mb-4">Pago de servicios — Sistema de pago en el SENAVE</h2>
+            <ol class="list-decimal list-inside space-y-3 text-sm">
+                <li>
+                    Seguir los pasos del tutorial de pagos en el TES.
+                    <a href="https://www.senave.gov.py/docs/laboratorio/Tutorial_Pago_Aranceles%20(3).pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver Tutorial de Pago de Aranceles (pdf)</a>
+                </li>
+                <li>
+                    Ingresar a Bancard (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC con el que generó la liquidación y abonar el servicio.
+                    <a href="https://www.senave.gov.py/docs/videos/Crear usuario en el TES.mp4" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver el video tutorial para crear usuario en el TES</a>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+</Layout>

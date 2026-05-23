@@ -1,0 +1,196 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+---
+
+<Layout>
+    <Header title="Laboratorio de Control de Calidad de Insumos de Uso Agrícola" />
+
+    <section class="py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 text-gray-700 text-sm leading-relaxed space-y-6">
+
+            <p>
+                Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos o internos, realizando ensayos en registros (Resolución 449/06), extensión de plazo de validez (Resolución 828/06), monitoreo (puntos de ingreso) (Resolución 1500/10), fiscalizaciones / intervenciones / decomisos y control de calidad.
+            </p>
+
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-3">¿Qué necesito?</h2>
+
+                <div class="space-y-4">
+                    <div>
+                        <p>
+                            <span class="font-bold text-gray-800">Paso 1.</span> Formulario de{" "}
+                            <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-LCC-113-Solicitud-de-ensayo-v01.xlsx" class="text-[#00A240] underline hover:text-[#00560E]">"Solicitud de ensayos" FOR-LCC-113 Solicitud de ensayo LCC v01</a>{" "}
+                            debidamente completado y firmado.
+                        </p>
+                        <div class="mt-2 bg-gray-50 border-l-4 border-[#00A240] px-4 py-3 rounded-r text-xs space-y-1">
+                            <p>
+                                <span class="font-bold text-gray-800">Usuarios Externos:</span> La solicitud debe ser escaneada y enviada al correo electrónico:{" "}
+                                <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00A240] underline hover:text-[#00560E]">laboratorio.quimicos@senave.gov.py</a> o{" "}
+                                <a href="mailto:dlco.senave@gmail.com" class="text-[#00A240] underline hover:text-[#00560E]">dlco.senave@gmail.com</a> para su aprobación.
+                            </p>
+                            <p>
+                                Una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación también puede realizarse en forma física, presentándose al Laboratorio de lunes a viernes de 07:00 a 13:00 hs.
+                            </p>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500">
+                            Los <span class="font-semibold text-gray-700">usuarios internos</span> (para ensayos en etapas de monitoreo en puntos de ingreso y fiscalizaciones / intervenciones / decomisos) completan el SI-LAB (Sistema Informático de Laboratorios).
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="font-bold text-gray-800 mb-1">Paso 2. Pago de servicios. Sistema de pago de servicios en el SENAVE:</p>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <li>
+                                Seguir los pasos del tutorial de pagos en el TES.{" "}
+                                <a href="https://www.senave.gov.py/docs/laboratorio/Tutorial_Pago_Aranceles%20(3).pdf" class="text-[#00A240] underline hover:text-[#00560E]">Ver tutorial de Pago de Aranceles (pdf)</a>
+                            </li>
+                            <li>
+                                Ingresar a Bancard (Homebanking o Redes de Cobranzas habilitadas), colocar el número de RUC para comprobar la liquidación y abonar el servicio.{" "}
+                                <a href="https://www.senave.gov.py/docs/videos/Crear%20usuario%20en%20el%20TES.mp4" class="text-[#00A240] underline hover:text-[#00560E]">Ver video tutorial para crear en el TES</a>
+                            </li>
+                        </ol>
+                        <p class="mt-2 text-xs text-gray-500 pl-5">
+                            Contacto Tesorería: +59521537-120 | <a href="mailto:recaudaciones@senave.gov.py" class="hover:underline">recaudaciones@senave.gov.py</a>
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="mb-2">
+                            <span class="font-bold text-gray-800">Paso 3.</span> La muestra deberá cumplir estrictamente los requisitos de recepción de muestras, de lo contrario será rechazada:
+                        </p>
+                        <ul class="space-y-1 pl-1 text-xs font-medium">
+                            <li class="flex items-center gap-1.5">
+                                <span class="text-gray-400">📁</span> Ensayos para registro: <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepción-de-muestras-registro-LCC.doc" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras registro LCO</a>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="text-gray-400">📁</span> Ensayos para extensión de plazo de validez: <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepción-de-muestras-extensión-LCC.doc" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras ex validez LCO</a>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="text-gray-400">📁</span> Ensayos para monitoreo en puntos de ingreso: <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepción-de-muestras-monitoreo-en-punto-de-ingreso-LCC.doc" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras monitoreo puntos de ingreso LCO</a>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="text-gray-400">📁</span> Ensayos para fiscalizaciones/intervenciones/decomisos: <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepción-de-muestras-fiscalizacion-intervencion-LCC.doc" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras fiscalizacion e intervenciones LCO</a>
+                            </li>
+                            <li class="flex items-center gap-1.5">
+                                <span class="text-gray-400">📁</span> Ensayos de control de calidad: <a href=href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepción-de-muestras-control-de-calidad-LCC.doc" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras control de calidad LCO</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 px-4 py-3 rounded-r space-y-1 text-xs">
+                <p class="font-bold text-gray-800 text-sm">Importante:</p>
+                <ul class="list-disc pl-4 space-y-1">
+                    <li>
+                        Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un período de 15 días hábiles. Finalizado este plazo, el Laboratorio dispondrá de las mismas.
+                    </li>
+                    <li>
+                        Solo se dará inicio formal al ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-1">¿Cuáles son los principios activos ensayados en el Laboratorio?</h2>
+                <a href="https://www.senave.gov.py/docs/laboratorio/Listado de plaguicidas ensayados en el LCC Octubre 2025.pdf" class="text-[#00A240] underline hover:text-[#00560E] font-medium">
+                    Listado de plaguicidas y nutrientes. Este listado se actualiza de manera mensual (clic para ver)
+                </a>
+            </div>
+
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-1">¿Cuál es el costo de los ensayos?</h2>
+                <a href="https://www.senave.gov.py/docs/laboratorio/Resolucion SENAVE 532-25 Prestacion de Servicios.pdf" class="text-[#00A240] underline hover:text-[#00560E] font-medium">
+                    Ver Resolución Arancelaria N° 532/25
+                </a>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100">
+                <h2 class="text-lg font-bold text-[#00A240] uppercase tracking-wide">Departamento de Laboratorios Químicos</h2>
+                <p class="text-xs text-gray-500 mb-4">
+                    Áreas Productos de Fitosanitarios y Fertilizantes y Laboratorio de Residuos de Plaguicidas y Micotoxinas.
+                </p>
+
+                <div class="mb-6">
+                    <p class="font-bold text-gray-800 mb-2 text-xs uppercase tracking-wider text-gray-500">Ensayos de Plaguicida</p>
+                    <div class="overflow-x-auto border border-gray-200 rounded">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-700 font-semibold">
+                                <th class="p-2.5 w-12">Ítem</th>
+                                <th class="p-2.5">Descripción</th>
+                                <th class="p-2.5 w-32">Unidad de Medida</th>
+                                <th class="p-2.5 w-40 text-right">Monto en Gs. (IVA inc.)</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 text-gray-600">
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-2.5 font-medium text-gray-800">351</td>
+                                <td class="p-2.5">Identificación o cuantificación de principio activo en producto formulado y grado técnico de plaguicida (Cuando el Principio Activo está declarado)</td>
+                                <td class="p-2.5">Por ingrediente activo</td>
+                                <td class="p-2.5 text-right font-semibold text-gray-900">920.217</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-2.5 font-medium text-gray-800">355</td>
+                                <td class="p-2.5">Identificación y/o cuantificación de principio activo en producto formulado y grado técnico de plaguicidas (Cuando el Principio Activo no se encuentra declarado)</td>
+                                <td class="p-2.5">Por muestra</td>
+                                <td class="p-2.5 text-right font-semibold text-gray-900">3.115.580</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="font-bold text-gray-800 mb-2 text-xs uppercase tracking-wider text-gray-500">Ensayos Fisicoquímicos</p>
+                    <div class="overflow-x-auto border border-gray-200 rounded">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-700 font-semibold">
+                                <th class="p-2.5 w-12">Ítem</th>
+                                <th class="p-2.5">Descripción</th>
+                                <th class="p-2.5 w-32">Unidad de Medida</th>
+                                <th class="p-2.5 w-40 text-right">Monto en Gs. (IVA inc.)</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 text-gray-600">
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-2.5 font-medium text-gray-800">356</td>
+                                <td class="p-2.5">Determinación de pH (Para productos fitosanitarios y fertilizantes)</td>
+                                <td class="p-2.5">Por muestra</td>
+                                <td class="p-2.5 text-right font-semibold text-gray-900">147.655</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50/50">
+                                <td class="p-2.5 font-medium text-gray-800">357</td>
+                                <td class="p-2.5">Densidad (Para productos fitosanitarios y fertilizantes)</td>
+                                <td class="p-2.5">Por muestra</td>
+                                <td class="p-2.5 text-right font-semibold text-gray-900">147.655</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-gray-100 grid md:grid-cols-2 gap-4 text-xs">
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-1 text-sm">Dirección de Laboratorios del SENAVE</h3>
+                    <p><span class="font-semibold text-gray-600">Dirección:</span> Alfonso Maza casi Angola Barrio Capellanía. San Lorenzo - Paraguay.</p>
+                    <p><span class="font-semibold text-gray-600">Teléfonos:</span> (+595) 21 537-120</p>
+                    <p><span class="font-semibold text-gray-600">Celular:</span> 0981 300 704</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-800 mb-1 text-sm">Consultas Técnicas</h3>
+                    <p>
+                        <span class="font-semibold text-gray-600">Correos:</span> <br/>
+                        <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00A240] underline hover:text-[#00560E]">laboratorio.quimicos@senave.gov.py</a><br/>
+                        <a href="mailto:dlco.senave@gmail.com" class="text-[#00A240] underline hover:text-[#00560E]">dlco.senave@gmail.com</a>
+                    </p>
+                    <p class="mt-1"><span class="font-semibold text-gray-600">Horario de atención:</span> Lunes a viernes de 07:00 a 15:30 hs.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</Layout>

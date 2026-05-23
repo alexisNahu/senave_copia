@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+---
+
+<Layout>
+    <Header title="Departamento de Muestreo Laboratorial Especializado" />
+
+    <section class="py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-5 text-gray-700 text-sm leading-relaxed space-y-8">
+
+            <!-- Intro -->
+            <p>
+                Realiza muestreo y traslado de productos y sub productos de origen vegetal y de insumos de uso agrícola.
+            </p>
+
+            <!-- ¿A quién está dirigido? -->
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-2">¿A quién está dirigido?</h2>
+                <p>
+                    Este departamento presta servicios a personas físicas o jurídicas, usuarios externos e internos.
+                </p>
+            </div>
+
+            <!-- ¿Qué necesito? -->
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-4">¿Qué necesito?</h2>
+
+                <div class="space-y-6">
+
+                    <!-- Caso 1: Solicitudes para muestreo -->
+                    <div>
+                        <h3 class="font-bold text-gray-800 mb-2">En caso de solicitudes para muestreo:</h3>
+                        <p>
+                            Formulario de{' '}
+                            <a
+                                    href="https://www.senave.gov.py/docs/laboratorio/SOLICITUD DE MUESTREO DE GRANOS DE SESAMO PARA EXPORTAR AL JAPON. V2.docx"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-[#00A240] underline hover:text-[#00560E]"
+                            >
+                                "Solicitud de muestreo de granos de sésamo para exportar al Japón" (Solicitud de ensayo FOR-DLME-001)
+                            </a>{' '}
+                            debidamente completado (Usuarios Externos). La misma es autorizada una vez enviada por correo electrónico:{' '}
+                            <a
+                                    href="mailto:muestreo@senave.gov.py"
+                                    class="text-[#00A240] underline hover:text-[#00560E]"
+                            >
+                                muestreo@senave.gov.py
+                            </a>
+                        </p>
+                    </div>
+
+                    <!-- Caso 2: Traslados de muestras de productos vegetales e insumos agrícolas -->
+                    <div>
+                        <h3 class="font-bold text-gray-800 mb-2">En caso de traslados de muestras de productos vegetales e insumos agrícolas:</h3>
+                        <p class="mb-3">
+                            Todas las muestras que serán trasladadas a las dependencias de la Dirección de Laboratorios deben estar
+                            acompañadas de un documento "Planilla de Entrega de Muestras" FOR-DO-114 con los datos que se requiera.
+                        </p>
+                        <p class="mb-3">Las muestras deberán contar con la siguiente documentación vinculante:</p>
+
+                        <div>
+                            <p class="font-semibold text-gray-800 mb-1">Muestras provenientes de Puntos de ingreso</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Etiqueta FOR-DO-101 Identificación de muestras vegetales.</li>
+                                <li>Debidamente precintado.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Caso 3: Traslado de muestras de insumos agrícolas -->
+                    <div>
+                        <h3 class="font-bold text-gray-800 mb-2">En caso de traslado de muestras de insumos agrícolas:</h3>
+                        <p class="mb-2">
+                            Todas las muestras que serán trasladadas a las dependencias de la Dirección de Laboratorios deben estar
+                            acompañadas de un documento "Planilla de Entrega de Muestras" FOR-DO-113 con los datos que se requiera.
+                        </p>
+                        <p>
+                            Las muestras deberán contar con la debida identificación FOR-DO-102 las que son provenientes de Puntos de ingreso.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ¿Cuánto tiempo lleva el proceso? -->
+            <div>
+                <h2 class="text-lg font-bold text-[#00A240] mb-3">
+                    ¿Cuánto tiempo lleva el proceso para la toma de muestra de granos de sésamo?
+                </h2>
+
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#00A240] shrink-0"></span>
+                        <p><span class="font-semibold text-gray-800">Recepción de solicitud:</span> 24 horas para dar respuesta.</p>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                        <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#00A240] shrink-0"></span>
+                        <p><span class="font-semibold text-gray-800">Remisión de planificación:</span> indicando fecha del muestreo.</p>
+                    </div>
+
+                    <div class="flex items-start gap-2">
+                        <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#00A240] shrink-0"></span>
+                        <div>
+                            <p class="font-semibold text-gray-800 mb-1">Toma de muestra:</p>
+                            <ul class="space-y-1 pl-1">
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
+                                    <span>Central: 1 a 3 días hábiles posterior a la solicitud.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="mt-1.5 w-1 h-1 rounded-full bg-gray-400 shrink-0"></span>
+                                    <span>Interior del país: 5 días hábiles dependiendo de la demanda de solicitudes.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</Layout>

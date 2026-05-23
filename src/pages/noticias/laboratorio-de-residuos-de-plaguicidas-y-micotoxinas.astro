@@ -1,0 +1,227 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from '../../features/index/Header.astro'
+const costos = [
+    { item: "378", descripcion: "Determinación de Residuos de Plaguicidas – Método Multiresiduos, en vegetales y otros", unidad: "Por muestra", monto: "1.548.956" },
+    { item: "379", descripcion: "Determinación de Residuos de plaguicidas en granos – Método Japonés Multiresiduos en granos", unidad: "Por muestra", monto: "356.725" },
+    { item: "380", descripcion: "Determinación de Residuos de plaguicidas en granos – Método Quechers Multiresiduos en granos", unidad: "Por muestra", monto: "1.535.100" },
+    { item: "381", descripcion: "Determinación de Aflatoxinas totales en grano por el Método ELISA (Screening)", unidad: "Por muestra", monto: "808.472" },
+    { item: "382", descripcion: "Determinación de Aflatoxinas Totales (B1, B2, G1 y G2) en grano por el Método de HPLC", unidad: "Por muestra", monto: "641.511" },
+    { item: "383", descripcion: "Determinación de Arsénico Total en arroz por EAA-HG", unidad: "Por muestra", monto: "868.769" },
+    { item: "384", descripcion: "Determinación de Residuos de Plaguicidas – Método Multiresiduos, en suelos", unidad: "Por muestra", monto: "710.459" },
+    { item: "385", descripcion: "Determinación de Residuos de Plaguicidas – Método Multiresiduos, en agua", unidad: "Por muestra", monto: "1.278.051" },
+    { item: "389", descripcion: "Determinación de residuos de Haloxifop en granos para exportación – Método Japonés", unidad: "Por muestra", monto: "356.553" },
+    { item: "390", descripcion: "Determinación de residuos de un plaguicida en matriz vegetal, agua y suelo", unidad: "Por muestra", monto: "1.534.361" },
+    { item: "391", descripcion: "Determinación de metales pesados (Cadmio y Plomo) en granos para exportación", unidad: "Por muestra", monto: "356.553" },
+];
+---
+
+<Layout>
+    <Header title="Laboratorio de Residuos de Plaguicidas y Micotoxinas" />
+
+    <div class="max-w-5xl mx-auto px-4 py-12 pb-20 text-gray-700">
+
+        <!-- ¿A quién está dirigido? -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿A quién está dirigido?</h2>
+        <p class="mb-4">Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos e internos, realizando ensayos para exportación, importación, certificación, monitoreos en campo (fincas), fiscalizaciones/intervenciones/decomisos y control de calidad. El laboratorio posee las siguientes áreas:</p>
+
+        <!-- Áreas -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-green-50 border-l-4 border-[#00a240] p-4 rounded-r-lg">
+                <h3 class="font-bold text-gray-800 mb-2">Residuos de Plaguicidas</h3>
+                <p class="text-sm">Realiza ensayos de identificación y cuantificación de principios activos de plaguicidas de uso agrícola en productos y sub productos de origen vegetal, granos y cereales, así como en muestras de agua y suelo.</p>
+            </div>
+            <div class="bg-green-50 border-l-4 border-[#00a240] p-4 rounded-r-lg">
+                <h3 class="font-bold text-gray-800 mb-2">Área Metales Pesados</h3>
+                <p class="text-sm">Realiza ensayos de determinación de contenido de Plomo (Pb), Cadmio (Cd) y Arsénico (As), y otros contaminantes, en productos y subproductos de origen vegetal, granos y cereales, así como muestras de yerba mate.</p>
+            </div>
+            <div class="bg-green-50 border-l-4 border-[#00a240] p-4 rounded-r-lg">
+                <h3 class="font-bold text-gray-800 mb-2">Área Micotoxinas</h3>
+                <p class="text-sm">En las matrices alimentarias pueden desarrollarse mohos que sintetizan sustancias tóxicas conocidas como micotoxinas. El área ofrece un completo análisis para el control de estas sustancias en diferentes matrices vegetales y otros.</p>
+            </div>
+        </div>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- ¿Qué necesito? -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">¿Qué necesito?</h2>
+
+        <!-- Paso 1 -->
+        <div class="flex gap-4 mb-6">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">1</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-1">Formulario de Solicitud de ensayos LRPM</p>
+                <p class="text-sm mb-2">Debidamente completada y firmada (Usuarios Externos para ensayos de registro, extensión de plazo de validez y control de calidad). La solicitud debe ser escaneada y enviada al correo electrónico para su aprobación, una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación también puede realizarse en forma física, presentando al Laboratorio de lunes a viernes de 7:00 a 15:00 hs.</p>
+                <a href="https://www.senave.gov.py/docs/laboratorio/Solicitud-de-ensayo-LRPM-21-06-2024-V03-01.docx"
+                   class="inline-flex items-center gap-2 text-[#00a240] hover:underline text-sm font-medium">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                    </svg>
+                    Descargar Formulario de Solicitud de Ensayo LRPM
+                </a>
+                <p class="text-sm mt-2">
+                    Correo: <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00a240] hover:underline">laboratorio.quimicos@senave.gov.py</a> o
+                    <a href="mailto:dlq.senave@gmail.com" class="text-[#00a240] hover:underline">dlq.senave@gmail.com</a>
+                </p>
+                <p class="text-sm text-gray-500 mt-1">Los usuarios internos completan el SILAB (Sistema Informático de Laboratorios).</p>
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex gap-4 mb-6" id="paso3">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">2</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-1">Pago de servicios</p>
+                <ul class="text-sm space-y-2">
+                    <li>1. Seguir los pasos del tutorial de pagos en el TES.
+                        <a href="https://www.senave.gov.py/docs/laboratorio/Tutorial_Pago_Aranceles (3).pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver Tutorial Pago de Aranceles (pdf)</a>
+                    </li>
+                    <li>2. Ingresar a Bancard (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC con el que generó la liquidación y abonar el servicio.
+                        <a href="https://www.senave.gov.py/docs/videos/Crear usuario en el TES.mp4" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver video tutorial para crear usuario en el TES</a>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">Contacto: <strong>+595 21 457-018</strong> — <a href="mailto:recaudaciones@senave.gov.py" class="text-[#00a240] hover:underline">recaudaciones@senave.gov.py</a></p>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex gap-4 mb-8">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">3</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-2">La muestra deberá cumplir estrictamente los requisitos, de lo contrario será rechazada:</p>
+                <ul class="text-sm space-y-2">
+                    <li>
+                        <span class="font-semibold">Residuos de Plaguicidas:</span>
+                        <a href="https://www.senave.gov.py/docs/laboratorio/Residuos-de-plaguicidas-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline ml-1">Requisitos de Muestras LRPM-RP</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Metales Pesados:</span>
+                        <a href="https://www.senave.gov.py/docs/laboratorio/Metales-Pesados-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline ml-1">Requisitos de Muestras LRPM-Metales Pesados</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Micotoxinas:</span>
+                        <a href="https://www.senave.gov.py/docs/laboratorio/Micotoxinas-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline ml-1">Requisitos de Muestras LRPM-Micotoxinas</a>
+                    </li>
+                </ul>
+                <div class="mt-3 bg-yellow-50 border border-yellow-300 rounded p-3 text-sm">
+                    <p class="font-bold text-yellow-800 mb-1">Importante:</p>
+                    <ul class="list-disc list-inside space-y-1 text-yellow-900">
+                        <li>Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un período de 15 días hábiles. Finalizado este plazo, serán descartadas.</li>
+                        <li>Sólo se dará inicio/curso del ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- ¿Cómo hago? -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">¿Cómo hago?</h2>
+        <ol class="list-decimal list-inside space-y-3 text-sm mb-8">
+            <li>
+                Consulto el Detalle de los ensayos disponibles para:
+                <ul class="ml-6 mt-1 space-y-1 list-none">
+                    <li><span class="font-semibold">· Residuos de Plaguicidas:</span> <a href="https://www.senave.gov.py/docs/laboratorio/Residuos-de-plaguicidas-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline">Requisitos de Muestras LRPM-RP</a></li>
+                    <li><span class="font-semibold">· Metales Pesados:</span> <a href="https://www.senave.gov.py/docs/laboratorio/Metales-Pesados-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline">Requisitos de Muestras LRPM-Metales Pesados</a></li>
+                    <li><span class="font-semibold">· Micotoxinas:</span> <a href="https://www.senave.gov.py/docs/laboratorio/Micotoxinas-Requisitos-para-recepcion-de-muestras.docx" class="text-[#00a240] hover:underline">Requisitos de Muestras LRPM-Micotoxinas</a></li>
+                </ul>
+            </li>
+            <li>Completo la <a href="https://www.senave.gov.py/docs/laboratorio/Solicitud-de-ensayo-LRPM-21-06-2024-V03-01.docx" class="text-[#00a240] hover:underline">"Solicitud de ensayos LRPM"</a></li>
+            <li>Entrego la muestra personalmente o a través de un tercero en la Mesa de Entrada del Laboratorio de Residuos de Plaguicidas y Micotoxinas.</li>
+            <li>Como usuario externo puedo pagar el servicio siguiendo los pasos del Sistema de pago de servicios en el SENAVE indicado en el <a href="#paso3" class="text-[#00a240] hover:underline">Paso 2</a>.</li>
+            <li>Retiro los resultados de la Mesa de Entrada del Laboratorio o los puedo recibir mediante el correo de contacto establecido si soy usuario externo, o a través del SILAB si soy usuario interno.</li>
+        </ol>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Tiempos y costos -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿Cuánto tiempo lleva hacer el ensayo?</h2>
+        <p class="text-sm mb-8">Los tiempos estimativos de entrega de los resultados pueden variar en función del volumen de trabajo al momento del ingreso de la muestra y de los resultados parciales, ya que puede ser necesario repetir algunos ensayos.</p>
+
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿Cuál es el costo del trámite?</h2>
+        <p class="text-sm mb-4">
+            <a href="https://www.senave.gov.py/docs/laboratorio/Resolucion SENAVE 532-25 Prestacion de Servicios.pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline font-medium">Resolución SENAVE N° 532/25</a>
+        </p>
+
+        <div class="overflow-x-auto mb-10">
+            <table class="w-full text-sm border-collapse">
+                <thead>
+                <tr class="bg-[#00a240] text-white">
+                    <th class="border border-gray-300 px-3 py-2 text-left">Item</th>
+                    <th class="border border-gray-300 px-3 py-2 text-left">Descripción</th>
+                    <th class="border border-gray-300 px-3 py-2 text-left">Unidad</th>
+                    <th class="border border-gray-300 px-3 py-2 text-right">Monto Gs. (IVA inc.)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {costos.map((row, i) => (
+                        <tr class={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                            <td class="border border-gray-300 px-3 py-2 font-medium">{row.item}</td>
+                            <td class="border border-gray-300 px-3 py-2">{row.descripcion}</td>
+                            <td class="border border-gray-300 px-3 py-2">{row.unidad}</td>
+                            <td class="border border-gray-300 px-3 py-2 text-right font-medium">{row.monto}</td>
+                        </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Normativas -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">Normativas</h2>
+        <ol class="list-decimal list-inside space-y-2 text-sm mb-8">
+            <li><a href="https://www.senave.gov.py/docs/laboratorio/Resolucion SENAVE 532-25 Prestacion de Servicios.pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline">Resolución SENAVE N° 532/25</a></li>
+            <li>Official analytical test method for total aflatoxins in food as stipulated in Section 2.2 of Notice – Shoku-an-hatsu 0331 No.5 issued on 31 March 2011.</li>
+            <li>Mycotoxin Handbook — <a href="https://www.ams.usda.gov/sites/default/files/media/MycotoxinHB.pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline">https://www.ams.usda.gov/sites/default/files/media/MycotoxinHB.pdf</a></li>
+            <li>AOAC Official Method 986.15 Arsenic, cadmium, lead, selenium and zinc in human and pet foods. Final action 1988.</li>
+            <li>AOAC Official Method 999.10. Lead, Cadmium, Zinc, Copper, and Iron in Foods. Atomic Absorption Spectrophotometry after Microwave Digestion.</li>
+            <li>AOAC 2007.01 Pesticide Residues in Foods by Acetonitrile Extraction and Partitioning with Magnesium Sulfate.</li>
+            <li>Analytical Methods for Residual Compositional Substances of Agricultural Chemicals — Multiresidue Method for Agricultural Chemicals by GC/MS.</li>
+            <li>EN15662 / Quechers Methodology.</li>
+            <li>Quick Polar Pesticides Method (QuPPe): permite el análisis de pesticidas altamente polares no aptos para métodos multiresiduos comunes.</li>
+        </ol>
+
+        <!-- Metodología -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">Metodología</h2>
+        <ol class="list-decimal list-inside space-y-2 text-sm mb-8">
+            <li>Detección y Cuantificación de Aflatoxinas Totales mediante ELISA en muestras de alimentos — Cod.: PRO-LRPM-145</li>
+            <li>Determinación de Aflatoxinas Totales (G1, G2, B1 y B2) mediante HPLC-FLD — Cod.: PRO-LRPM-144</li>
+            <li>Determinación de Arsénico total en Arroz por EAA-GH — Cód.: PRO-LRPM-146</li>
+            <li>Determinación de Pb, Cd por Llama por FAAS — Cód.: PRO-LRPM-147</li>
+            <li>Determinación de residuos de plaguicidas en vegetales por Quechers y LC-MS/MS — Cód.: PRO-LRPM-103</li>
+            <li>Determinación de Haloxyfop total en semillas oleaginosas por LC MS-MS — Cód.: PRO-LRPM-128</li>
+            <li>Determinación de Multiresiduos en hojas comestibles y no comestibles por Quechers y LC-MS/MS — Cód.: PRO-LRPM-129</li>
+            <li>Determinación de residuos de plaguicidas en semillas oleaginosas por Quechers y GCMSMS SHIMADZU — Cód.: PRO-LRPM-133</li>
+            <li>Determinación de Multiresiduos en semillas oleaginosas por GCMSMS – Método Japonés — Cód.: PRO-LRPM-134</li>
+            <li>Determinación de Multiresiduos en Semillas oleaginosas por LC MS-MS — Cód.: PRO-LRPM-135</li>
+            <li>Determinación de 2,4D en hojas comestibles y no comestibles por LC MS-MS Método QuPPe — Cód.: PRO-LRPM-136</li>
+            <li>Determinación de Multiresiduos en agua por LC-MS/MS — Cód.: PRO-LRPM-139</li>
+            <li>Determinación de residuos de plaguicidas en Banana por Quechers y GCMSMS SHIMADZU — Cód.: PRO-LRPM-140</li>
+            <li>Determinación de residuos de Plaguicidas en suelo por Quechers y LC MS-MS — Cód.: PRO-LRPM-141</li>
+            <li>Determinación de Multiresiduos en semillas oleaginosas por Quechers y LC MS-MS — Cód.: PRO-LRPM-142</li>
+        </ol>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Información de contacto -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Información complementaria</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 grid sm:grid-cols-2 gap-4 text-sm">
+            <div>
+                <p class="font-bold text-gray-800 mb-3">Dirección de Laboratorios del SENAVE</p>
+                <p><span class="font-semibold">Dirección:</span> Arsenales casi Angola, Barrio Capellanía. San Lorenzo - Paraguay</p>
+                <p class="mt-2"><span class="font-semibold">Teléfono:</span> (+595) 527-120</p>
+                <p><span class="font-semibold">Celular:</span> 0981 363 794</p>
+                <p class="mt-2"><span class="font-semibold">Horario de atención:</span> Lunes a viernes de 07:00 a 15:00 hs</p>
+            </div>
+            <div>
+                <p class="font-bold text-gray-800 mb-3">Consultas técnicas</p>
+                <p>
+                    <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00a240] hover:underline block">laboratorio.quimicos@senave.gov.py</a>
+                    <a href="mailto:dlq.senave@gmail.com" class="text-[#00a240] hover:underline block mt-1">dlq.senave@gmail.com</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</Layout>

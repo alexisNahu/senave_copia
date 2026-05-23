@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+const costos = [
+    { item: "366", descripcion: "Determinación de pH (Para productos fitosanitarios y fertilizantes)", unidad: "Por muestra", monto: "147.666" },
+    { item: "367", descripcion: "Densidad (Para productos fitosanitarios y fertilizantes)", unidad: "Por muestra", monto: "147.666" },
+    { item: "368", descripcion: "Solubilidad en agua (Para fertilizantes)", unidad: "Por muestra", monto: "134.242" },
+    { item: "369", descripcion: "Conductividad (Para fertilizantes)", unidad: "Por muestra", monto: "117.241" },
+    { item: "370", descripcion: "Determinación de Fósforo en fertilizantes por Espectrofotometría (Composición de Fósforo declarada)", unidad: "Por muestra", monto: "223.549" },
+    { item: "371", descripcion: "Determinación de Fósforo en fertilizantes por Espectrofotometría (Composición de Fósforo no declarada)", unidad: "Por muestra", monto: "670.533" },
+    { item: "372", descripcion: "Determinación de Nitrógeno en fertilizantes (Composición de Nitrógeno declarada)", unidad: "Por muestra", monto: "214.204" },
+    { item: "373", descripcion: "Determinación de Nitrógeno en fertilizantes (Composición de Nitrógeno no declarada)", unidad: "Por muestra", monto: "561.232" },
+    { item: "374", descripcion: "Determinación de Minerales en fertilizantes por Absorción Atómica (Composición de Minerales declarada)", unidad: "Por nutrientes", monto: "256.604" },
+    { item: "375", descripcion: "Determinación de Minerales en fertilizantes por Absorción Atómica (Composición de Minerales no declarada)", unidad: "Por nutrientes", monto: "740.083" },
+];
+---
+
+<Layout>
+    <Header title="Laboratorio de Fertilizantes" />
+
+    <div class="max-w-5xl mx-auto px-4 py-12 pb-20 text-gray-700">
+
+        <!-- ¿A quién está dirigido? -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿A quién está dirigido?</h2>
+        <p class="mb-6">Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos e internos, realizando ensayos de registro (Resolución 564/10), extensión de plazo de validez, monitoreo en puntos de ingreso, fiscalizaciones/intervenciones/decomisos y control de calidad.</p>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- ¿Qué necesito? -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">¿Qué necesito?</h2>
+
+        <!-- Paso 1 -->
+        <div class="flex gap-4 mb-6">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">1</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-1">Formulario de Solicitud de ensayos</p>
+                <p class="text-sm mb-2">Debidamente completada y firmada (Usuarios Externos para ensayos de registro, extensión de plazo de validez y control de calidad). La solicitud debe ser escaneada y enviada al correo electrónico para su aprobación, una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación también puede realizarse en forma física, presentando al Laboratorio de lunes a viernes de 7:00 a 15:00 hs.</p>
+
+                href="https://www.senave.gov.py/wp-content/uploads/2025/01/FOR-LFERT-112-Solicitud-de-ensayo-v01.xlsx"
+                class="inline-flex items-center gap-2 text-[#00a240] hover:underline text-sm font-medium"
+                >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                </svg>
+                Descargar Formulario de Solicitud de Ensayos
+                </a>
+                <p class="text-sm mt-2">
+                    Correo: <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00a240] hover:underline">laboratorio.quimicos@senave.gov.py</a> o
+                    <a href="mailto:dlq.senave@gmail.com" class="text-[#00a240] hover:underline">dlq.senave@gmail.com</a>
+                </p>
+                <p class="text-sm text-gray-500 mt-1">Los usuarios internos (para ensayos de monitoreo en puntos de ingreso y fiscalizaciones/intervenciones/decomisos) completan el SILAB (Sistema Informático de Laboratorios).</p>
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="flex gap-4 mb-6">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">2</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-1">Pago de servicios</p>
+                <ul class="text-sm space-y-2">
+                    <li>
+                        1. Seguir los pasos del tutorial de pagos en el TES.
+                        <a href="https://www.senave.gov.py/docs/laboratorio/Tutorial_Pago_Aranceles (3).pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver Tutorial Pago Aranceles (pdf)</a>
+                    </li>
+                    <li>
+                        2. Ingresar a Bancard (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC con el que generó la liquidación y abonar el servicio.
+                        <a href="https://www.senave.gov.py/docs/videos/Crear usuario en el TES.mp4" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">Ver tutorial para crear usuario en el TES</a>
+                    </li>
+                </ul>
+                <p class="text-sm mt-2">
+                    Contacto: <strong>+595 21 457-018</strong> —
+                    <a href="mailto:recaudaciones@senave.gov.py" class="text-[#00a240] hover:underline">recaudaciones@senave.gov.py</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="flex gap-4 mb-8">
+            <div class="w-10 h-10 bg-[#00a240] text-white rounded-full flex items-center justify-center font-bold shrink-0">3</div>
+            <div>
+                <p class="font-bold text-gray-800 mb-2">La muestra deberá cumplir estrictamente los requisitos, de lo contrario será rechazada:</p>
+                <ul class="text-sm space-y-2 mb-4">
+                    <li>
+                        <span class="font-semibold">Ensayos para registro:</span>
+                        <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepcio%CC%81n-de-muestras-registro-LFERT.doc" class="text-[#00a240] hover:underline ml-1">Requisitos-de-recepción-de-muestras-registro-LFERT</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Ensayos para extensión de plazo de validez:</span>
+                        <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepcio%CC%81n-de-muestras-extensio%CC%81n-LFERT.doc" class="text-[#00a240] hover:underline ml-1">Requisitos-de-recepción-de-muestras-extensión-LFERT</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Ensayos para monitoreo en puntos de ingreso:</span>
+                        <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepcio%CC%81n-de-muestras-monitoreo-en-punto-de-ingreso-LFERT.doc" class="text-[#00a240] hover:underline ml-1">Requisitos-de-recepción-de-muestras-monitoreo-en-punto-de-ingreso-LFERT</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Ensayos para fiscalizaciones/intervenciones/decomisos:</span>
+                        <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepcio%CC%81n-de-muestras-fiscalizacion-intervencion-LFERT.doc" class="text-[#00a240] hover:underline ml-1">Requisitos-de-recepción-de-muestras-fiscalizacion-intervencion-LFERT</a>
+                    </li>
+                    <li>
+                        <span class="font-semibold">Ensayos de control de calidad:</span>
+                        <a href="https://www.senave.gov.py/wp-content/uploads/2025/01/Requisitos-de-recepcio%CC%81n-de-muestras-control-de-calidad-LFERT.doc" class="text-[#00a240] hover:underline ml-1">Requisitos-de-recepción-de-muestras-control-de-calidad-LFERT</a>
+                    </li>
+                </ul>
+
+                <div class="bg-yellow-50 border border-yellow-300 rounded p-3 text-sm">
+                    <p class="font-bold text-yellow-800 mb-1">Importante:</p>
+                    <ul class="list-disc list-inside space-y-1 text-yellow-900">
+                        <li>Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un período de 15 días hábiles. Finalizado este plazo, el Laboratorio dispondrá de las mismas.</li>
+                        <li>Sólo se dará inicio/curso del ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Macro y micronutrientes -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿Cuáles son los macro y micronutrientes ensayados en el Laboratorio?</h2>
+        <p class="text-sm mb-8">
+
+            href="https://www.senave.gov.py/docs/laboratorio/Lista de minerales analizados en LFERT.pdf"
+            class="text-[#00a240] hover:underline"
+            >
+            Listado de macro y micro nutrientes ensayados: <em>Este listado se actualizará constantemente</em> (descargar)
+            </a>
+        </p>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Costos -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-3">¿Cuál es el costo de los ensayos?</h2>
+        <p class="text-sm mb-4">
+            Resolución SENAVE 532/25:
+            <a href="https://www.senave.gov.py/docs/laboratorio/Resolucion SENAVE 532-25 Prestacion de Servicios.pdf" target="_blank" rel="noopener" class="text-[#00a240] hover:underline ml-1">
+                Resolución SENAVE 532-25 Prestación de Servicios.pdf
+            </a>
+        </p>
+
+        <h3 class="font-bold text-gray-800 mb-1">Departamento de Laboratorios Químicos</h3>
+        <p class="text-sm text-gray-500 mb-4">(Laboratorio de Control Calidad de Insumos de Uso Agrícola – Área Productos de Fitosanitarios y Fertilizantes y Laboratorio de Residuos de Plaguicidas y Micotoxinas)</p>
+
+        <h3 class="font-bold text-gray-800 mb-3">Ensayos para Fertilizantes</h3>
+        <div class="overflow-x-auto mb-10">
+            <table class="w-full text-sm border-collapse">
+                <thead>
+                <tr class="bg-[#00a240] text-white">
+                    <th class="border border-gray-300 px-3 py-2 text-left">Item</th>
+                    <th class="border border-gray-300 px-3 py-2 text-left">Descripción</th>
+                    <th class="border border-gray-300 px-3 py-2 text-left">Unidad</th>
+                    <th class="border border-gray-300 px-3 py-2 text-right">Monto Gs. (IVA inc.)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {costos.map((row, i) => (
+                        <tr class={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                            <td class="border border-gray-300 px-3 py-2 font-medium">{row.item}</td>
+                            <td class="border border-gray-300 px-3 py-2">{row.descripcion}</td>
+                            <td class="border border-gray-300 px-3 py-2">{row.unidad}</td>
+                            <td class="border border-gray-300 px-3 py-2 text-right font-medium">{row.monto}</td>
+                        </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+
+        <hr class="my-8 border-gray-200" />
+
+        <!-- Información de contacto -->
+        <h2 class="text-[#00a240] text-[20px] font-bold underline mb-4">Información complementaria</h2>
+        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 grid sm:grid-cols-2 gap-4 text-sm">
+            <div>
+                <p class="font-bold text-gray-800 mb-3">Dirección de Laboratorios del SENAVE</p>
+                <p><span class="font-semibold">Dirección:</span> Arsenales casi Angola, Barrio Capellanía. San Lorenzo - Paraguay</p>
+                <p class="mt-2"><span class="font-semibold">Teléfonos:</span> (+595) 527-120</p>
+                <p><span class="font-semibold">Celular:</span> 0981 363 794</p>
+                <p class="mt-2"><span class="font-semibold">Horario de atención:</span> Lunes a viernes de 07:00 a 15:00 hs</p>
+            </div>
+            <div>
+                <p class="font-bold text-gray-800 mb-3">Consultas técnicas</p>
+                <p class="mb-1">Para consultas técnicas dirigirse a:</p>
+                <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00a240] hover:underline block">laboratorio.quimicos@senave.gov.py</a>
+                <a href="mailto:dlq.senave@gmail.com" class="text-[#00a240] hover:underline block mt-1">dlq.senave@gmail.com</a>
+            </div>
+        </div>
+
+    </div>
+</Layout>
