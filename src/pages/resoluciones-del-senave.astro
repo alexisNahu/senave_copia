@@ -1,58 +1,21 @@
 ---
+export const prerender = false; // <-- AGREGA ESTO AQUÍ
+
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
+import {ResolutionsService} from "../features/resoluciones/services";
+import Pagination from "../features/resoluciones/Pagination.astro";
 
-// Datos oficiales extraídos de la tabla de Resoluciones de las capturas
-const resoluciones = [
-    {
-        nro: "444",
-        año: "2024",
-        url: "https://www.senave.gov.py/documentos/resoluciones/Res444-24.pdf",
-        nombre: "POR LA CUAL SE ACTUALIZAN LOS ARANCELES POR LA PRESTACIÓN DE SERVICIOS PREVISTOS EN EL INCISO Z) DEL ARTICULO 9º DE LA LEY Nº 2459/2004..."
-    },
-    {
-        nro: "251",
-        año: "2022",
-        url: "https://www.senave.gov.py/documentos/resoluciones/130c772fd681111bfbf49fa67854878b.pdf",
-        nombre: "POR LA CUAL SE DESIGNA AL SEÑOR JUAN CARLOS SILVEIRA CASTILLO COMO RESPONSABLE DE LA RÚBRICA DE LOS LIBROS FOLIADOS PARA REGISTROS DE ÓRDENES DE TRABAJO DE LOS VEHÍCULOS QUE CONFORMAN EL PARQUE AUTOMOTOR DEL SERVICIO NACIONAL DE CALIDAD Y SANIDAD VEGETAL"
-    },
-    {
-        nro: "450",
-        año: "2015",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res450-15.pdf",
-        nombre: "POR LA CUAL SE REGLAMENTA EL REGISTRO DE EXPORTADORES DE PRODUCTOS VEGETALES..."
-    },
-    {
-        nro: "216",
-        año: "2014",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res216-14-SITRAVE.pdf",
-        nombre: "POR LA CUAL SE REGLAMENTA LA IMPLEMENTACIÓN DEL SISTEMA NACIONAL DE TRAZABILIDAD DE PRODUCTOS Y SUBPRODUCTOS VEGETALES (SITRAVE)..."
-    },
-    {
-        nro: "492",
-        año: "2013",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res492-13.pdf",
-        nombre: "POR LA CUAL SE ADOPTAN LAS ETAPAS REQUERIDAS PARA LA CERTIFICACIÓN DE LA PRODUCCIÓN ORGÁNICA..."
-    },
-    {
-        nro: "766",
-        año: "2012",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res766-12.pdf",
-        nombre: "POR LA CUAL SE REGLAMENTA EL REGISTRO NACIONAL DE PRODUCTORES ORGÁNICOS..."
-    },
-    {
-        nro: "512",
-        año: "2010",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res512-10.pdf",
-        nombre: "POR LA CUAL SE CREA EL DEPARTAMENTO DE AGRICULTURA ORGÁNICA BAJO LA DIRECCIÓN GENERAL TÉCNICA..."
-    },
-    {
-        nro: "188",
-        año: "2009",
-        url: "https://www.senave.gov.py/docs/servidor/docs/resoluciones/Res188-09.pdf",
-        nombre: "POR LA CUAL SE ESTABLECEN LOS REQUISITOS MÍNIMOS PARA LA HABILITACIÓN DE DEPOSITOS DE PRODUCTOS FITOSANITARIOS..."
-    }
-];
+const params = Astro.url.searchParams;
+const page = params.get('page')
+const nPage = Number(page)
+
+
+
+const response = await ResolutionsService.get({page: nPage});
+const resoluciones = response.data;
+const meta = response.meta;
+const currentPath = Astro.url.pathname;
 ---
 
 <Layout>
@@ -61,41 +24,53 @@ const resoluciones = [
     <main class="bg-white text-gray-800">
         <div class="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 pb-24">
 
-            <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
-                <table class="w-full text-left border-collapse text-xs md:text-sm">
-                    <thead>
-                    <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
-                        <th class="py-4 px-5 text-center w-24">N°</th>
-                        <th class="py-4 px-5 text-center w-28">Año</th>
-                        <th class="py-4 px-5">Nombre / Descripción de la Resolución</th>
-                    </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100">
-                    {resoluciones.map((res) => (
-                            <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="py-4 px-5 text-center font-medium text-gray-600 whitespace-nowrap">
-                                    {res.nro}
-                                </td>
-                                <td class="py-4 px-5 text-center text-gray-600">
-                                    {res.año}
-                                </td>
-                                <td class="py-4 px-5 font-medium leading-relaxed">
-                                    <a
-                                            href={res.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            class="text-[#00A240] hover:text-green-700 hover:underline block"
-                                    >
-                                        {res.nombre}
-                                    </a>
-                                </td>
+            {resoluciones.length === 0 ? (
+                    <div class="text-center py-12 bg-gray-50 border border-gray-100 rounded-lg">
+                        <p class="text-gray-500 font-medium text-sm">No se encontraron resoluciones disponibles en este momento.</p>
+                    </div>
+            ) : (
+                    <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                            <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
+                                <th class="py-4 px-5 text-center w-24">N°</th>
+                                <th class="py-4 px-5 text-center w-28">Año</th>
+                                <th class="py-4 px-5">Nombre / Descripción de la Resolución</th>
                             </tr>
-                    ))}
-                    </tbody>
-                </table>
-            </div>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                            {resoluciones.map((res) => (
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="py-4 px-5 text-center font-medium text-gray-600 whitespace-nowrap">
+                                            {res.number}
+                                        </td>
+                                        <td class="py-4 px-5 text-center text-gray-600">
+                                            {res.year}
+                                        </td>
+                                        <td class="py-4 px-5 font-medium leading-relaxed">
+                                            <a
+                                                    href={res.file_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-[#00A240] hover:text-green-700 hover:underline block"
+                                            >
+                                                {res.title}
+                                            </a>
+                                        </td>
+                                    </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+            )}
 
         </div>
+        <Pagination
+                current_page={meta.current_page}
+                last_page={meta.last_page}
+                per_page={meta.per_page}
+                baseUrl={currentPath}
+        />
     </main>
 </Layout>
 

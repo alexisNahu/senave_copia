@@ -16,7 +16,7 @@ export const serviciosMock: Servicio[] = [
                 name: "Departamento de Protección y Uso de Variedades (DPUV)",
                 slug: "dpuv",
                 main_links: [
-                    { title: "LISTADO DE EVALUADORES 2025", url: "/documento.pdf" },
+                    { title: "LISTADO DE EVALUADORES 2025", url: "https://www.senave.gov.py/docs/semillas/proteccionyusovariedades/LISTADO DE EVALUADORES 2025.docx" },
                     { title: "ANEXO I – LISTADO DE POBLACIONES CRIOLLAS Y NATIVAS. Julio 2024", url: "/documento.pdf" },
                     { title: "Tasas", url: "/documento.pdf" }
                 ],
