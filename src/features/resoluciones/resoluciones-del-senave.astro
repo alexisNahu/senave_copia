@@ -1,0 +1,84 @@
+---
+import SearchForm from "./react/SearchForm";
+import Layout from '../../layouts/Layout.astro';
+import Header from '../servicios/Header.astro';
+import {ResolutionsService} from "./services";
+import Pagination from "./Pagination.astro";
+
+const params = Astro.url.searchParams;
+const page = params.get('page')
+const nPage = Number(page)
+
+
+
+const response = await ResolutionsService.get({page: nPage});
+const resoluciones = response.data;
+const meta = response.meta;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout>
+    <Header title="Resoluciones" />
+
+    <main class="bg-white text-gray-800">
+        <div class="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-16 pb-24">
+            <SearchForm initialPerPage={meta.per_page} currentPath={currentPath}/>
+            {resoluciones.length === 0 ? (
+                    <div class="text-center py-12 bg-gray-50 border border-gray-100 rounded-lg">
+                        <p class="text-gray-500 font-medium text-sm">No se encontraron resoluciones disponibles en este momento.</p>
+                    </div>
+            ) : (
+                    <div class="w-full overflow-x-auto border border-gray-200 rounded-lg shadow-sm">
+                        <table class="w-full text-left border-collapse text-xs md:text-sm">
+                            <thead>
+                            <tr class="bg-gray-100 text-gray-700 font-bold uppercase tracking-wider border-b border-gray-200">
+                                <th class="py-4 px-5 text-center w-24">N°</th>
+                                <th class="py-4 px-5 text-center w-28">Año</th>
+                                <th class="py-4 px-5">Nombre / Descripción de la Resolución</th>
+                            </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100">
+                            {resoluciones.map((res) => (
+                                    <tr class="hover:bg-gray-50 transition-colors">
+                                        <td class="py-4 px-5 text-center font-medium text-gray-600 whitespace-nowrap">
+                                            {res.number}
+                                        </td>
+                                        <td class="py-4 px-5 text-center text-gray-600">
+                                            {res.year}
+                                        </td>
+                                        <td class="py-4 px-5 font-medium leading-relaxed">
+                                            <a
+                                                    href={res.file_url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-[#00A240] hover:text-green-700 hover:underline block"
+                                            >
+                                                {res.title}
+                                            </a>
+                                        </td>
+                                    </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+            )}
+
+        </div>
+        <Pagination
+                current_page={meta.current_page}
+                last_page={meta.last_page}
+                per_page={meta.per_page}
+                baseUrl={currentPath}
+        />
+    </main>
+</Layout>
+
+<style>
+    /* Optimizaciones institucionales de suavizado y tipografías */
+    main {
+        font-variant-ligatures: common-ligatures;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+</style>
