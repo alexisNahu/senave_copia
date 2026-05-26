@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// Importamos el Provider y el Hook desde tu archivo de contexto
 import { ResolucionFilterProvider, useResolucionFilterContext } from './context.tsx';
 import SearchForm from './SearchForm.tsx';
 import { ResolutionsService } from "../services.ts";
@@ -15,14 +14,13 @@ interface ResolucionesPageProps {
     currentPath: string;
 }
 
-// 1. Renombramos la función interna (ya NO lleva el 'export default')
 function ResolucionesContent({
                                  initialResoluciones,
                                  initialMeta,
                                  currentPath
                              }: ResolucionesPageProps) {
 
-    const { dataFilters, setDataFilters } = useResolucionFilterContext(); // Ahora sí va a encontrar el contexto garantizado
+    const { dataFilters, setDataFilters } = useResolucionFilterContext();
 
     const [resoluciones, setResoluciones] = useState<ResolutionItem[]>(initialResoluciones);
     const [meta, setMeta] = useState(initialMeta);
@@ -41,7 +39,12 @@ function ResolucionesContent({
             try {
                 let response;
                 if (dataFilters.search && dataFilters.search.trim() !== "") {
-                    response = await ResolutionsService.search(dataFilters.search.trim());
+                    // CAMBIO AQUÍ: Enviamos el objeto con query y los parámetros de paginación
+                    response = await ResolutionsService.search({
+                        query: dataFilters.search.trim(),
+                        page: dataFilters.current_page,
+                        per_page: dataFilters.per_page
+                    });
                 } else {
                     response = await ResolutionsService.get({
                         page: dataFilters.current_page,
@@ -128,7 +131,8 @@ function ResolucionesContent({
                 )}
             </div>
 
-            {(!dataFilters.search || dataFilters.search.trim() === "") && meta.last_page > 1 && (
+            {/* CAMBIO AQUÍ: Quitamos la restricción del input para que pagine en las búsquedas */}
+            {meta.last_page > 1 && (
                 <div className="flex items-center mt-16 text-xs md:text-sm font-bold text-slate-400 w-full select-none">
                     <div className="flex-1 flex justify-end">
                         {dataFilters.current_page > 1 ? (
@@ -180,7 +184,6 @@ function ResolucionesContent({
     );
 }
 
-// 2. EXPORT DEFAULT MAESTRO: Encapsula el contenedor con su Provider aquí mismo
 export default function ResolucionesPage(props: ResolucionesPageProps) {
     return (
         <ResolucionFilterProvider>

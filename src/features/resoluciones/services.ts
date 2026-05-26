@@ -9,6 +9,7 @@ export interface ResolutionQueries {
     type?: string | number;
 }
 
+
 // Asumiendo que tu constante apunta a la base 'api/resolutions'
 const url = API_ENDPOINTS.resolutions;
 
@@ -46,10 +47,12 @@ export const ResolutionsService = {
     /**
      * Busca resoluciones mediante un término o query de texto
      */
-    async search(query: string) {
+    async search({query, page, per_page}: {query: string, page: number, per_page: number}) {
         console.log(`${url}/search/${encodeURIComponent(query)}`)
         try {
-            const { data } = await axiosClient.get<ResolutionsResponse>(`${url}/search/${encodeURIComponent(query)}`);
+            const { data } = await axiosClient.get<ResolutionsResponse>(`${url}/search/${encodeURIComponent(query)}`, {
+                params: { page, per_page }
+            });
             return data;
         } catch (e) {
             console.error(`Error en search resoluciones con query: ${query}`, e);
