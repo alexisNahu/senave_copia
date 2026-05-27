@@ -1,5 +1,5 @@
 import React from 'react';
-import InputField from '../../../components/InputField.tsx'; // Tu InputField reutilizable con debounce interno
+import InputField from '../../../../components/InputField.tsx'; // Tu InputField reutilizable con debounce interno
 import { defaultPaginationOptions, useResolucionFilterContext } from './context.tsx';
 
 interface SearchFormProps {
@@ -24,8 +24,17 @@ export default function SearchForm({ currentPath }: SearchFormProps) {
 
     // Administraciones mockeadas (si usas este filtro según tu diseño)
     const administrations = [
-        { id: "11", name: "Ing. Agr. Pastor Soria" },
-        { id: "12", name: "Ing. Agr. Luis Ramiro Samaniego Montiel" }
+        { id: "11", name: "Ing. Agr. Pastor Soria", slug: "ing-pastor-soria" },
+        { id: "12", name: "Ing. Rodrigo González", slug: "ing-rodrigo-gonzalez" },
+        { id: "13", name: "Ing. Oscar Cabrera", slug: "ing-oscar-cabrera" },
+        { id: "14", name: "Ing. Alfredo Gryciuk", slug: "ing-alfredo-gryciuk" },
+        { id: "15", name: "Ing. Regis Mereles", slug: "ing-regis-mereles" },
+        { id: "16", name: "Ing. Jaime Ayala", slug: "ing-jaime-ayala" },
+        { id: "17", name: "Ing. Miguel Lovera", slug: "ing-miguel-lovera" },
+        { id: "18", name: "Ing. Ramón Bonzi", slug: "ing-ramon-bonzi" },
+        { id: "19", name: "Ing. Luis Llano", slug: "ing-luis-llano" },
+        { id: "20", name: "Ing. Edgar Esteche", slug: "ing-edgar-esteche" },
+        { id: "21", name: "Ing. Carmelo Peralta", slug: "ing-carmelo-peralta" }
     ];
 
     return (
@@ -53,7 +62,7 @@ export default function SearchForm({ currentPath }: SearchFormProps) {
                         >
                             <option value="">Todas las administraciones</option>
                             {administrations.map((admin) => (
-                                <option key={admin.id} value={admin.id}>
+                                <option key={admin.id} value={admin.slug}>
                                     {admin.name}
                                 </option>
                             ))}

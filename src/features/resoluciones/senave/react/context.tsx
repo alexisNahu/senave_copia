@@ -5,6 +5,7 @@ interface FilterType {
     per_page: number;
     search?: string;
     administration?: string; // Mantengo este campo por si usas el filtro superior de la captura
+    section: string;
 }
 
 interface ContextType {
@@ -16,7 +17,8 @@ export const defaultPaginationOptions: FilterType = {
     current_page: 1,
     per_page: 10, // Por defecto 10 entradas como pide la UI
     search: "",
-    administration: ""
+    administration: "",
+    section: ""
 };
 
 const Context = createContext<ContextType | undefined>(undefined);

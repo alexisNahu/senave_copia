@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ResolucionFilterProvider, useResolucionFilterContext } from './context.tsx';
 import SearchForm from './SearchForm.tsx';
-import { ResolutionsService } from "../services.ts";
-import type { ResolutionItem } from "../models.ts";
+import { ResolutionsService } from "../../services.ts";
+import type { ResolutionItem } from "../../models.ts";
 
 interface ResolucionesPageProps {
     initialResoluciones: ResolutionItem[];
@@ -26,30 +26,43 @@ function ResolucionesContent({
     const [meta, setMeta] = useState(initialMeta);
     const [loading, setLoading] = useState(false);
 
+    const [isFirstRender, setIsFirstRender] = useState(true);
+
     useEffect(() => {
+        console.log(dataFilters)
+
         if (
+            isFirstRender &&
             dataFilters.current_page === 1 &&
             dataFilters.per_page === initialMeta.per_page &&
-            !dataFilters.search &&
+            (!dataFilters.search || dataFilters.search.trim() === "") &&
             !dataFilters.administration
-        ) return;
+        ) {
+            setIsFirstRender(false);
+            return;
+        }
 
         const fetchFiltrado = async () => {
             setLoading(true);
             try {
                 let response;
+                // Si hay texto real escrito, llamamos con query
                 if (dataFilters.search && dataFilters.search.trim() !== "") {
-                    // CAMBIO AQUÍ: Enviamos el objeto con query y los parámetros de paginación
+                    console.log(dataFilters)
                     response = await ResolutionsService.search({
                         query: dataFilters.search.trim(),
                         page: dataFilters.current_page,
-                        per_page: dataFilters.per_page
+                        per_page: dataFilters.per_page,
+                        section: dataFilters.section || 'resolutions-senave',
+                        administration: dataFilters.administration
                     });
                 } else {
-                    response = await ResolutionsService.get({
+                    // Si el input está vacío, llamamos al search sin query (pero pasándole la paginación y sección)
+                    response = await ResolutionsService.search({
                         page: dataFilters.current_page,
                         per_page: dataFilters.per_page,
-                        ...(dataFilters.administration && { type: dataFilters.administration })
+                        section: dataFilters.section || 'resolutions-senave',
+                        administration: dataFilters.administration,
                     });
                 }
 
@@ -67,6 +80,7 @@ function ResolucionesContent({
         fetchFiltrado();
     }, [dataFilters]);
 
+    // Lógica para limitar la botonera a un máximo de 10 páginas visibles
     const MAX_VISIBLE_PAGES = 10;
     let startPage = Math.max(1, dataFilters.current_page - Math.floor(MAX_VISIBLE_PAGES / 2));
     let endPage = startPage + MAX_VISIBLE_PAGES - 1;
@@ -131,7 +145,6 @@ function ResolucionesContent({
                 )}
             </div>
 
-            {/* CAMBIO AQUÍ: Quitamos la restricción del input para que pagine en las búsquedas */}
             {meta.last_page > 1 && (
                 <div className="flex items-center mt-16 text-xs md:text-sm font-bold text-slate-400 w-full select-none">
                     <div className="flex-1 flex justify-end">

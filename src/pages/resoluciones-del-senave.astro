@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
 import { ResolutionsService } from "../features/resoluciones/services";
-import ResolucionesPage from "../features/resoluciones/react/ResolucionesPage";
+import ResolucionesPage from "../features/resoluciones/senave/react/ResolucionesPage";
 
-const response = await ResolutionsService.get({ page: 1, per_page: 10 });
+const response = await ResolutionsService.search({ section: 'resolutions-senave', page: 1, per_page: 10 });
 const resoluciones = response?.data || [];
 const meta = response?.meta || { current_page: 1, last_page: 1, per_page: 10 };
 const currentPath = Astro.url.pathname;
