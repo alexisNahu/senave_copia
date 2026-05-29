@@ -1,0 +1,374 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+const navItems = [
+    { href: '#UNO', label: 'Informes de Gestión' },
+    { href: '#ANUA', label: 'Anuarios estadísticos' },
+    { href: '#DOS', label: 'Registros de Importación y Exportación' },
+    { href: '#TRES', label: 'Boletines de información' },
+    { href: '#CUATRO', label: 'Mapas' },
+];
+
+const informesGestion = [
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/IG_2025_VAC_ID2026_09.pdf', img: 'https://www.senave.gov.py/img/informe-2025.png', alt: 'Informe de Gestión 2025' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/IG_2024_ok.pdf', img: 'https://www.senave.gov.py/img/informe-2024.png', alt: 'Informe de Gestión 2024' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Informe_03.pdf', img: 'https://www.senave.gov.py/img/informe-gestion2023-02.jpg', alt: 'Informe de Gestión 2018-2023' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/INFORME%20DE%20GESTION%202018-2023.pdf', img: 'https://www.senave.gov.py/img/informe-gestion2023.jpg', alt: 'Informe de Gestión 2018-2023' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/MAQUETA%202022%2005.pdf', img: 'https://www.senave.gov.py/img/informe-gestion2022.jpg', alt: 'Informe de Gestión 2022' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/Informe%20de%20Gestion%202021%2005.pdf', img: 'https://www.senave.gov.py/img/informe-gestion-2021.jpg', alt: 'Informe de Gestión 2021' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/Informe%20de%20Gestion%202021.pdf', img: 'https://www.senave.gov.py/img/informe-gestion2021.jpg', alt: 'Informe de Gestión 3 años' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/Informe%20de%20Gestion%20SENAVE%202020%20MOD%2001.pdf', img: 'https://www.senave.gov.py/img/informe-gestion2020.jpg', alt: 'Informe de Gestión 2020' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/IG%20SENAVE%202020%20FINAL.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2019.jpg', alt: 'Informe de Gestión 2019' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/INFORME%20DE%20GESTION%20SENAVE%202018.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2018.jpg', alt: 'Informe de Gestión 2018' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/Informe%20de%20Gestion%202017%2019%20%20Marzo.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2017.jpg', alt: 'Informe de Gestión 2017' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/INFORME%20DE%20GESTION%20SENAVE%202017%20MS.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2016.jpg', alt: 'Informe de Gestión 2016' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/INFORME-GESTION-2015-A.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2015.jpg', alt: 'Informe de Gestión 2015' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Informe%20de%20Gestion%202014.pdf', img: 'https://www.senave.gov.py/img/inform-gestion2014.jpg', alt: 'Informe de Gestión 2014' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Informe%20de%20Gestion%202013_SENAVE.pdf', img: 'https://www.senave.gov.py/img/anuario-2013.jpg', alt: 'Informe de Gestión 2013' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/ley5189/informe%20Gestion%202012%20ok.pdf', img: 'https://www.senave.gov.py/img/informe-de-gestion-2012.jpg', alt: 'Informe de Gestión 2012' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/gestion2009.pdf', img: 'https://www.senave.gov.py/img/informe-2009.jpg', alt: 'Informe de Gestión 2009' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/gestion2008.pdf', img: 'https://www.senave.gov.py/img/informe-2008.jpg', alt: 'Informe de Gestión 2008' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/gestion2007.pdf', img: 'https://www.senave.gov.py/img/informe-2007.jpg', alt: 'Informe de Gestión 2007' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/gestion2006.pdf', img: 'https://www.senave.gov.py/img/informe-2006.jpg', alt: 'Informe de Gestión 2006' },
+];
+
+const anuarios = [
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/ANUARIO%20Estadistico%202020%20sin%20ISBN.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2020.jpg', alt: 'Anuario Estadístico 2020' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Anuario%20Estadistico%202019%20vector.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2019.jpg', alt: 'Anuario Estadístico 2019' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/SENAVE%20ANUARIO%20ESTADISTICO%20SENAVE%202018.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2018.jpg', alt: 'Anuario Estadístico 2018' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/ANUARIO%20ESTADISTICO%20SENAVE%202018.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2017.jpg', alt: 'Anuario Estadístico 2017' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/ANUARIO%20ESTADISTICO%20SENAVE%202016%20FINAL.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2016.jpg', alt: 'Anuario Estadístico 2016' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/ANUARIO%202015.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2015.jpg', alt: 'Anuario Estadístico 2015' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Anuario%20Estadistico%202014.pdf', img: 'https://www.senave.gov.py/img/anuario-Estadistico2014.jpg', alt: 'Anuario Estadístico 2014' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Anuario%20Estadistico%202013_SENAVE.pdf', img: 'https://www.senave.gov.py/img/anuario-Estadistico2013.jpg', alt: 'Anuario Estadístico 2013' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/senave%20anuario%202012.pdf', img: 'https://www.senave.gov.py/img/anuario-senave-2012.jpg', alt: 'Anuario Estadístico 2012' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/informes/Anuario%20Estadistico%202011.pdf', img: 'https://www.senave.gov.py/img/Anuario2011.jpg', alt: 'Anuario Estadístico 2011' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/anuarios/anuario2009.pdf', img: 'https://www.senave.gov.py/img/anuario-2009.jpg', alt: 'Anuario Estadístico 2009' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/anuarios/Anuario2008.pdf', img: 'https://www.senave.gov.py/img/anuario-2008.jpg', alt: 'Anuario Estadístico 2008' },
+    { href: 'https://www.senave.gov.py/docs/publicaciones/anuarios/anuario2007.pdf', img: 'https://www.senave.gov.py/img/anuario-2007.jpg', alt: 'Anuario Estadístico 2007' },
+];
+
+const importacionVegetal = [
+    { href: 'https://www.senave.gov.py/docs/geoestadisticas/Productos%20frutihorticolas%202024.pdf', label: 'Productos Frutihortícolas 2024' },
+    { href: 'https://www.senave.gov.py/docs/geoestadisticas/Frutos%20Frescos%202024.pdf', label: 'Frutos Frescos 2024' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Productos-Frutihorticolas-2023.pdf', label: 'Productos Frutihortícolas 2023' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/FRUTOS-FRESCOS-2023.pdf', label: 'Frutos Frescos 2023' },
+];
+
+const importacionFito = [
+    { href: 'https://www.senave.gov.py/docs/geoestadisticas/Productos%20fitosanitarios%20y%20fertilizantes%202024.pdf', label: 'Importación Fertilizantes 2024' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Importacion-FERTILIZANTES-2023.pdf', label: 'Importación Fertilizantes 2023' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/IMPORTACION-Productos-fitosanitarios.pdf', label: 'Importación Productos Fitosanitarios' },
+];
+
+const exportacionVegetal = [
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/EXPORTACION-OLEAGINOSAS-2023.pdf', label: 'Exportación Oleaginosas 2023' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/EXPORTACION-FRUTIHORTICOLA-2023.pdf', label: 'Exportación Frutihortícola 2023' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/EXPORTACIONES-CHIA-Y-SESAMO-10-AÑOS.pdf', label: 'Exportaciones de Chía y Sésamo (10 años)' },
+    { href: 'https://www.senave.gov.py/docs/geoestadisticas/Prensa-Frutihorticola2024-export.pdf', label: 'Exportación de Productos Frutihortícolas 2024' },
+];
+
+const exportacionFito = [
+    { href: 'https://www.senave.gov.py/docs/geoestadisticas/EXPORTACION%20productos%20fitosanitarios%202024.pdf', label: 'Productos fitosanitarios 2024' },
+];
+
+const boletines = [
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Boletin-Diciembre-2024.pdf', label: 'Boletín Diciembre 2024' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Boletin-Noviembre-2024.pdf', label: 'Boletín Noviembre 2024' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Boletin-Octubre-2024.pdf', label: 'Boletín Octubre 2024' },
+    { href: 'https://www.senave.gov.py/wp-content/uploads/2025/01/Bolet%C3%ADn-septiembre-2024.pdf', label: 'Boletín Septiembre 2024' },
+];
+---
+
+<Layout title="Geoestadísticas – Senave">
+    <Header title="Geoestadísticas"/>
+
+    <!-- Imagen decorativa -->
+    <div class="w-full">
+        <img
+                src="https://www.senave.gov.py/wp-content/uploads/2025/01/foto-SENAVE-2-1024x317.jpg"
+                alt="SENAVE"
+                class="w-full object-cover max-h-48"
+        />
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Sidebar de navegación -->
+            <aside class="lg:w-64 shrink-0">
+                <div class="sticky top-6 bg-white rounded-2xl shadow-md border border-green-100 overflow-hidden">
+                    <div class="bg-[#00A240] px-5 py-4">
+                        <p class="text-white font-semibold text-sm uppercase tracking-wider">Contenido</p>
+                    </div>
+                    <ul class="divide-y divide-gray-100">
+                        {navItems.map((item) => (
+                                <li>
+                                    <a
+                                            href={item.href}
+                                            class="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-[#00A240] transition-colors group"
+                                    >
+                                        <span class="w-2 h-2 rounded-full bg-[#00A240] shrink-0 group-hover:scale-125 transition-transform"></span>
+                                        {item.label}
+                                    </a>
+                                </li>
+                        ))}
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Contenido principal -->
+            <main class="flex-1 min-w-0 space-y-16">
+
+                <!-- ===================== INFORMES DE GESTIÓN ===================== -->
+                <section id="UNO" class="scroll-mt-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h2 class="text-2xl font-bold text-gray-800">Informes de Gestión</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        {informesGestion.map((item) => (
+                                <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="group block"
+                                        title={item.alt}
+                                >
+                                    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-[#00A240] transition-all duration-200">
+                                        <img
+                                                src={item.img}
+                                                alt={item.alt}
+                                                width="90"
+                                                height="122"
+                                                class="w-[90px] h-[122px] object-cover group-hover:scale-105 transition-transform duration-200"
+                                                loading="lazy"
+                                        />
+                                    </div>
+                                </a>
+                        ))}
+                    </div>
+                </section>
+
+                <!-- ===================== ANUARIOS ESTADÍSTICOS ===================== -->
+                <section id="ANUA" class="scroll-mt-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h2 class="text-2xl font-bold text-gray-800">Anuarios estadísticos</h2>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        {anuarios.map((item) => (
+                                <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="group block"
+                                        title={item.alt}
+                                >
+                                    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-sm group-hover:shadow-md group-hover:border-[#00A240] transition-all duration-200">
+                                        <img
+                                                src={item.img}
+                                                alt={item.alt}
+                                                width="90"
+                                                height="122"
+                                                class="w-[90px] h-[122px] object-cover group-hover:scale-105 transition-transform duration-200"
+                                                loading="lazy"
+                                        />
+                                    </div>
+                                </a>
+                        ))}
+                    </div>
+                </section>
+
+                <!-- ===================== REGISTROS DE IMPORTACIÓN Y EXPORTACIÓN ===================== -->
+                <section id="DOS" class="scroll-mt-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h2 class="text-2xl font-bold text-gray-800">Registros de Importación y Exportación</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Importación -->
+                        <div class="bg-green-50 rounded-2xl p-6 border border-green-100">
+                            <h3 class="text-base font-bold text-[#00560E] uppercase tracking-wide mb-4 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                                Importación
+                            </h3>
+
+                            <p class="text-sm font-semibold text-gray-700 mb-2">Productos Vegetales</p>
+                            <ul class="space-y-1 mb-5">
+                                {importacionVegetal.map((item) => (
+                                        <li>
+                                            <a
+                                                    href={item.href}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="flex items-center gap-2 text-sm text-[#00A240] hover:text-[#00560E] hover:underline transition-colors"
+                                            >
+                                                <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                                                </svg>
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                ))}
+                            </ul>
+
+                            <p class="text-sm font-semibold text-gray-700 mb-2">Productos Fitosanitarios y Fertilizantes</p>
+                            <ul class="space-y-1">
+                                {importacionFito.map((item) => (
+                                        <li>
+                                            <a
+                                                    href={item.href}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="flex items-center gap-2 text-sm text-[#00A240] hover:text-[#00560E] hover:underline transition-colors"
+                                            >
+                                                <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                                                </svg>
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <!-- Exportación -->
+                        <div class="bg-emerald-50 rounded-2xl p-6 border border-emerald-100">
+                            <h3 class="text-base font-bold text-[#00560E] uppercase tracking-wide mb-4 flex items-center gap-2">
+                                <svg class="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                </svg>
+                                Exportación
+                            </h3>
+
+                            <p class="text-sm font-semibold text-gray-700 mb-2">Productos Vegetales</p>
+                            <ul class="space-y-1 mb-5">
+                                {exportacionVegetal.map((item) => (
+                                        <li>
+                                            <a
+                                                    href={item.href}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="flex items-center gap-2 text-sm text-[#00A240] hover:text-[#00560E] hover:underline transition-colors"
+                                            >
+                                                <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                                                </svg>
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                ))}
+                            </ul>
+
+                            <p class="text-sm font-semibold text-gray-700 mb-2">Productos Fitosanitarios y Fertilizantes</p>
+                            <ul class="space-y-1">
+                                {exportacionFito.map((item) => (
+                                        <li>
+                                            <a
+                                                    href={item.href}
+                                                    target="_blank"
+                                                    rel="noopener"
+                                                    class="flex items-center gap-2 text-sm text-[#00A240] hover:text-[#00560E] hover:underline transition-colors"
+                                            >
+                                                <svg class="w-3.5 h-3.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd" />
+                                                </svg>
+                                                {item.label}
+                                            </a>
+                                        </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===================== BOLETINES DE INFORMACIÓN ===================== -->
+                <section id="TRES" class="scroll-mt-20">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h2 class="text-2xl font-bold text-gray-800">Boletines de información</h2>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-6 ml-4">
+                        Estos boletines presentan información detallada sobre los precios de los productos frutihortícolas más importantes. Se incluye un análisis de los productos de mayor relevancia en el ámbito vegetal, proporcionando datos actualizados y confiables.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+                        {boletines.map((item) => (
+                                <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener"
+                                        class="flex items-center gap-3 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm hover:border-[#00A240] hover:shadow-md hover:bg-green-50 transition-all group"
+                                >
+                <span class="shrink-0 w-8 h-8 rounded-full bg-green-100 flex items-center justify-center group-hover:bg-[#00A240] transition-colors">
+                  <svg class="w-4 h-4 text-[#00A240] group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                                    <span class="text-sm text-gray-700 font-medium group-hover:text-[#00560E]">{item.label}</span>
+                                </a>
+                        ))}
+                    </div>
+
+                    <!-- Boletín Estadístico Bimestral -->
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h3 class="text-xl font-bold text-gray-800">Boletín Estadístico Bimestral</h3>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a
+                                href="https://www.senave.gov.py/geoestadisticas/boletin-estadistico-bimestral-2026"
+                                target="_blank"
+                                class="flex items-center gap-3 bg-[#00A240] text-white rounded-xl px-5 py-3 font-medium text-sm hover:bg-[#00560E] transition-colors shadow"
+                        >
+                            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 512 512">
+                                <path d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" />
+                            </svg>
+                            Boletín Estadístico Bimestral 2026
+                        </a>
+                        <a
+                                href="https://www.senave.gov.py/geoestadisticas/boletin-estadistico-bimestral-2025"
+                                target="_blank"
+                                class="flex items-center gap-3 bg-white border border-[#00A240] text-[#00A240] rounded-xl px-5 py-3 font-medium text-sm hover:bg-green-50 transition-colors shadow"
+                        >
+                            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 512 512">
+                                <path d="M80 368H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm0-320H16A16 16 0 0 0 0 64v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16V64a16 16 0 0 0-16-16zm0 160H16a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h64a16 16 0 0 0 16-16v-64a16 16 0 0 0-16-16zm416 176H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z" />
+                            </svg>
+                            Boletín Estadístico Bimestral 2025
+                        </a>
+                    </div>
+                </section>
+
+                <!-- ===================== MAPAS ===================== -->
+                <section id="CUATRO" class="scroll-mt-20">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="w-1 h-8 rounded-full bg-[#00A240]"></span>
+                        <h2 class="text-2xl font-bold text-gray-800">Mapas</h2>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-md">
+                        <iframe
+                                src="https://senave.maps.arcgis.com/apps/dashboards/9aec9c5abbd24c6ca240cdad5cfd9f1e"
+                                width="100%"
+                                height="850"
+                                frameborder="0"
+                                allowfullscreen
+                                class="w-full block"
+                                title="Mapa Geoestadístico SENAVE"
+                        ></iframe>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Nota de pie -->
+    <div class="bg-[#1F2530] text-white/80 text-xs text-center px-6 py-4 mt-10">
+        El desarrollo de este sitio web fue posible gracias al apoyo del programa Food for Progress del Departamento de Agricultura de los Estados Unidos (USDA). El contenido de esta página es responsabilidad del SENAVE y no refleja necesariamente las opiniones del USDA.
+    </div>
+</Layout>

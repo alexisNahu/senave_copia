@@ -1,0 +1,28 @@
+---
+interface Props {
+    navItems: { href: string; label: string }[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<aside class="lg:w-64 shrink-0">
+    <div class="sticky top-6 bg-white rounded-2xl shadow-md border border-green-100 overflow-hidden">
+        <div class="bg-[#00A240] px-5 py-4">
+            <p class="text-white font-semibold text-sm uppercase tracking-wider">Contenido</p>
+        </div>
+        <ul class="divide-y divide-gray-100">
+            {navItems.map((item) => (
+                    <li>
+                        <a
+                                href={item.href}
+                                class="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-[#00A240] transition-colors group"
+                        >
+                            <span class="w-2 h-2 rounded-full bg-[#00A240] shrink-0 group-hover:scale-125 transition-transform"></span>
+                            {item.label}
+                        </a>
+                    </li>
+            ))}
+        </ul>
+    </div>
+</aside>

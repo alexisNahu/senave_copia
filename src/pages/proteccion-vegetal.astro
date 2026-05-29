@@ -1,189 +1,216 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
+import SidebarNav from '../components/SidebarNav.astro';
+
+// Items de navegación vinculados con las IDs correspondientes del componente principal
+const navItems = [
+    { href: '#dirigido', label: '¿A quién está dirigido?' },
+    { href: '#requisitos', label: '¿Qué necesito? (Pasos)' },
+    { href: '#laboratorios-quimicos', label: 'Laboratorios Químicos y Costos' },
+];
 ---
 
 <Layout>
     <Header title="Laboratorio de Control de Calidad de Insumos de Uso Agrícola" />
 
-    <section class="py-12 md:py-16">
-        <div class="max-w-7xl mx-auto px-5 text-gray-700 text-sm leading-relaxed space-y-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col lg:flex-row gap-10">
 
-            <section class="space-y-2">
-                <h2 class="text-xl font-bold text-[#00A240] border-b border-gray-100 pb-2">
-                    ¿A quién está dirigido?
-                </h2>
-                <p>
-                    Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos o internos, analizando ensayos bajo las Resoluciones 445/2014, extensión de plazo de validez (Resolución 929/18), monitoreo (puntos de ingreso, Resolución 1160/2018), fiscalizaciones/intervenciones/decomisos y control de calidad.
-                </p>
-            </section>
+            <SidebarNav navItems={navItems} />
 
-            <section class="space-y-6">
-                <h2 class="text-xl font-bold text-[#00A240] border-b border-gray-100 pb-2">
-                    ¿Qué necesito?
-                </h2>
+            <main class="flex-1 text-sm text-gray-700 space-y-12 leading-relaxed">
 
-                <div class="space-y-4">
-                    <div class="bg-gray-50 p-5 rounded border border-gray-100 space-y-2">
-                        <p class="font-bold text-gray-900 flex items-center gap-2">
-                            <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded">Paso 1</span>
-                            Formulario de Solicitud de Ensayos
-                        </p>
-                        <p>
-                            Formulario de "Solicitud de ensayos" <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">FOR-LCC-113 Solicitud de ensayo LCC v.01</a> debidamente completada y firmada.
-                        </p>
-                        <p class="text-xs text-gray-600">
-                            <strong>Usuarios Externos (para ensayos de registro, extensión de plazo de validez y control de calidad):</strong> La solicitud debe ser escaneada y enviada al correo electrónico: <a href="mailto:laboratorio.quimico@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quimico@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a> para su aprobación. Una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación de la solicitud de ensayo también puede realizarse en forma física, presentándose al Laboratorio, de lunes a viernes de 07:00 a 13:00 hs.
-                        </p>
-                        <p class="text-xs text-gray-600">
-                            <strong>Los usuarios internos (para ensayos de monitoreo en puntos de ingreso y fiscalizaciones/intervenciones/decomisos):</strong> completan el SIGAB (Sistema Informático de Laboratorios).
-                        </p>
+                <section id="dirigido" class="scroll-mt-6 space-y-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
+                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
+                        ¿A quién está dirigido?
+                    </h2>
+                    <p class="text-gray-600">
+                        Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos o internos, analizando ensayos bajo las Resoluciones 445/2014, extensión de plazo de validez (Resolución 929/18), monitoreo (puntos de ingreso, Resolución 1160/2018), fiscalizaciones/intervenciones/decomisos y control de calidad.
+                    </p>
+                </section>
+
+                <section id="requisitos" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
+                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
+                        ¿Qué necesito?
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
+                            <p class="font-bold text-gray-900 flex items-center gap-2">
+                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 1</span>
+                                Formulario de Solicitud de Ensayos
+                            </p>
+                            <p>
+                                Formulario de "Solicitud de ensayos" <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">FOR-LCC-113 Solicitud de ensayo LCC v.01</a> debidamente completada y firmada.
+                            </p>
+                            <p class="text-xs text-gray-600 leading-relaxed">
+                                <strong>Usuarios Externos (para ensayos de registro, extensión de plazo de validez y control de calidad):</strong> La solicitud debe ser escaneada y enviada al correo electrónico: <a href="mailto:laboratorio.quimico@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quimico@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a> para su aprobación. Una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación de la solicitud de ensayo también puede realizarse en forma física, presentándose al Laboratorio, de lunes a viernes de 07:00 a 13:00 hs.
+                            </p>
+                            <p class="text-xs text-gray-600">
+                                <strong>Los usuarios internos (para ensayos de monitoreo en puntos de ingreso y fiscalizaciones/intervenciones/decomisos):</strong> completan el SIGAB (Sistema Informático de Laboratorios).
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
+                            <p class="font-bold text-gray-900 flex items-center gap-2">
+                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 2</span>
+                                Pago de servicios (Sistema de pago de servicios en el SENAVE)
+                            </p>
+                            <p class="text-xs">1- Seguir los pasos del tutorial de pagos en el TES: <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver tutorial de Pago de Aranceles (pdf)</a>.</p>
+                            <p class="text-xs">2- Ingresar a Banesnet (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC para efectuar general la liquidación y abonar el servicio. <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver video tutorial para pagar en el TES</a>.</p>
+                            <div class="text-[11px] text-gray-500 pt-1 border-t border-gray-200/60 mt-2">
+                                <p>Contacto: +59521457-100</p>
+                                <p>E-mail: <a href="mailto:recaudaciones@senave.gov.py" class="text-[#00A240] hover:underline">recaudaciones@senave.gov.py</a></p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
+                            <p class="font-bold text-gray-900 flex items-center gap-2">
+                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 3</span>
+                                Entrega de la muestra
+                            </p>
+                            <p class="text-xs mb-2">La muestra a enviar cumplir estrictamente los requisitos, de lo contrario será rechazada:</p>
+                            <ul class="space-y-1.5 pl-1 text-xs font-medium">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
+                                    <span>Ensayos para registro: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras LCC</a></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
+                                    <span>Ensayos para extensión de plazo de validez: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras ex-validez LCC</a></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
+                                    <span>Ensayos para monitoreo en puntos de ingreso: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras monitoreo punto de ingreso LCC</a></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
+                                    <span>Ensayos para fiscalizaciones/intervenciones/decomisos: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras fiscalizaciones-intervenciones LCC</a></span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
+                                    <span>Ensayos de control de calidad: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras control de calidad LCC</a></span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+                </section>
 
-                    <div class="bg-gray-50 p-5 rounded border border-gray-100 space-y-2">
-                        <p class="font-bold text-gray-900 flex items-center gap-2">
-                            <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded">Paso 2</span>
-                            Pago de servicios (Sistema de pago de servicios en el SENAVE)
+                <div class="bg-amber-50/70 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-xs space-y-1.5">
+                    <p class="font-bold text-amber-900 text-sm flex items-center gap-2">
+                        <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        Importante:
+                    </p>
+                    <p class="text-amber-800 italic leading-relaxed text-xs">• Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un periodo de 15 días hábiles, finalizado este plazo, el Laboratorio dispondrá de las mismas.</p>
+                    <p class="text-amber-800 italic leading-relaxed text-xs">• Solo se dará inicio al curso del ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.</p>
+                </div>
+
+                <section class="grid sm:grid-cols-2 gap-6 text-xs">
+                    <div class="p-5 bg-white border border-gray-150 rounded-xl shadow-xs">
+                        <p class="font-bold text-gray-900 mb-1.5">¿Cuáles son los principios activos ensayos en el Laboratorio?</p>
+                        <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Listado de plaguicidas y productos Fertilizantes con principios activos en vigencia (Descargar)</a></p>
+                    </div>
+                    <div class="p-5 bg-white border border-gray-150 rounded-xl shadow-xs">
+                        <p class="font-bold text-gray-900 mb-1.5">¿Cuál es el costo de los ensayos?</p>
+                        <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Actualización Tarifaria (N° 532/24)</a></p>
+                    </div>
+                </section>
+
+                <section id="laboratorios-quimicos" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
+                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
+                        DEPARTAMENTO DE LABORATORIOS QUÍMICOS
+                    </h2>
+                    <p class="text-xs text-gray-600 leading-relaxed">
+                        El Laboratorio de Control de Calidad de Insumos de Uso Agrícola comprende las Áreas: Productos de Fitosanitarios y Fertilizantes y Laboratorio de Residuos de Plaguicidas y Micotoxinas.
+                    </p>
+
+                    <div class="space-y-2.5">
+                        <p class="font-bold text-gray-800 text-xs flex items-center gap-2">
+                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Ensayos de Plaguicida:
                         </p>
-                        <p class="text-xs">1- Seguir los pasos del tutorial de pagos en el TES: <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver tutorial de Pago de Aranceles (pdf)</a>.</p>
-                        <p class="text-xs">2- Ingresar a Banesnet (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC para efectuar general la liquidación y abonar el servicio. <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver video tutorial para pagar en el TES</a>.</p>
-                        <div class="text-[11px] text-gray-500 pt-1">
-                            <p>Contacto: +59521457-100</p>
-                            <p>E-mail: <a href="mailto:recaudaciones@senave.gov.py" class="text-[#00A240] hover:underline">recaudaciones@senave.gov.py</a></p>
+                        <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-xs">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200 text-gray-700 font-bold uppercase tracking-wider">
+                                    <th class="py-3 px-4 w-16 text-center">Item</th>
+                                    <th class="py-3 px-4">Descripción</th>
+                                    <th class="py-3 px-4 w-44">Unidad de Medida</th>
+                                    <th class="py-3 px-4 w-64 text-right">Monto en Guaraníes (IVA inc.)</th>
+                                </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 text-gray-600">
+                                <tr class="hover:bg-gray-50/50 transition-colors">
+                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">351</td>
+                                    <td class="py-3 px-4 leading-relaxed">Identificación o cuantificación de principio activo en product formulado y grado técnico de plaguicidas (Cuando el principio Activo está declarado)</td>
+                                    <td class="py-3 px-4 whitespace-nowrap">Por ingrediente activo</td>
+                                    <td class="py-3 px-4 text-right font-bold text-gray-900">933.277</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50 transition-colors">
+                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">355</td>
+                                    <td class="py-3 px-4 leading-relaxed">Identificación y/o cuantificación de principio activo en producto formulado y grado técnico de plaguicidas (Cuando el Principio Activo no se encuentra declarado)</td>
+                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
+                                    <td class="py-3 px-4 text-right font-bold text-gray-900">3.115.380</td>
+                                </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 p-5 rounded border border-gray-100 space-y-2">
-                        <p class="font-bold text-gray-900 flex items-center gap-2">
-                            <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded">Paso 3</span>
-                            Entrega de la muestra
+                    <div class="space-y-2.5 pt-2">
+                        <p class="font-bold text-gray-800 text-xs flex items-center gap-2">
+                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Ensayos Fisicoquímicos:
                         </p>
-                        <p class="text-xs mb-2">La muestra a enviar cumplir estrictamente los requisitos, de lo contrario será rechazada:</p>
-                        <ul class="space-y-1 pl-1 text-xs font-medium">
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                <span>Ensayos para registro: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras LCC</a></span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                <span>Ensayos para extensión de plazo de validez: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras ex-validez LCC</a></span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                <span>Ensayos para monitoreo en puntos de ingreso: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras monitoreo punto de ingreso LCC</a></span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                <span>Ensayos para fiscalizaciones/intervenciones/decomisos: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras fiscalizaciones-intervenciones LCC</a></span>
-                            </li>
-                            <li class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                <span>Ensayos de control de calidad: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras control de calidad LCC</a></span>
-                            </li>
-                        </ul>
+                        <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-xs">
+                            <table class="w-full text-left border-collapse text-xs">
+                                <thead>
+                                <tr class="bg-gray-100 border-b border-gray-200 text-gray-700 font-bold uppercase tracking-wider">
+                                    <th class="py-3 px-4 w-16 text-center">Item</th>
+                                    <th class="py-3 px-4">Descripción</th>
+                                    <th class="py-3 px-4 w-44">Unidad de Medida</th>
+                                    <th class="py-3 px-4 w-64 text-right">Monto en Guaraníes (IVA inc.)</th>
+                                </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100 text-gray-600">
+                                <tr class="hover:bg-gray-50/50 transition-colors">
+                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">356</td>
+                                    <td class="py-3 px-4 leading-relaxed">Determinación de pH (Para productos fitosanitarios y fertilizantes)</td>
+                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
+                                    <td class="py-3 px-4 text-right font-bold text-gray-900">187.555</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50 transition-colors">
+                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">357</td>
+                                    <td class="py-3 px-4 leading-relaxed">Densidad (Para productos fitosanitarios y fertilizantes)</td>
+                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
+                                    <td class="py-3 px-4 text-right font-bold text-gray-900">187.555</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <div class="bg-yellow-50 border-l-4 border-yellow-400 px-4 py-3 rounded-r text-xs space-y-1">
-                <p class="font-bold text-gray-800 text-sm">Importante:</p>
-                <p class="italic">• Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un periodo de 15 días hábiles, finalizado este plazo, el Laboratorio dispondrá de las mismas.</p>
-                <p class="italic">• Solo se dará inicio al curso del ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.</p>
-            </div>
-
-            <section class="grid md:grid-cols-2 gap-6 text-xs">
-                <div class="p-4 border border-gray-100 rounded-lg">
-                    <p class="font-bold text-gray-900 mb-1">¿Cuáles son los principios activos ensayos en el Laboratorio?</p>
-                    <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Listado de plaguicidas y productos Fertilizantes con principios activos en vigencia (Descargar)</a></p>
-                </div>
-                <div class="p-4 border border-gray-100 rounded-lg">
-                    <p class="font-bold text-gray-900 mb-1">¿Cuál es el costo de los ensayos?</p>
-                    <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Actualización Tarifaria (N° 532/24)</a></p>
-                </div>
-            </section>
-
-            <section id="departamento-laboratorios" class="space-y-4">
-                <h2 class="text-lg font-bold text-gray-900 border-b border-gray-100 pb-1 uppercase tracking-wide">
-                    DEPARTAMENTO DE LABORATORIOS QUÍMICOS
-                </h2>
-                <p class="text-xs text-gray-600">
-                    El Laboratorio de Control de Calidad de Insumos de Uso Agrícola comprende las Áreas: Productos de Fitosanitarios y Fertilizantes y Laboratorio de Residuos de Plaguicidas y Micotoxinas.
-                </p>
-
-                <div class="space-y-2">
-                    <p class="font-bold text-gray-800 text-xs">Ensayos de Plaguicida</p>
-                    <div class="overflow-x-auto border border-gray-200 rounded">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-700 font-semibold">
-                                <th class="p-2.5 w-16">Item</th>
-                                <th class="p-2.5">Descripción</th>
-                                <th class="p-2.5 w-48">Unidad de Medida</th>
-                                <th class="p-2.5 w-64 text-right">Monto en Guaraníes por unidad de medida (IVA incluido)</th>
-                            </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 text-gray-600">
-                            <tr class="hover:bg-gray-50/50">
-                                <td class="p-2.5 font-medium text-gray-800">351</td>
-                                <td class="p-2.5">Identificación o cuantificación de principio activo en producto formulado y grado técnico de plaguicidas (Cuando el principio Activo está declarado)</td>
-                                <td class="p-2.5">Por ingrediente activo</td>
-                                <td class="p-2.5 text-right font-medium text-gray-900">933.277</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50/50">
-                                <td class="p-2.5 font-medium text-gray-800">355</td>
-                                <td class="p-2.5">Identificación y/o cuantificación de principio activo en producto formulado y grado técnico de plaguicidas (Cuando el Principio Activo no se encuentra declarado)</td>
-                                <td class="p-2.5">Por muestra</td>
-                                <td class="p-2.5 text-right font-medium text-gray-900">3.115.380</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <section class="pt-4">
+                    <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        Información Complementaria
+                    </h2>
+                    <div class="bg-linear-to-r from-gray-50 to-white rounded-2xl border border-gray-150 p-5 text-xs space-y-2 text-gray-600 max-w-3xl shadow-xs">
+                        <p><span class="font-bold text-gray-800 text-sm block mb-1">Dirección de Laboratorios del SENAVE</span></p>
+                        <p><span class="font-semibold text-gray-800">Dirección:</span> Alfonso VI casi Ángela Barrio Cavallante. San Lorenzo - Paraguay.</p>
+                        <p><span class="font-semibold text-gray-800">Teléfonos:</span> (+595) 21 582-2210</p>
+                        <p><span class="font-semibold text-gray-800">Celular:</span> 0981 300 704</p>
+                        <p class="pt-1 text-gray-500 italic border-t border-gray-200/60 mt-1.5">Para consultas técnicas dirigirse a:</p>
+                        <p><span class="font-semibold text-gray-800">Correo electrónico:</span> <a href="mailto:laboratorio.quicos@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quicos@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a></p>
+                        <p><span class="font-semibold text-gray-800">Horario de atención:</span> Lunes a viernes de 07:00 a 15:00 hs.</p>
                     </div>
-                </div>
+                </section>
 
-                <div class="space-y-2 pt-2">
-                    <p class="font-bold text-gray-800 text-xs">Ensayos Fisicoquímicos</p>
-                    <div class="overflow-x-auto border border-gray-200 rounded">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                            <tr class="bg-gray-50 border-b border-gray-200 text-gray-700 font-semibold">
-                                <th class="p-2.5 w-16">Item</th>
-                                <th class="p-2.5">Descripción</th>
-                                <th class="p-2.5 w-48">Unidad de Medida</th>
-                                <th class="p-2.5 w-64 text-right">Monto en Guaraníes por unidad de medida (IVA incluido)</th>
-                            </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100 text-gray-600">
-                            <tr class="hover:bg-gray-50/50">
-                                <td class="p-2.5 font-medium text-gray-800">356</td>
-                                <td class="p-2.5">Determinación de pH (Para productos fitosanitarios y fertilizantes)</td>
-                                <td class="p-2.5">Por muestra</td>
-                                <td class="p-2.5 text-right font-medium text-gray-900">187.555</td>
-                            </tr>
-                            <tr class="hover:bg-gray-50/50">
-                                <td class="p-2.5 font-medium text-gray-800">357</td>
-                                <td class="p-2.5">Densidad (Para productos fitosanitarios y fertilizantes)</td>
-                                <td class="p-2.5">Por muestra</td>
-                                <td class="p-2.5 text-right font-medium text-gray-900">187.555</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <section class="pt-6 border-t border-gray-100">
-                <h2 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-3">Información complementaria</h2>
-                <div class="bg-gray-50 rounded-lg p-5 text-xs space-y-2 text-gray-600 max-w-3xl">
-                    <p class="font-bold text-gray-800 text-sm">Dirección de Laboratorios del SENAVE</p>
-                    <p><span class="font-semibold text-gray-800">Dirección:</span> Alfonso VI casi Ángela Barrio Cavallante. San Lorenzo - Paraguay.</p>
-                    <p><span class="font-semibold text-gray-800">Teléfonos:</span> (+595) 21 582-2210</p>
-                    <p><span class="font-semibold text-gray-800">Celular:</span> 0981 300 704</p>
-                    <p class="pt-1 text-gray-500 italic">Para consultas técnicas dirigirse a:</p>
-                    <p><span class="font-semibold text-gray-800">Correo electrónico:</span> <a href="mailto:laboratorio.quimicos@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quimicos@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a></p>
-                    <p><span class="font-semibold text-gray-800">Horario de atención:</span> Lunes a viernes de 07:00 a 15:00 hs.</p>
-                </div>
-            </section>
-
+            </main>
         </div>
-    </section>
+    </div>
 </Layout>

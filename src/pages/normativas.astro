@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+// Datos para los botones del cuerpo
+const botonesNormativas = [
+    { texto: "NORMATIVAS EN CONSULTA (SENAVE)", url: "documentos.senave.gov.py" },
+    { texto: "NORMATIVAS EN CONSULTA (CNFC)", url: "documentos.cnfc.gov.py" },
+];
+
+// Datos para los enlaces del Footer
+const enlacesFooter = [
+    { texto: "Inicio", url: "#" },
+    { texto: "Institucional", url: "#" },
+    { texto: "Quienes somos", url: "#" },
+    { texto: "Autoridades", url: "#" },
+    { texto: "Organigrama", url: "#" },
+    { texto: "Convenios", url: "#" },
+    { texto: "Llamados a Concursos", url: "#" },
+    { texto: "Audiovisual", url: "#" },
+    { texto: "Marco Jurídico", url: "#" },
+    { texto: "Leyes", url: "#" },
+    { texto: "Decretos", url: "#" },
+    { texto: "Resoluciones del SENAVE", url: "#" },
+    { texto: "Resoluciones del MERCOSUR", url: "#" },
+    { texto: "Resoluciones MAG", url: "#" },
+    { texto: "Oficinas Regionales", url: "#" },
+    { texto: "Contacto", url: "#" },
+];
+---
+
+<Layout>
+    <Header title="Normativas" />
+
+    <main class="bg-white py-16 px-4">
+        <div class="max-w-5xl mx-auto flex flex-wrap gap-4 justify-start items-center">
+            {botonesNormativas.map((boton) => (
+                    <a
+                            href={boton.url}
+                            class="inline-flex items-center gap-3 bg-[#00a240] hover:bg-green-700 text-white font-medium text-xs md:text-sm py-3 px-6 rounded transition-colors tracking-wider group"
+                    >
+                        {boton.texto}
+                        <svg
+                                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                        >
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </a>
+            ))}
+        </div>
+    </main>
+
+</Layout>

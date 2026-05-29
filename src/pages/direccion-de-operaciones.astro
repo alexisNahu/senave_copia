@@ -1,0 +1,253 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+const opis = [
+    { nombre: 'Aeropuerto Internacional Silvio Pettirossi', actividad: 'Import – Export', tel: '(0991) 688-043', wa: '595991688043' },
+    { nombre: 'Terport San Antonio',                        actividad: 'Import – Export', tel: '(0974) 236-736', wa: '595974236736' },
+    { nombre: 'Terport Villeta',                            actividad: 'Import – Export', tel: '(0984) 822-904', wa: '595984822904' },
+    { nombre: 'Villeta',                                    actividad: 'Import – Export', tel: '(0982) 108-115', wa: '595982108115' },
+    { nombre: 'Puerto Fenix',                               actividad: 'Import – Export', tel: '(0982) 387-371', wa: '595982387371' },
+    { nombre: 'Puerto Seguro',                              actividad: 'Import – Export', tel: '(0981) 342-299', wa: '595981342299' },
+    { nombre: 'PAKSA',                                      actividad: 'Import – Export', tel: '(0981) 148-877', wa: '595981148877' },
+    { nombre: 'Ita Enramada',                               actividad: 'Import',          tel: '(0982) 590-903', wa: '595982590903' },
+    { nombre: 'Caacupemi',                                  actividad: 'Import – Export', tel: '(0971) 229-064', wa: '595971229064' },
+    { nombre: 'Ciudad del Este',                            actividad: 'Import',          tel: '(0983) 634-843', wa: '595983634843' },
+    { nombre: 'ALGESA',                                     actividad: 'Export',          tel: '(0981) 261-266', wa: '595981261266' },
+    { nombre: 'Santa Helena',                               actividad: 'Import – Export', tel: '(0984) 191-737', wa: '595984191737' },
+    { nombre: 'Pedro Juan Caballero',                       actividad: 'Import – Export', tel: '(0976) 990-152', wa: '595976990152' },
+    { nombre: 'CAPECO SDG',                                 actividad: 'Export',          tel: '(0981) 501-942', wa: '595981501942' },
+    { nombre: 'Puerto Falcon',                              actividad: 'Import',          tel: '(0972) 599-245', wa: '595972599245' },
+    { nombre: 'Chacoí',                                     actividad: 'Export',          tel: '(0971) 181-171', wa: '595971181171' },
+    { nombre: 'Mariscal Estigarribia',                      actividad: 'Import – Export', tel: '(0985) 627-216', wa: '595985627216' },
+    { nombre: 'Salto del Guaira',                           actividad: 'Import',          tel: '(0974) 348-692', wa: '595974348692' },
+    { nombre: 'Concepcion',                                 actividad: 'Export',          tel: '(0982) 399-615', wa: '595982399615' },
+    { nombre: 'Encarnacion',                                actividad: 'Import – Export', tel: '(0981) 922-597', wa: '595981922597' },
+    { nombre: 'Pilar',                                      actividad: 'Import – Export', tel: '(0994) 575-877', wa: '595994575877' },
+    { nombre: 'Puerto Seco Boreal',                         actividad: 'Export',          tel: '(0982) 387-371', wa: '595982387371' },
+    { nombre: 'Aeropuerto Internacional Guarani',           actividad: 'Import – Export', tel: '(0971) 410-674', wa: '595971410674' },
+    { nombre: 'Oficina Central',                            actividad: 'Import – Export', tel: '(0981) 342-943', wa: '595981342943' },
+];
+---
+
+<Layout>
+    <Header title="Dirección de Operaciones" />
+
+    <main>
+
+        <!-- Navegación interna -->
+        <section class="bg-gray-100 border-b border-gray-200 py-5">
+            <div class="max-w-7xl mx-auto">
+                <ul class="flex flex-wrap gap-6 list-none m-0 p-0">
+                    <li>
+                        <a href="#DPUV" class="flex items-center gap-2 text-[#00A240] hover:text-[#00560E] font-semibold text-sm transition-colors no-underline">
+                            <span>✓</span> DIRECCIÓN DE OPERACIONES
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#DCS" class="flex items-center gap-2 text-[#00A240] hover:text-[#00560E] font-semibold text-sm transition-colors no-underline">
+                            <span>✓</span> DEPARTAMENTOS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#DCFS" class="flex items-center gap-2 text-[#00A240] hover:text-[#00560E] font-semibold text-sm transition-colors no-underline">
+                            <span>✓</span> PROCEDIMIENTOS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Imagen principal -->
+        <section class="py-8">
+            <div class="max-w-7xl mx-auto px-5">
+                <img
+                        src="https://www.senave.gov.py/wp-content/uploads/2025/01/foto-SENAVE-2-1024x317.jpg"
+                        alt="SENAVE Dirección de Operaciones"
+                        class="w-full h-auto rounded block"
+                        loading="eager"
+                />
+            </div>
+        </section>
+
+        <!-- Dirección de Operaciones -->
+        <section class="py-10" id="DPUV">
+            <div class="max-w-7xl mx-auto px-5">
+
+                <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b-2 border-[#00A240] inline-block">
+                    DIRECCIÓN DE OPERACIONES
+                </h2>
+
+                <p class="text-[15px] text-[#4a4e56] leading-relaxed mb-5">
+                    Tiene como objetivo ejercer las acciones operativas para el cumplimiento de las normas,
+                    requisitos y procedimientos, tendientes a asegurar la condición fitosanitaria, la calidad
+                    e inocuidad de los productos y subproductos vegetales e insumos de uso agrícola destinados
+                    al mercado interno y externo a través de las Oficinas de Punto de Inspección (OPI).
+                </p>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b-2 border-[#00A240] inline-block">
+                    DEPARTAMENTOS:
+                </h2>
+
+                <p class="text-[15px] text-[#4a4e56] leading-relaxed mb-6">
+                    La Dirección cuenta con un Sistema de Gestión de Calidad que desarrolla acciones técnicas
+                    especializadas a fin de implementar y mantener el Sistema de Gestión de Calidad para la
+                    Norma ISO/IEC 17020 en el SENAVE dentro de sus dependencias.
+                </p>
+
+                <!-- Lista departamentos -->
+                <ul class="list-none p-0 m-0 mb-8 space-y-6">
+
+                    <li class="pl-4 border-l-[3px] border-[#00A240]">
+                        <strong class="block text-[15px] font-bold text-gray-900 mb-2">
+                            Dpto. de Certificación Fitosanitaria
+                        </strong>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed mb-2">
+                            Realiza las certificación fitosanitaria de exportación de productos y sub productos
+                            vegetales para asegurar a la ONPF (Organización Nacional de Protección Fitosanitaria)
+                            del país importador, que los envíos exportados o reexportados, cumplen con los
+                            requisitos fitosanitarios de importación.
+                        </p>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed">
+                            Las operaciones de exportación, se realiza a través de la Ventanilla Única del
+                            Exportador (VUE), disponible en el sitio:<br />
+                            <a href="http://www.vue.org.py/" target="_blank" rel="noopener"
+                               class="text-[#00A240] hover:text-[#00560E] hover:underline">
+                                http://www.vue.org.py/
+                            </a>
+                        </p>
+                    </li>
+
+                    <li class="pl-4 border-l-[3px] border-[#00A240]">
+                        <strong class="block text-[15px] font-bold text-gray-900 mb-2">
+                            Dpto. de Inspección General
+                        </strong>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed mb-2">
+                            Supervisa las acciones operativas realizadas en los puntos de inspección a fin de
+                            precautelar el cumplimiento de las normativas y medidas fitosanitarias y de calidad e
+                            inocuidad de productos y subproductos vegetales nacionales e internacionales y sus
+                            respectivos procedimientos.
+                        </p>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed">
+                            Las operaciones de importación, se realiza a través de la Ventanilla Única del
+                            Importador (VUI), disponible en el sitio:<br />
+                            <a href="https://www.dnit.gov.py/web/portal-institucional/vui" target="_blank" rel="noopener"
+                               class="text-[#00A240] hover:text-[#00560E] hover:underline">
+                                https://www.dnit.gov.py/web/portal-institucional/vui
+                            </a>
+                        </p>
+                    </li>
+
+                    <li class="pl-4 border-l-[3px] border-[#00A240]">
+                        <strong class="block text-[15px] font-bold text-gray-900 mb-2">
+                            Oficinas de Punto de Inspección-OPI:
+                        </strong>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed mb-2">
+                            Las OPI tienen la tarea de organizar y ejecutar actividades técnicas y administrativas
+                            relativas a las inspecciones, en un espacio físico determinado y autorizado.
+                        </p>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed mb-2">
+                            El horario de atención de las OPI establecidos en Pasos de Frontera, Áreas de Control
+                            Integrado (ACI) y Aeropuertos es de 07:00 a 19:00 horas.
+                        </p>
+                        <p class="text-sm text-[#4a4e56] leading-relaxed">
+                            El horario de atención de las OPI establecidas en Puertos Privados es de 07:00 a
+                            18:00 horas.
+                        </p>
+                    </li>
+
+                </ul>
+
+                <div style="display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center; width: 100%;">
+                    <img src="https://www.senave.gov.py/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-20-a-las-23.49.09-1024x861.png"
+                         alt="Imagen 1"
+                         style="height: 400px; width: auto; object-fit: contain;" />
+                    <img src="https://www.senave.gov.py/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-20-a-las-23.49.21-1024x803.png"
+                         alt="Imagen 2"
+                         style="height: 400px; width: auto; object-fit: contain;" />
+                </div>
+
+                <!-- Tabla OPI -->
+                <div class="overflow-x-auto mt-8">
+                    <table class="w-full border-collapse text-sm">
+                        <thead>
+                        <tr class="bg-[#00A240] text-white">
+                            <th class="px-4 py-3 text-left font-semibold">Oficina de Punto de Inspección-OPI</th>
+                            <th class="px-4 py-3 text-left font-semibold">Actividades</th>
+                            <th class="px-4 py-3 text-left font-semibold">Nº de Teléfono</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {opis.map((opi, i) => (
+                                <tr class={i % 2 === 1 ? 'bg-[#f5f9f5]' : 'bg-white'}>
+                                    <td class="px-4 py-2.5 text-gray-700 border-b border-gray-200">{opi.nombre}</td>
+                                    <td class="px-4 py-2.5 text-gray-700 border-b border-gray-200">{opi.actividad}</td>
+                                    <td class="px-4 py-2.5 border-b border-gray-200">
+                                        <a
+                                                href={`https://wa.me/${opi.wa}`}
+                                                target="_blank"
+                                                rel="noopener"
+                                                class="text-[#00A240] hover:text-[#00560E] hover:underline font-medium"
+                                        >
+                                            {opi.tel}
+                                        </a>
+                                    </td>
+                                </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Certificado y Procedimientos -->
+        <section class="py-10" id="DCS">
+            <div class="max-w-7xl mx-auto px-5">
+
+                <p class="text-[15px] mb-3">
+                    <a
+                            href="https://secure.senave.gov.py/VUE/servlet/consultavue"
+                            target="_blank"
+                            rel="noopener"
+                            class="text-[#00A240] hover:text-[#00560E] hover:underline"
+                    >
+                        Consulta de Certificado Fitosanitario.
+                    </a>
+                </p>
+
+                <p class="text-[15px] mb-8">
+                    <a
+                            href="https://www.senave.gov.py/docs/fitosanitarios/RT_CERTIF_FITOSANITARIO_MUESTRA_SINDATOS.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="text-[#00A240] hover:text-[#00560E] hover:underline"
+                    >
+                        Modelo de Certificado Fitosanitario.
+                    </a>
+                </p>
+
+                <div id="DCFS"></div>
+
+                <h2 class="text-xl font-bold text-gray-900 mb-5 pb-2 border-b-2 border-[#00A240] inline-block">
+                    PROCEDIMIENTOS
+                </h2>
+
+                <div class="mt-5 mb-8">
+                    <a
+                            href="https://www.senave.gov.py/mecip/procedimientos.php?page=1&direccionString=6"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-block bg-[#00A240] hover:bg-[#00560E] text-white font-semibold text-[15px] px-7 py-3 rounded transition-colors no-underline"
+                    >
+                        Ir a Procedimientos →
+                    </a>
+                </div>
+
+                <hr class="border-t border-gray-200 mt-8" />
+
+            </div>
+        </section>
+
+    </main>
+</Layout>

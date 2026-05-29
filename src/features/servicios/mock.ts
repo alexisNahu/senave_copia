@@ -74,7 +74,7 @@ export const serviciosMock: Servicio[] = [
     {
         id: "03",
         title: "SENAVE-DTV",
-        slug: "sistema-de-trazabilidad-vegetal",
+        slug: "senave-dtv",
         image_url: BANNER_URL,
         icono_url: "https://www.senave.gov.py/wp-content/uploads/2025/02/trazabillidad.png",
         tipo_layout: "informativa",
@@ -486,7 +486,7 @@ export const serviciosMock: Servicio[] = [
     {
         id: "08",
         title: "Operaciones",
-        slug: "operaciones",
+        slug: "direccion-de-operaciones",
         image_url: BANNER_URL,
         icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/iconos-senave-operaciones.png",
         tipo_layout: "informativa",
@@ -501,7 +501,7 @@ export const serviciosMock: Servicio[] = [
     {
         id: "09",
         title: "Geo-Estadísticas",
-        slug: "geo-estadisticas",
+        slug: "geoestadisticas",
         image_url: BANNER_URL,
         icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/09/iconos-senave-geo.png",
         tipo_layout: "informativa",

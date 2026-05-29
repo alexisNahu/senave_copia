@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../features/servicios/Header.astro';
+
+const enlacesDTV = [
+    {
+        texto: "Rubros sujetos a la emisión de DTVe",
+        esDesplegable: true,
+        tipoContenido: "lista",
+        subEnlaces: [
+            { texto: "Banana" },
+            { texto: "Cebolla" },
+            { texto: "Locote" },
+            { texto: "Naranja" },
+            { texto: "Papa" },
+            { texto: "Pepino" },
+            { texto: "Remolacha" },
+            { texto: "Repollo" },
+            { texto: "Sandía" },
+            { texto: "Tomate (Lisa y Perita)" },
+            { texto: "Zanahoria" },
+            { texto: "Zapallo" },
+            { texto: "OBS: El presente listado se encuentra sujeto a actualización constante", esObs: true }
+        ]
+    },
+    {
+        texto: "Actores Incorporados dentro del Sistema de Trazabilidad Vegetal",
+        esDesplegable: true,
+        tipoContenido: "tabla",
+        columnas: ["Actores", "Incluido desde"],
+        filas: [
+            { actor: "Productor", fecha: "2023" },
+            { actor: "Conductor", fecha: "2025" },
+            { actor: "Comerciante", fecha: "2025" },
+        ],
+        nota: "El presente listado se encuentra sujeto a modificaciones"
+    },
+    {
+        texto: "Listado de DTVe Emitidos",
+        esDesplegable: false,
+        url: "https://app.senave.gov.py/FHProjectWeb/DTVe"
+    },
+    {
+        texto: "Informes de DTVe Emitidos",
+        esDesplegable: true,
+        tipoContenido: "lista",
+        subEnlaces: [
+            { texto: "De Enero a Junio 2025", url: "https://www.senave.gov.py/docs/dtve/INFORME_DTV_ENERO A JUNIO_2025.pdf", esVerde: true },
+            { texto: "Julio 2025", url: "https://www.senave.gov.py/docs/dtve/INFORME_DTV_JULIO_2025.pdf", esVerde: true },
+            { texto: "Agosto 2025", url: "https://www.senave.gov.py/docs/dtve/INFORME_DTV_AGOSTO_2025.pdf", esVerde: true },
+            { texto: "Septiembre 2025", url: "https://www.senave.gov.py/docs/dtve/4_INFORME_DTV_SETIEMBRE_2025.pdf", esVerde: true }
+        ]
+    },
+    {
+        texto: "Videos DTVe",
+        esDesplegable: true,
+        tipoContenido: "videos",
+        videos: [
+            { titulo: "SENAVE (DTV) – Tutorial de Descarga de la app", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-descarga-app.mp4", poster: "https://www.senave.gov.py/img/descarga-app.jpg" },
+            { titulo: "SENAVE (DTV) Tutorial Registro de Usuario", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-registro-usuario.mp4", poster: "https://www.senave.gov.py/img/registro-usuario.jpg" },
+            { titulo: "SENAVE DTV – Tutorial Perfil del Productor (Parte 1)", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-perfil-productor.mp4", poster: "https://www.senave.gov.py/img/perfil-productor.jpg" },
+            { titulo: "SENAVE DTV – Tutorial Perfil del Productor (Parte 2)", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-perfil-productor2.mp4", poster: "https://www.senave.gov.py/img/perfil-productor-2.jpg" },
+            { titulo: "SENAVE DTV – Tutorial Registro Perfil del Comerciante", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-perfil-comerciante.mp4", poster: "https://www.senave.gov.py/img/perfil-comerciante.jpg" },
+            { titulo: "SENAVE DTV – Tutorial Registro Perfil del Conductor", src: "https://www.senave.gov.py/videos/senave-dtve-tutorial-perfil-conductor.mp4", poster: "https://www.senave.gov.py/img/perfil-conductor.jpg" },
+            { titulo: "SENAVE DTV – Tutorial Creación de perfiles adicionales", src: "https://www.senave.gov.py/videos/senave-dtve-creacion-perfiles-adicionales.mp4", poster: "https://www.senave.gov.py/img/perfiles-adicionales.jpg" }
+        ]
+    },
+];
+---
+
+<Layout>
+    <Header title="SENAVE-DTV" />
+
+    <main class="bg-white py-16 px-4 min-h-[400px]">
+        <div class="max-w-4xl mx-auto">
+            <ul class="space-y-3">
+                {enlacesDTV.map((item) => (
+                    item.esDesplegable ? (
+                            <li class="border border-gray-200 rounded-lg overflow-hidden bg-gray-50/50">
+                                <details class="group [&_summary::-webkit-details-marker]:hidden">
+                                    <summary class="flex items-center justify-between gap-3 px-5 py-4 bg-white cursor-pointer select-none text-gray-700 text-sm font-medium hover:text-[#00a240] transition-colors list-none">
+                                        <div class="flex items-center gap-3">
+                                            <svg class="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            <span>{item.texto}</span>
+                                        </div>
+                                        <span class="text-gray-400 transition-transform duration-200 group-open:-rotate-180">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
+                                    </summary>
+
+                                    <div class="px-5 pb-5 pt-4 bg-white border-t border-gray-100 pl-6 sm:pl-12">
+                                        {item.tipoContenido === "tabla" ? (
+                                                <div class="max-w-md mt-2">
+                                                    <table class="w-full text-left border-collapse border border-gray-400 text-sm text-gray-700">
+                                                        <thead>
+                                                        <tr class="bg-white text-gray-600 font-bold">
+                                                            <th class="border border-gray-400 px-3 py-1.5">{item.columnas?.[0]}</th>
+                                                            <th class="border border-gray-400 px-3 py-1.5">{item.columnas?.[1]}</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {item.filas?.map((fila) => (
+                                                                <tr class="hover:bg-gray-50 transition-colors">
+                                                                    <td class="border border-gray-400 px-3 py-1.5 text-gray-500 font-medium">{fila.actor}</td>
+                                                                    <td class="border border-gray-400 px-3 py-1.5 text-gray-500">{fila.fecha}</td>
+                                                                </tr>
+                                                        ))}
+                                                        </tbody>
+                                                    </table>
+                                                    <p class="text-xs italic text-gray-700 mt-4 font-normal">
+                                                        {item.nota}
+                                                    </p>
+                                                </div>
+                                        ) : item.tipoContenido === "videos" ? (
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-2 pr-2 sm:pr-6">
+                                                    {item.videos?.map((vid) => (
+                                                            <div class="flex flex-col items-center text-center bg-gray-50 p-4 border border-gray-200 rounded-lg shadow-2xs">
+                                                                <h6 class="text-xs font-semibold text-gray-700 mb-3 min-h-[32px] flex items-center justify-center line-clamp-2">
+                                                                    {vid.titulo}
+                                                                </h6>
+                                                                <div class="relative w-full max-w-[180px] aspect-[9/16] rounded-md overflow-hidden shadow-xs bg-black">
+                                                                    <video
+                                                                            src={vid.src}
+                                                                            poster={vid.poster}
+                                                                            controls
+                                                                            preload="none"
+                                                                            class="w-full h-full object-cover"
+                                                                    >
+                                                                        Tu navegador no soporta la reproducción de video.
+                                                                    </video>
+                                                                </div>
+                                                            </div>
+                                                    ))}
+                                                </div>
+                                        ) : (
+                                                <ul class="space-y-2">
+                                                    {item.subEnlaces?.map((sub) => (
+                                                            <li>
+                                                                {sub.esObs ? (
+                                                                        <p class="text-xs font-bold text-gray-500 mt-2 bg-gray-50 border border-gray-200 rounded p-2.5 inline-block">
+                                                                            {sub.texto}
+                                                                        </p>
+                                                                ) : sub.url ? (
+                                                                    /* Si tiene URL, renderiza un link dinámico (caso de los Informes) */
+                                                                        <a
+                                                                                href={sub.url}
+                                                                                target="_blank"
+                                                                                rel="noopener noreferrer"
+                                                                                class={`text-sm block py-1 hover:underline ${sub.esVerde ? 'text-[#00A240] hover:text-green-700' : 'text-gray-600 hover:text-[#00a240]'}`}
+                                                                        >
+                                                                            • {sub.texto}
+                                                                        </a>
+                                                                ) : (
+                                                                    /* Si NO tiene URL, renderiza texto plano limpio (caso de los Rubros) */
+                                                                        <span class="text-sm text-gray-600 block py-1 select-text">
+                                                            • {sub.texto}
+                                                        </span>
+                                                                )}
+                                                            </li>
+                                                    ))}
+                                                </ul>
+                                        )}
+                                    </div>
+                                </details>
+                            </li>
+                    ) : (
+                            <li class="flex items-center gap-3 px-5 py-4 border border-transparent text-gray-700 text-sm font-medium hover:text-[#00a240] transition-colors">
+                                <svg class="w-5 h-5 text-green-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <a href={item.url} class="hover:underline flex-1" target="_blank" rel="noopener noreferrer">
+                                    {item.texto}
+                                </a>
+                            </li>
+                    )
+                ))}
+            </ul>
+        </div>
+    </main>
+</Layout>

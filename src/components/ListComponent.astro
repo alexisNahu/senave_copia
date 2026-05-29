@@ -1,0 +1,153 @@
+---
+interface ItemList {
+    url: string;
+    title: string;
+    subtitle?: string; // Para el código/número de los PDFs de resoluciones
+}
+
+interface Props {
+    items: ItemList[];
+    type: 'pdf' | 'enlace' | 'word' | 'punto' | 'excel'; // <-- Añadido 'excel'
+    maxHeight?: string;
+}
+
+const { items, type, maxHeight = 'max-h-80' } = Astro.props;
+
+// Diccionario de configuraciones según el tipo unificado
+const config = {
+    pdf: {
+        hoverBg: 'hover:bg-red-50',
+        hoverText: 'hover:text-[#00a240]',
+        iconColor: 'text-red-500',
+        iconPath: 'M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+        iconViewBox: '0 0 24 24',
+        isFill: false
+    },
+    enlace: {
+        hoverBg: 'hover:bg-[#E8F8EE]/40',
+        hoverText: 'hover:text-[#00560E]',
+        iconColor: 'text-[#00A240]',
+        iconPath: 'M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14',
+        iconViewBox: '0 0 24 24',
+        isFill: false
+    },
+    word: {
+        hoverBg: 'hover:bg-green-50/60',
+        hoverText: 'hover:text-[#00a240]',
+        iconColor: 'text-blue-500',
+        iconPath: 'M9 12h6m-6 4h4M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z',
+        iconViewBox: '0 0 24 24',
+        isFill: false
+    },
+    punto: {
+        hoverBg: 'hover:bg-gray-50',
+        hoverText: 'hover:text-[#00a240]',
+        iconColor: 'text-gray-400',
+        iconPath: 'M12 12m-5 0a5 5 0 1 1 10 0a5 5 0 1 1 -10 0',
+        iconViewBox: '0 0 24 24',
+        isFill: true
+    },
+    excel: { // <-- Nueva configuración para Excel
+        hoverBg: 'hover:bg-emerald-50/50',
+        hoverText: 'hover:text-[#00a240]',
+        iconColor: 'text-emerald-600',
+        iconPath: 'M4 5a2 2 0 012-2h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4h10M7 13h10M7 17h10M11 3v18', // Grid sutil de planilla
+        iconViewBox: '0 0 24 24',
+        isFill: false
+    }
+};
+
+const currentConfig = config[type];
+---
+
+<div class="relative w-full max-w-3xl overflow-hidden rounded-xl bg-white border border-gray-100">
+
+    <div
+            id="fade-top"
+            class="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none z-20 opacity-0 transition-opacity duration-300"
+    ></div>
+
+    <ul
+            id="scroll-list"
+            class:list={[
+                "overflow-y-auto space-y-1 pr-2 pt-8 pb-8 px-1 scrollbar-thin",
+                maxHeight
+            ]}
+    >
+        {items.map((item) => (
+                <li class:list={[
+                    "flex items-start gap-3 px-5 py-3.5 transition-colors rounded-xl border border-transparent hover:border-gray-100/80",
+                    currentConfig.hoverBg
+                ]}>
+                    <svg
+                            class:list={["w-5 h-5 shrink-0 mt-0.5", currentConfig.iconColor]}
+                            fill={currentConfig.isFill ? "currentColor" : "none"}
+                            stroke={currentConfig.isFill ? "none" : "currentColor"}
+                            stroke-width="2"
+                            viewBox={currentConfig.iconViewBox}
+                    >
+                        <path stroke-linecap="round" stroke-linejoin="round" d={currentConfig.iconPath}/>
+                    </svg>
+
+                    <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class:list={[
+                                "text-sm text-gray-700 hover:underline font-medium leading-snug flex-1",
+                                currentConfig.hoverText
+                            ]}
+                    >
+                        {item.subtitle && (
+                                <span class="font-bold">{item.subtitle} </span>
+                        )}
+                        {item.title}
+                    </a>
+                </li>
+        ))}
+    </ul>
+
+    <div
+            id="fade-bottom"
+            class="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-20 opacity-0 transition-opacity duration-300"
+    ></div>
+</div>
+
+<script>
+    const setupScrollIndicators = () => {
+        const list = document.getElementById('scroll-list');
+        const fadeTop = document.getElementById('fade-top');
+        const fadeBottom = document.getElementById('fade-bottom');
+
+        if (!list || !fadeTop || !fadeBottom) return;
+
+        const updateIndicators = () => {
+            const scrollTop = list.scrollTop;
+            const maxScroll = list.scrollHeight - list.clientHeight;
+
+            const canScrollUp = scrollTop > 3;
+            const canScrollDown = scrollTop < maxScroll - 3;
+
+            if (canScrollUp) {
+                fadeTop.classList.replace('opacity-0', 'opacity-100');
+            } else {
+                fadeTop.classList.replace('opacity-100', 'opacity-0');
+            }
+
+            if (canScrollDown) {
+                fadeBottom.classList.replace('opacity-0', 'opacity-100');
+            } else {
+                fadeBottom.classList.replace('opacity-100', 'opacity-0');
+            }
+        };
+
+        list.addEventListener('scroll', updateIndicators);
+        updateIndicators();
+
+        setTimeout(updateIndicators, 100);
+        window.addEventListener('resize', updateIndicators);
+    };
+
+    setupScrollIndicators();
+    document.addEventListener('astro:after-swap', setupScrollIndicators);
+</script>

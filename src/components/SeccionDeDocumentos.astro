@@ -1,0 +1,34 @@
+---
+// Importas el componente unificado con el scroll y degradados
+import ListComponent from "./ListComponent.astro";
+
+interface ItemList {
+    url: string;
+    title: string;
+    subtitle?: string;
+}
+
+interface Props {
+    title: string;
+    type: 'pdf' | 'enlace' | 'word' | 'punto' | 'excel';
+    items: ItemList[]; // Pasamos los datos dinámicamente aquí
+    maxHeight?: string;
+}
+
+const { title, type, items, maxHeight } = Astro.props;
+---
+
+<div class="space-y-3">
+    {title ?? <p class="font-bold text-gray-800 flex items-center gap-2">
+        <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>
+        {title}
+    </p>}
+
+    <div class="pl-3">
+        <ListComponent
+                type={type}
+                items={items}
+                maxHeight={maxHeight}
+        />
+    </div>
+</div>
