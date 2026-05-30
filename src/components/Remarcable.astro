@@ -1,0 +1,15 @@
+---
+    interface Props {
+        title: string;
+        text: string;
+    }
+
+    const {title, text} = Astro.props
+---
+
+<div class="bg-gray-50 border-l-4 border-[#00A240] px-5 py-4 rounded-r shadow-xs">
+    <p class="text-gray-600 italic">
+        <span class="font-bold text-gray-800 not-italic block mb-1 text-sm uppercase tracking-wider">{title}</span>
+        {text}
+    </p>
+</div>

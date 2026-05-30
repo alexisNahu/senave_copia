@@ -7,7 +7,7 @@ interface ItemList {
 
 interface Props {
     items: ItemList[];
-    type: 'pdf' | 'enlace' | 'word' | 'punto' | 'excel'; // <-- Añadido 'excel'
+    type: 'pdf' | 'enlace' | 'word' | 'punto' | 'excel' | 'ppt'; // <-- Añadido 'ppt'
     maxHeight?: string;
 }
 
@@ -47,11 +47,19 @@ const config = {
         iconViewBox: '0 0 24 24',
         isFill: true
     },
-    excel: { // <-- Nueva configuración para Excel
+    excel: {
         hoverBg: 'hover:bg-emerald-50/50',
         hoverText: 'hover:text-[#00a240]',
         iconColor: 'text-emerald-600',
-        iconPath: 'M4 5a2 2 0 012-2h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4h10M7 13h10M7 17h10M11 3v18', // Grid sutil de planilla
+        iconPath: 'M4 5a2 2 0 012-2h12a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4h10M7 13h10M7 17h10M11 3v18',
+        iconViewBox: '0 0 24 24',
+        isFill: false
+    },
+    ppt: { // <-- Nueva configuración para PowerPoint
+        hoverBg: 'hover:bg-orange-50/50',
+        hoverText: 'hover:text-[#00a240]',
+        iconColor: 'text-orange-600',
+        iconPath: 'M7 3h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2zm-3 14h16M10 7l4 3-4 3V7z', // Atril/Pantalla de proyección con botón Play
         iconViewBox: '0 0 24 24',
         isFill: false
     }
