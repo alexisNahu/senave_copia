@@ -4,8 +4,8 @@ import Header from '../features/servicios/Header.astro';
 
 // Datos para los botones del cuerpo
 const botonesNormativas = [
-    { texto: "NORMATIVAS EN CONSULTA (SENAVE)", url: "documentos.senave.gov.py" },
-    { texto: "NORMATIVAS EN CONSULTA (CNFC)", url: "documentos.cnfc.gov.py" },
+    { texto: "NORMATIVAS EN CONSULTA (SENAVE)", url: "https://documentos.senave.gov.py" },
+    { texto: "NORMATIVAS EN CONSULTA (CNFC)", url: "https://documentos.cnfc.gov.py" },
 ];
 
 // Datos para los enlaces del Footer
@@ -37,6 +37,7 @@ const enlacesFooter = [
             {botonesNormativas.map((boton) => (
                     <a
                             href={boton.url}
+                            target="_blank"
                             class="inline-flex items-center gap-3 bg-[#00a240] hover:bg-green-700 text-white font-medium text-xs md:text-sm py-3 px-6 rounded transition-colors tracking-wider group"
                     >
                         {boton.texto}
