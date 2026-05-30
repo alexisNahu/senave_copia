@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
 import SidebarNav from '../components/SidebarNav.astro';
+import Seccion from "../components/Seccion.astro";
+import SeccionDeDocumentos from "../components/SeccionDeDocumentos.astro";
+import PrincipalImage from "../components/PrincipalImage.astro";
 
 // Items de navegación vinculados exactamente a las IDs de tus secciones
 const navItems = [
@@ -14,13 +17,7 @@ const navItems = [
 <Layout>
     <Header title="Bioseguridad Agrícola" />
 
-    <div class="w-full">
-        <img
-                src="https://www.senave.gov.py/wp-content/uploads/2024/09/Agroquimicos-1000x562-1.jpg"
-                alt="Bioseguridad Agrícola"
-                class="w-full object-cover max-h-48 md:max-h-64"
-        />
-    </div>
+    <PrincipalImage src="https://www.senave.gov.py/wp-content/uploads/2024/10/bioseguridad-1024x259.jpg" alt="Bioseguridad Agrícola" />
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="flex flex-col lg:flex-row gap-10">
@@ -29,162 +26,232 @@ const navItems = [
 
             <main class="flex-1 text-sm text-gray-700 space-y-12 leading-relaxed">
 
-                <div class="bg-gray-50 border-l-4 border-[#00A240] px-5 py-4 rounded-r shadow-xs">
-                    <p class="text-gray-600 italic">
-                        <span class="font-bold text-gray-800 not-italic block mb-1 text-sm uppercase tracking-wider">Objetivo:</span>
-                        Coordinar, evaluar y ejecutar las actividades de regulación y control del uso de organismos genéticamente modificados (OGM) en el sector agrícola, así como la introducción y liberación al medio ambiente, minimizando riesgos potenciales.
+                <Seccion title="Bioseguridad Agrícola">
+                    <!-- Imagen principal -->
+
+                    <!-- Descripción principal -->
+                    <p class="text-gray-700 leading-relaxed mb-8">
+                        La Dirección de Bioseguridad Agrícola atiende, coordina y organiza las normativas, el seguimiento, operación y vigilancia de las actividades vinculadas a la bioseguridad de la biotecnología moderna del ámbito agrícola, entre ellas la importación y liberación comercial de productos y subproductos de organismos genéticamente modificados (OGM), apoyando la definición de la política nacional y en el fortalecimiento de las capacidades para el acceso a las informaciones relacionadas a los OGM.
                     </p>
-                </div>
 
-                <section id="direccion-bioseguridad" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        Dirección de Bioseguridad
-                    </h2>
+                    <!-- Dirección de Bioseguridad -->
+                    <div id="DPUV" class="scroll-mt-20">
+                        <Seccion title="Dirección de Bioseguridad" id="direccion-bioseguridad">
+                            <h3 class="text-gray-800 font-bold text-lg mb-4">Ley y Decretos</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Ley N°2309 \"Que aprueba el Protocolo de Cartagena sobre Seguridad de la Biotecnología del Convenio sobre la diversidad biológica\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-5.pdf" },
+                                        { title: "Protocolo de Cartagena sobre Seguridad de la Biotecnología del Convenio sobre la diversidad biológica", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-1.pdf" },
+                                        { title: "Decreto Nº 4753 \"Por el cual se designan centro focal nacional y autoridades nacionales competentes del protocolo de Cartagena\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-2.pdf" },
+                                        { title: "Decreto N°9699 \"Por el cual se crea la Comisión Nacional de Bioseguridad Agropecuaria y Forestal (CONBIO)\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-4.pdf" },
+                                        { title: "Decreto N° 6733 \"Por el cual se aprueba el documento sobre Política y Programa Nacional de Biotecnología Agropecuaria y Forestal del Paraguay\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-3.pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
 
-                    <div class="space-y-3">
-                        <p class="font-bold text-gray-800 flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Normativas Generales:
-                        </p>
-                        <ul class="space-y-2 pl-3 font-medium">
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Resolución N° 446/14 - Creación de la Dirección de Bioseguridad</a>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Decreto N° 12.741/01 - Reglamento de Bioseguridad para el sector agropecuario</a>
-                            </li>
-                        </ul>
+                            <h3 class="text-gray-800 font-bold text-lg mt-6 mb-4">Resoluciones</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Resolución N° 283 \"Por la cual se aprueba el procedimiento para la gestión del riesgo en actividades con organismos genéticamente modificados\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-7.pdf" },
+                                        { title: "Resolución N°925 \"Por la cual se implementa el registro de empresas que operan con organismos genéticamente modificados regulados\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-8.pdf" },
+                                        { title: "Resolución N°176 \"Por la cual se crea la Dirección de Bioseguridad Agrícola\"", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Res-9.pdf" },
+                                        { title: "RESOLUCION N° 1348/2019 \"POR LA CUAL SE REGLAMENTA EL DECRETO N° 9.699\"", url: "#" },
+                                        { title: "RESOLUCION N° 1071/2019 \"POR LA CUAL SE REGLAMENTA LA RESOLUCION MAG N° 1030/2019\"", url: "https://www.senave.gov.py/docs/bioseguridad/Resolucion-MAG-N°1071-Reglamenta-Resolucion-MAG-N°1348.pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+
+                            <h3 class="text-gray-800 font-bold text-lg mt-6 mb-4">Lista de servicios</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "RESOLUCION N° 532/2025. \"POR LA CUAL SE ACTUALIZA LOS CONCEPTOS Y LOS MONTOS A PERCIBIR POR PRESTACION DE SERVICIOS\"", url: "#" },
+                                        { title: "RESOLUCION N° 565/2025. \"POR LA CUAL SE MODIFICA EL ANEXO DE LA RESOLCION N° 532/2025\"", url: "https://www.senave.gov.py/docs/bioseguridad/RESOLUCION DE TASAS 565.pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+
+                            <h3 class="text-gray-800 font-bold text-lg mt-6 mb-4">Resoluciones CONBIO</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "RESOLUCION 842/2025 \"FORMULARIO 3: DE CONSULTA PREVUIA PARA PRODUCTOS OBTENIDOS MEDIANTE NUEVAS TECNICAS DE MEJORAMIENTO\"", url: "https://www.senave.gov.py/docs/bioseguridad/Reolucion MAG N° 842 Formulario 3.pdf" },
+                                        { title: "RESOLUCION 905/2025. \"POR LA CUAL SE APRUEBA LA UTILIZACION DE LA PLATAFORMA ONLINE SISTEMA DE SEGUIMIENTO DE EXPEDIENTES DE LA CONBIO\"", url: "https://www.senave.gov.py/docs/bioseguridad/RESOLUCION 905 2025-POR LA CUAL SE APRUEBA LA UTILIZACION DE LA PLATAFORMA ON LIN SMA DE SEG EXPDTS CONBIO (3).pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+                        </Seccion>
                     </div>
 
-                    <div class="space-y-3">
-                        <p class="font-bold text-gray-800 flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Requisitos y Formularios de Solicitud:
-                        </p>
-                        <ul class="space-y-2 pl-3 font-medium">
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos para la introducción y liberación al medio ambiente de OGM</a>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Formulario de solicitud para ensayos de campo de cultivos genéticamente modificados</a>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Guía metodológica para la evaluación de riesgos ambientales de OGM</a>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
+                    <!-- Departamento de Evaluación de Bioseguridad Agrícola (DEBA) -->
+                    <div id="DCS" class="scroll-mt-20">
+                        <Seccion title="Departamento de Evaluación de Bioseguridad Agrícola (DEBA)" id="deba">
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Empresas Registradas en el REOGM", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/1-Empresas-registradas-en-el-REOGM.pdf" },
+                                        { title: "Formularios para inscripción el REOGM", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/2-Formularios-REOGM.pdf" },
+                                        { title: "Eventos Regulados en proceso de evaluación", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/3-Eventos-regulados-en-proceso-de-evaluación.pdf" },
+                                        { title: "Archivo fotográfico de cadena de custodia", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/5-Archivo-Fotográfico-Cadena-de-Custodia.docx" }
+                                    ]}
+                                    title="Documentos"
+                                    type="pdf"
+                            />
 
-                <section id="deba" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        Departamento de Evaluación de Bioseguridad Agrícola (DEBA)
-                    </h2>
-
-                    <div class="bg-gray-50/60 p-4 rounded-xl border border-gray-100 text-xs">
-                        <p class="text-gray-600">
-                            <span class="font-bold text-gray-800 text-sm block mb-0.5">Función Primaria:</span>
-                            Realizar el análisis técnico, científico y la evaluación de riesgos de las solicitudes presentadas para la experimentación, producción, importación y uso regulado de vegetales genéticamente modificados.
-                        </p>
-                    </div>
-
-                    <div class="space-y-3">
-                        <p class="font-bold text-gray-800 flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Documentación Técnica:
-                        </p>
-                        <ul class="space-y-2 pl-3 font-medium">
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">FOR-DEBA-001 - Solicitud de dictamen técnico de bioseguridad ambiental</a>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <span class="text-[#00A240] font-bold mt-0.5">•</span>
-                                <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Manual de procedimientos de evaluación de bioseguridad en parcelas experimentales</a>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section id="dmogm" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        Departamento de Manejo de Organismos Genéticamente Modificados (DMOGM)
-                    </h2>
-
-                    <div class="bg-gray-50/60 p-4 rounded-xl border border-gray-100 text-xs">
-                        <p class="text-gray-600">
-                            <span class="font-bold text-gray-800 text-sm block mb-0.5">Función Primaria:</span>
-                            Fiscalizar, monitorear y realizar el seguimiento de las parcelas autorizadas para eventos biotecnológicos, asegurando la implementación de los planes de bioseguridad y medidas de confinamiento.
-                        </p>
+                            <h3 class="text-gray-800 font-bold text-lg mt-6 mb-4" id="resoluciones-de-convio">Resoluciones CONBIO de eventos regulados</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Resolución MAG Nº 826-23 MONSANTO", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/RESOLUCIÓN-MAG-No-826-23-MONSANTO.pdf" },
+                                        { title: "Resolución MAG Nº 556-23 INDEAR", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/RESOLUCIÓN-MAG-No-556-23-INDEAR.pdf" },
+                                        { title: "Resolución MAG N° 1198_17_1 DOW AGROSCIENCES", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-1198_17_1-POR-LA-CUAL-AUTORIZA-A-LA-FIRMA-DOW-AGROSCIENCES.pdf" },
+                                        { title: "Resolución MAG N° 891 LC Bt11 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N°-891-LC-Bt11-maíz.pdf" },
+                                        { title: "Resolución MAG N° 890 LC TC1507 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N°-890-LC-TC1507-maíz.pdf" },
+                                        { title: "Resolución MAG N° 814 LC MON1445 y MON531 x MON1445 algodón", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-814-LC-MON1445-y-MON531-x-MON1445-algodón.pdf" },
+                                        { title: "Resolución MAG N° 697 Semillas Bajo Custodia", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-697-Semillas-Bajo-Custodia.pdf" },
+                                        { title: "Resolución MAG N° 669_15 LC Bt11 x MIR162 x GA21 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-669_15-LC-Bt11-x-MIR162-x-GA21-GA21-Combinacion-de-parentales-maíz.pdf" },
+                                        { title: "Resolución MAG N° 648_15 LC TC1507 x MON810 x NK603 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-648_15-LC-TC1507-x-MON810-x-NK603-maíz.pdf" },
+                                        { title: "Resolución MAG N° 447 soja MON 87701 x MON 8978", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-447-soja-MON-87701-x-MON-8978-1.pdf" },
+                                        { title: "Resolución MAG N° 252 LC MON89034 x TC1507 x NK603 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-252-LC-MON89034-x-TC1507-x-NK603-maíz.pdf" },
+                                        { title: "Resolución MAG N° 241 LC MIR 162 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-241-LC-MIR-162-maíz.pdf" },
+                                        { title: "Resolución MAG N° 153 LC MON87701 x MON89788 soja Intacta", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N°-153-LC-MON87701-x-MON89788-soja-Intacta.pdf" },
+                                        { title: "Resolución MAG N° 19 LC NK 603 maíz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-19-LC-NK-603-maíz.pdf" },
+                                        { title: "Resolución MAG N° 18 semillas bajo custodia", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N°-18-semillas-bajo-custodia.pdf" },
+                                        { title: "Resolución MAG N 988", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N-988.pdf" },
+                                        { title: "Resolución MAG N 27_15 Formularios 1 y 2", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolucion-MAG-N-27_15-Formularios-1-y-2.pdf" },
+                                        { title: "Resolución MAG N° 334 ER Maiz", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/Resolución-MAG-N°-334-ER-Maiz-MON87427-x-MON95379-x-MON87411-x-MON87427-x-MON87419-Y-MON87427-x-NK603-x-MON87419.pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+                        </Seccion>
                     </div>
 
-                    <div class="space-y-4">
-                        <p class="font-bold text-gray-800 flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Registros y Formularios de Monitoreo:
-                        </p>
-                        <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-xs">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead>
-                                <tr class="bg-gray-100 border-b border-gray-200 text-gray-700 font-bold uppercase tracking-wider">
-                                    <th class="py-3 px-4 w-24">Código</th>
-                                    <th class="py-3 px-4">Descripción del Documento</th>
-                                    <th class="py-3 px-4 w-44">Área Aplicable</th>
-                                    <th class="py-3 px-4 w-32 text-right">Enlace</th>
-                                </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100 text-gray-600">
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 whitespace-nowrap">FOR-DMOGM-01</td>
-                                    <td class="py-3 px-4 leading-relaxed">Planilla de inspección de campo y monitoreo poscosecha de eventos OGM</td>
-                                    <td class="py-3 px-4">Fiscalización en campo</td>
-                                    <td class="py-3 px-4 text-right"><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Descargar</a></td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 whitespace-nowrap">FOR-DMOGM-02</td>
-                                    <td class="py-3 px-4 leading-relaxed">Acta de fiscalización y verificación de medidas de bioseguridad</td>
-                                    <td class="py-3 px-4">Control reglamentario</td>
-                                    <td class="py-3 px-4 text-right"><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Descargar</a></td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 whitespace-nowrap">FOR-DMOGM-03</td>
-                                    <td class="py-3 px-4 leading-relaxed">Registro nacional de operadores y laboratorios de análisis de OGM</td>
-                                    <td class="py-3 px-4">Registros institucionales</td>
-                                    <td class="py-3 px-4 text-right"><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Descargar</a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <!-- Departamento de Manejo de Organismos Genéticamente Modificados (DMOGM) -->
+                    <div id="DCOS" class="scroll-mt-20">
+                        <Seccion title="Departamento de Manejo de Organismos Genéticamente Modificados (DMOGM)" id="dmogm">
+                            <h3 class="text-gray-800 font-bold text-lg mb-4">Monitoreo de eventos liberados comercialmente</h3>
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Monitoreo OGM 2024 Región Occidental", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/1.1-Monitoreo-OGM-2024-Reg-Occidental.pdf" },
+                                        { title: "Monitoreo OGM 2024 Región Oriental", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/1.2-Monitoreo-OGM-2024-Reg-Oriental.pdf" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Autorizaciones de importación de materiales vegetales genéticamente modificados", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/2AUTOR1.pdf" },
+                                        { title: "Listado de eventos aprobados y liberados comercialmente", url: "https://www.senave.gov.py/docs/bioseguridad/EVENTOS LIBERADOS COMERCIALMENTE EN EL PAIS- 4-MARZO 2026.pdf" },
+                                        { title: "Archivo fotográfico de monitoreo de cultivos OGM", url: "https://www.senave.gov.py/wp-content/uploads/2024/12/4-Archivo-Fotográfico-DMOGM-1.docx" }
+                                    ]}
+                                    title=""
+                                    type="pdf"
+                            />
+
+                            <h3 class="text-gray-800 font-bold text-lg mt-6 mb-4">Resoluciones CONBIO - Eventos liberados comercialmente</h3>
+
+                            <!-- Tabla de resoluciones - versión responsive -->
+                            <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm mb-6" id="resoluciones">
+                                <table class="w-full text-left text-sm border-collapse">
+                                    <thead>
+                                    <tr class="bg-green-600 text-white font-semibold">
+                                        <th class="px-3 py-2 text-center w-16">Año</th>
+                                        <th class="px-3 py-2">Resolución MAG Nº</th>
+                                        <th class="px-3 py-2 text-center w-20">Especie</th>
+                                        <th class="px-3 py-2">Descripción</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-100 text-gray-700">
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2026</td>
+                                        <td class="px-3 py-2">43</td>
+                                        <td class="px-3 py-2 text-center">SOJA</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/soja 5.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">1853</td>
+                                        <td class="px-3 py-2 text-center">SOJA</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/soja 4.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO DEL EVENTO MAIZ DP-202216-6</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">1388</td>
+                                        <td class="px-3 py-2 text-center">MAIZ</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/Maiz 7.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO DEL EVENTO MAIZ EH913</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">1034</td>
+                                        <td class="px-3 py-2 text-center">MAIZ</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/Maiz 6.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO DEL EVENTO MAIZ DAS-01131-3</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">1011</td>
+                                        <td class="px-3 py-2 text-center">SOJA</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/soja.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL DEL EVENTO DE SOJA "MON – 94115-8"</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">17</td>
+                                        <td class="px-3 py-2 text-center">SOJA</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/47-2025-RESOLUCION-MAG-N17-SOJA-MON94637.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO DEL EVENTO SOJA "MON94637"</a></td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-3 py-2 text-center">2025</td>
+                                        <td class="px-3 py-2">16</td>
+                                        <td class="px-3 py-2 text-center">MAIZ</td>
+                                        <td class="px-3 py-2"><a href="https://www.senave.gov.py/docs/bioseguridad/46-2025-RESOLUCION-MAG-N16-MAIZ-MON-94804.pdf" target="_blank" class="text-green-600 hover:underline">POR LA CUAL SE AUTORIZA LA LIBERACIÓN COMERCIAL POR TRATO DIFERENCIADO DEL EVENTO MAÍZ "MON 94804"</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p class="text-sm text-gray-500 italic">Para ver todas las resoluciones desde 2001 hasta 2026, consulta el documento completo.</p>
+                        </Seccion>
                     </div>
-                </section>
 
-                <div class="bg-amber-50/70 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-xs">
-                    <p class="font-bold text-amber-900 mb-1.5 text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                        </svg>
-                        Disposición Obligatoria de Confinamiento:
-                    </p>
-                    <p class="text-amber-800 italic leading-relaxed text-xs">
-                        Toda liberación accidental, anomalía fitosanitaria o incumplimiento detectado en las zonas de amortiguamiento o parcelas de ensayo autorizadas debe comunicarse de manera inmediata a la Dirección de Bioseguridad dentro de un plazo máximo de 24 horas. El desacato activará auditorías de emergencia y posibles suspensiones de registro.
-                    </p>
-                </div>
+                    <!-- Datos de Contacto -->
+                    <div id="Contacto" class="scroll-mt-20">
+                        <Seccion title="Datos de Contacto">
+                            <div class="bg-gray-50 rounded-lg p-6 space-y-4">
+                                <p class="text-gray-700">
+                                    <strong>Teléfonos:</strong> 021 450-954 / 441-549<br />
+                                    <strong>Celular:</strong> 0981-812985
+                                </p>
 
-                <section class="pt-4">
-                    <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                        Contactos de la Dirección
-                    </h2>
-                    <div class="bg-linear-to-r from-gray-50 to-white rounded-2xl border border-gray-150 p-5 text-xs space-y-2 text-gray-600 max-w-2xl shadow-xs">
-                        <p><span class="font-bold text-gray-800 text-sm block mb-1">Consultas y Trámites Técnicos</span></p>
-                        <p><span class="font-semibold text-gray-800">Dirección:</span> Edificio Central SENAVE - Planta Baja. Asunción - Paraguay.</p>
-                        <p><span class="font-semibold text-gray-800">Teléfono central:</span> (+595) 21 441-491 | Interno 402</p>
-                        <p><span class="font-semibold text-gray-800">Correo institucional:</span> <a href="mailto:bioseguridad@senave.gov.py" class="text-[#00A240] hover:underline font-medium">bioseguridad@senave.gov.py</a></p>
+                                <div class="border-t border-gray-200 pt-4">
+                                    <p class="font-bold text-gray-800">Funcionarios de la DBA</p>
+                                    <div class="mt-3 space-y-3">
+                                        <div>
+                                            <p><strong>Ing. Agr. Hugo Brüning</strong> - Director, Dirección de Bioseguridad Agrícola</p>
+                                            <a href="mailto:hugo.bruning@senave.gov.py" class="text-green-600 hover:underline">hugo.bruning@senave.gov.py</a>
+                                        </div>
+                                        <div>
+                                            <p><strong>Ing. Agr. MSc. Dahiana Ovejero M.</strong> - Jefa, Dpto. Manejo de Organismos Genéticamente Modificados</p>
+                                            <a href="mailto:dahiana.ovejero@senave.gov.py" class="text-green-600 hover:underline">dahiana.ovejero@senave.gov.py</a>
+                                        </div>
+                                        <div>
+                                            <p><strong>Dra. Ing. Agr. Felisa C. Gómez Insfrán.</strong> - Jefa del Departamento de Evaluación de Bioseguridad Agrícola</p>
+                                            <a href="mailto:felisa.gomez@senave.gov.py" class="text-green-600 hover:underline">felisa.gomez@senave.gov.py</a>
+                                        </div>
+                                        <div>
+                                            <p><strong>Ing. Amb. Sergio Rodriguez</strong> - Tecnico de la Direccion de Bioseguridad Agrícola</p>
+                                            <a href="mailto:sergio.rodriguez@senave.gov.py" class="text-green-600 hover:underline">sergio.rodriguez@senave.gov.py</a>
+                                        </div>
+                                        <div>
+                                            <p><strong>Ing. Agr. Genaro Coronel</strong> - Asesor Técnico de la Dirección de Bioseguridad Agrícola</p>
+                                            <a href="mailto:genaro.coronel@senave.gov.py" class="text-green-600 hover:underline">genaro.coronel@senave.gov.py</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Seccion>
                     </div>
-                </section>
-
+                </Seccion>
             </main>
         </div>
     </div>

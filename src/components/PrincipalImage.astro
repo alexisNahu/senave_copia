@@ -1,0 +1,16 @@
+---
+interface Props{
+    src: string;
+    alt: string;
+}
+
+const {alt, src} = Astro.props
+---
+
+<div class="mb-8">
+    <img
+            src={src}
+            alt={alt}
+            class="w-full rounded-lg object-cover"
+    />
+</div>

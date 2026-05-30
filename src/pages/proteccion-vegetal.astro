@@ -2,18 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
 import SidebarNav from '../components/SidebarNav.astro';
+import Seccion from '../components/Seccion.astro';
+import SeccionDeDocumentos from '../components/SeccionDeDocumentos.astro';
+import PrincipalImage from '../components/PrincipalImage.astro';
 
 // Items de navegación vinculados con las IDs correspondientes del componente principal
 const navItems = [
-    { href: '#dirigido', label: '¿A quién está dirigido?' },
-    { href: '#requisitos', label: '¿Qué necesito? (Pasos)' },
-    { href: '#laboratorios-quimicos', label: 'Laboratorios Químicos y Costos' },
+    { href: '#direccion-de-proteccion-vegetal', label: 'Direccion de Protección Vegetal' },
+    { href: '#departamento-de-cuarentena-vegetal', label: 'Departamento de Cuarentena Vegetal' },
+    { href: '#departamento-de-vigilancia-fitosanitaria', label: 'Departamento de Vigilancia Fitosanitaria' },
+    { href: '#departamento-de-campanias-fitosanitaria', label: 'Departamento de Campañas Fitosanitaria' },
+
 ];
 ---
 
 <Layout>
     <Header title="Laboratorio de Control de Calidad de Insumos de Uso Agrícola" />
 
+    <PrincipalImage
+            src="https://www.senave.gov.py/wp-content/uploads/2024/10/PROTECCION-VEGETAL-1024x259.jpg"
+            alt="Protección Vegetal - SENAVE"
+    />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="flex flex-col lg:flex-row gap-10">
 
@@ -21,195 +30,201 @@ const navItems = [
 
             <main class="flex-1 text-sm text-gray-700 space-y-12 leading-relaxed">
 
-                <section id="dirigido" class="scroll-mt-6 space-y-4 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        ¿A quién está dirigido?
-                    </h2>
-                    <p class="text-gray-600">
-                        Este laboratorio presta servicios a personas físicas o jurídicas, usuarios externos o internos, analizando ensayos bajo las Resoluciones 445/2014, extensión de plazo de validez (Resolución 929/18), monitoreo (puntos de ingreso, Resolución 1160/2018), fiscalizaciones/intervenciones/decomisos y control de calidad.
-                    </p>
-                </section>
 
-                <section id="requisitos" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        ¿Qué necesito?
-                    </h2>
+                <!-- Dirección de Protección Vegetal -->
+                <div id="DPUV" class="scroll-mt-20">
+                    <Seccion title="Dirección de Protección Vegetal" id="direccion-de-proteccion-vegetal">
+                        <p class="text-gray-700 leading-relaxed">
+                            Es la Dirección encargada de preservar y/o mejorar la condición fitosanitaria del país,<br />
+                            contribuyendo a la competitividad de los productos y subproductos vegetales, para su acceso y<br />
+                            permanencia en los mercados.
+                        </p>
+                    </Seccion>
+                </div>
 
-                    <div class="space-y-4">
-                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
-                            <p class="font-bold text-gray-900 flex items-center gap-2">
-                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 1</span>
-                                Formulario de Solicitud de Ensayos
-                            </p>
-                            <p>
-                                Formulario de "Solicitud de ensayos" <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">FOR-LCC-113 Solicitud de ensayo LCC v.01</a> debidamente completada y firmada.
-                            </p>
-                            <p class="text-xs text-gray-600 leading-relaxed">
-                                <strong>Usuarios Externos (para ensayos de registro, extensión de plazo de validez y control de calidad):</strong> La solicitud debe ser escaneada y enviada al correo electrónico: <a href="mailto:laboratorio.quimico@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quimico@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a> para su aprobación. Una vez aprobada se remite escaneada al correo electrónico del solicitante. La aprobación de la solicitud de ensayo también puede realizarse en forma física, presentándose al Laboratorio, de lunes a viernes de 07:00 a 13:00 hs.
-                            </p>
-                            <p class="text-xs text-gray-600">
-                                <strong>Los usuarios internos (para ensayos de monitoreo en puntos de ingreso y fiscalizaciones/intervenciones/decomisos):</strong> completan el SIGAB (Sistema Informático de Laboratorios).
-                            </p>
+                <!-- Departamento de Cuarentena Vegetal -->
+                <div id="DCS" class="scroll-mt-20">
+                    <Seccion title="Departamento de Cuarentena Vegetal" id="departamento-de-cuarentena-vegetal">
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            El departamento que tiene como objetivo desarrollar medidas de exclusión y<br />
+                            prevención para minimizar el riesgo de ingreso de plagas exóticas al país.
+                        </p>
+
+                        <SeccionDeDocumentos
+                                items={[
+                                    { title: "Listado de plagas cuarentenarias ausentes del Paraguay", url: "https://www.senave.gov.py/docs/cuarentena/Lista%20de%20plagas%20cuarentenarias%20PY_actualizado_agosto%202023%20final.pdf" },
+                                    { title: "Solicitud de Autorización de envíos de Transito de Artículos reglamentados por el territorio Nacional", url: "https://www.senave.gov.py/docs/cuarentena/solicitud-de-autorizacion-de-envios-de-transito-de-articulos-reglamentados-por-el-territorio-nacional.pdf" },
+                                    { title: "Formulario para Categorización de riesgo de productos y/o subproductos vegetales", url: "https://www.senave.gov.py/docs/cuarentena/Form%20Categ%20Riesgo_Resol%20830_2021%20con%20instructivo.pdf" }
+                                ]}
+                                title=""
+                                type="pdf"
+                        />
+
+                        <div class="mt-6 space-y-3">
+                            <p><strong>Formulario de categorización de riesgo</strong> <a href="https://www.senave.gov.py/docs/cuarentena/Form%20Categ%20Riesgo_Resol%20830_2021%20con%20instructivo.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                            <p><strong>Carta compromiso</strong> <a href="https://actimedia.top/demo/senave/wp-content/uploads/2024/09/FOR-DCV-001-1_CARTA-DE-COMPROMISO_.doc" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                            <p><strong>Resolución 479/21</strong> “POR LA CUAL SE ACTUALIZA EL REGLAMENTO TÉCNICO PARA EL ENVASADO Y TRANSPORTE DE FRUTAS Y HORTALIZAS “IN NATURA”” <a href="https://www.senave.gov.py/documentos/resoluciones/e26f0514e57d57a02e371e9f489b95d2.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                            <p><strong>Resolución 158/24</strong> “POR LA CUAL SE ESTABLECEN REQUISITOS FITOSANITARIOS PARA LA IMPORTACIÓN DE MADERAS ASERRADAS” <a href="https://www.senave.gov.py/documentos/resoluciones/f1617b110b915cd518a88bf18db45a2d.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                            <p><strong>ESTÁNDAR 3.7.</strong> REQUISITOS FITOSANITARIOS ARMONIZADOS POR CATEGORÍA DE RIESGO <a href="https://normas.mercosur.int/simfiles/normativas/79528_RES_010-2020_ES_Estandar%203.7%20Req%20Fitosanitarios.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
                         </div>
+                    </Seccion>
+                </div>
 
-                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
-                            <p class="font-bold text-gray-900 flex items-center gap-2">
-                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 2</span>
-                                Pago de servicios (Sistema de pago de servicios en el SENAVE)
-                            </p>
-                            <p class="text-xs">1- Seguir los pasos del tutorial de pagos en el TES: <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver tutorial de Pago de Aranceles (pdf)</a>.</p>
-                            <p class="text-xs">2- Ingresar a Banesnet (Homebanking o Bocas de Cobranzas habilitadas) y colocar el número de RUC para efectuar general la liquidación y abonar el servicio. <a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Ver video tutorial para pagar en el TES</a>.</p>
-                            <div class="text-[11px] text-gray-500 pt-1 border-t border-gray-200/60 mt-2">
-                                <p>Contacto: +59521457-100</p>
-                                <p>E-mail: <a href="mailto:recaudaciones@senave.gov.py" class="text-[#00A240] hover:underline">recaudaciones@senave.gov.py</a></p>
+                <!-- Departamento de Vigilancia Fitosanitaria -->
+                <div id="DCOS" class="scroll-mt-20">
+                    <Seccion title="Departamento de Vigilancia Fitosanitaria" id="departamento-de-vigilancia-fitosanitaria">
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            El departamento que mantiene actualizado el estado de ocurrencia, incidencia y<br />
+                            distribución de plagas de cultivos de importancia económica en el país.
+                        </p>
+
+                        <div class="space-y-6">
+                            <!-- Programas de Vigilancia -->
+                            <div>
+                                <h3 class="text-green-700 font-bold text-lg mb-4">Programas de Vigilancia Fitosanitaria en Paraguay</h3>
+
+                                <div class="space-y-4">
+                                    <div>
+                                        <p><strong>PROGRAMA NACIONAL DE VIGILANCIA FITOSANITARIA EN ESPECIES DE USO INDUSTRIAL Y MEDICINAL DEL CULTIVO DE Cannabis spp.</strong></p>
+                                        <p><strong>› Resolución N°: 094/2022</strong> <a href="https://www.senave.gov.py/documentos/resoluciones/f71e6e7e2423d3834c9e2ae430bdafd1.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>PROGRAMA DE VIGILANCIA FITOSANITARIA PARA PLAGAS DE GRANOS ALMACENADOS CON ENFASIS EN Trogoderma granarium Everts (2012)</strong></p>
+                                        <p><strong>› Resolución N°: 870/2021</strong> <a href="https://www.senave.gov.py/documentos/resoluciones/62a4bf9849c4e5d656c773d87fd64581.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>PROGRAMA DE ALERTA Y VIGILANCIA FITOSANITARIA EN CULTIVO DEL BANANO</strong></p>
+                                        <p><strong>› Resolución N°: 163/2010</strong> <a href="http://web.senave.gov.py:8081/docs/resoluciones/senave/Resolucion%20N_163_Por%20la%20cual%20se%20Declara%20a%las%20Zonas%20de%20Banano%20como%20Areas%20Protegidas.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                        <p><strong>› Resolución N°: 12/2013</strong> <a href="http://web.senave.gov.py:8081/docs/resoluciones/senave/Res12-13.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                        <p><strong>› Resolución N°: 521/2019</strong> <a href="https://www.senave.gov.py/documentos/resoluciones/0c699218da7a25aeee814e97991347d7.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>PROGRAMA NACIONAL DE MANEJO INTEGRADO CON ÉNFASIS A LA PLAGA PICUDO DEL ALGODONERO</strong></p>
+                                        <p><strong>› Resolución N°: 1025/2019</strong> <a href="https://www.senave.gov.py/documentos/resoluciones/24256556305358a16157d51ac142b58e.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>PROGRAMA NACIONAL DE CONTENCIÓN DEL HUANGLONGBING (HLB) DE LOS CITRICOS</strong></p>
+                                        <p><strong>› Resolución N°: 357/2017</strong> <a href="https://www.senave.gov.py/documentos/resoluciones/a51fa3ddc980eb5ad29c70d4f7c5f348.pdf" target="_blank" class="text-green-600 hover:underline">Descargar</a></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documentos -->
+                            <div>
+                                <h3 class="text-green-700 font-bold text-lg mb-4">Documentos</h3>
+                                <SeccionDeDocumentos
+                                        items={[
+                                            { title: "Normativa para el Reporte de Plagas", url: "http://web.senave.gov.py:8081/docs/resoluciones/senave/Res930-14.pdf" },
+                                            { title: "Formulario de Reporte de Plagas", url: "http://web.senave.gov.py:8081/docs/web/proteccion-vegetal/Prueba_Reporte%20de%20plagas.docx" },
+                                            { title: "FORM DVF 01 REPORTE DE PLAGAS Y/O AGENTES DE CONTROL BIOLÓGICO", url: "http://web.senave.gov.py:8081/docs/web/proteccion-vegetal/FORM-DVF-01-REPORTE%20DE%20PLAGAS%20YO%20AGENTES%20DE%20CONTROL%20BIOLOGICO.docx" },
+                                            { title: "Anexo I – FORM DVF 01", url: "http://web.senave.gov.py:8081/docs/web/proteccion-vegetal/Anexo%20I%20de%20la%20Resolucion_933_Procedimiento%20para%20la%20Determ.%20Condicion%20de%20una%20plaga.pdf" }
+                                        ]}
+                                        title=""
+                                        type="pdf"
+                                />
+                            </div>
+                        </div>
+                    </Seccion>
+                </div>
+
+                <!-- Departamento de Campañas Fitosanitarias -->
+                <div id="DCFS" class="scroll-mt-20">
+                    <Seccion title="Departamento de Campañas Fitosanitarias" id="departamento-de-campanias-fitosanitaria">
+                        <p class="text-gray-700 leading-relaxed">
+                            El departamento que desarrolla campañas fitosanitarias de plagas agrícolas para<br />
+                            preservar y/o mejorar la condición fitosanitaria del país.
+                        </p>
+                    </Seccion>
+                </div>
+
+                <!-- Emergencia Fitosanitaria - Langosta -->
+                <div class="scroll-mt-20">
+                    <Seccion title="Emergencia Fitosanitaria - Langosta (Schistocerca cancellata)">
+                        <p class="text-gray-700 mb-4">
+                            El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), mediante la Resolución Nº 127 del 28 de febrero declaró Emergencia Fitosanitaria en los departamentos de Alto Paraguay y Boquerón, por la presencia de la plaga de langostas voladoras (<em>Schistocerca cancellata</em>).
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            La normativa establece un periodo de 60 días para realizar acciones que permitan controlar y evitar que las langostas se trasladen a zonas productivas del chaco central.
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            El Plan Nacional de Contención puesto en marcha, fue elaborado específicamente para este caso, y contempla principalmente monitoreos permanentes, tomas de muestras entomológicas y aplicaciones terrestres de productos fitosanitarios en puntos específicos.
+                        </p>
+
+                        <div class="flex flex-col gap-4 mt-6">
+                            <a href="http://web.senave.gov.py:8081/docs/Boton-de-Emergencia-Fitosanitaria/RESOLUCION%20SENAVE%20127.pdf" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Declaración de Emergencia Fitosanitaria</a>
+                            <a href="http://web.senave.gov.py:8081/docs/web/Programa%20de%20ContenciOn%20langostas_2017.pdf" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Plan Nacional de Contención ante la detección de la Langosta</a>
+                            <a href="http://web.senave.gov.py:8081/docs/Boton-de-Emergencia-Fitosanitaria/Volante%20Langostas%20Chaco.png" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Volante control de Langosta</a>
+                            <a href="http://web.senave.gov.py:8081/docs/Boton-de-Emergencia-Fitosanitaria/Volante%20Langostas%20Reverso_Productos%20recomendados.png" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Productos recomendados para el control</a>
+                            <a href="http://web.senave.gov.py:8081/docs/Boton-de-Emergencia-Fitosanitaria/2020/INFORME%20REGIONAL%20LANGOSTA%20SUDAMERICAN%20OCTUBRE%202020.pdf" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg text-center transition">Informe Regional Langosta Sudamericana Octubre 2020</a>
+                        </div>
+                    </Seccion>
+                </div>
+
+                <!-- Emergencia Fitosanitaria - HLB -->
+                <div class="scroll-mt-20">
+                    <Seccion title="Emergencia Fitosanitaria - HLB (Huanglongbing de los Cítricos)">
+                        <div class="space-y-6">
+                            <SeccionDeDocumentos
+                                    items={[
+                                        { title: "Resolución N° 95", url: "http://web.senave.gov.py:8081/docs/web/resoluciones/senave/Res95_13.pdf" },
+                                        { title: "Resolución N° 80", url: "http://web.senave.gov.py:8081/docs/web/resoluciones/senave/Res80-13.pdf" },
+                                        { title: "Manual de Procedimiento", url: "http://web.senave.gov.py:8081/docs/web/hlb/manual-de-procedimiento-de-emergencia.pdf" },
+                                        { title: "Plan de Contención", url: "http://web.senave.gov.py:8081/docs/web/hlb/plan-de-contencion-de-emergencia.pdf" },
+                                        { title: "HLB", url: "http://web.senave.gov.py:8081/docs/web/hlb/HLB.pdf" },
+                                        { title: "Informe Diagnóstico Epidemiológico Regional", url: "http://web.senave.gov.py:8081/docs/web/hlb/Informe%20Diagnostico%20Epidemiologico%20Regional%20HLB_Paraguay_03Mar14.pdf" },
+                                        { title: "Campaña de Emergencia Fitosanitaria para el HLB en el Paraguay", url: "http://web.senave.gov.py:8081/docs/web/hlb/hlb-campanha.pdf" }
+                                    ]}
+                                    title="Documentos"
+                                    type="pdf"
+                            />
+                        </div>
+                    </Seccion>
+                </div>
+
+                <!-- Alerta Fitosanitarias -->
+                <div class="scroll-mt-20">
+                    <Seccion title="Alerta Fitosanitarias">
+
+                        <!-- Alerta Roya de la Soja -->
+                        <div class="mb-8">
+                            <h3 class="bg-green-600 text-white font-bold p-3 rounded-t-lg">ALERTA ROYA DE LA SOJA</h3>
+                            <div class="border border-gray-200 rounded-b-lg p-4">
+                                <p class="text-gray-700 mb-4">
+                                    El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas (SENAVE), informa que existen condiciones favorables para la diseminación de la plaga Phakopsora pachyrhizi (Roya asiática de la soja) en cultivos del rubro, por lo que emitió una alerta a productores, técnicos y fiscalizadores de campo, para que puedan implementar medidas adecuadas de control.
+                                </p>
+                                <div class="text-center">
+                                    <a href="http://web.senave.gov.py:8081/docs/web/ALERTA%20ROYA%20SOJA%20CICLO%202018-2019.pdf" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-6 rounded-lg inline-block transition">Ver PDF</a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="bg-gray-50/60 p-5 rounded-xl border border-gray-100 space-y-2">
-                            <p class="font-bold text-gray-900 flex items-center gap-2">
-                                <span class="bg-[#00A240] text-white text-xs px-2 py-0.5 rounded-md">Paso 3</span>
-                                Entrega de la muestra
-                            </p>
-                            <p class="text-xs mb-2">La muestra a enviar cumplir estrictamente los requisitos, de lo contrario será rechazada:</p>
-                            <ul class="space-y-1.5 pl-1 text-xs font-medium">
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                    <span>Ensayos para registro: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras LCC</a></span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                    <span>Ensayos para extensión de plazo de validez: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras ex-validez LCC</a></span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                    <span>Ensayos para monitoreo en puntos de ingreso: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras monitoreo punto de ingreso LCC</a></span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                    <span>Ensayos para fiscalizaciones/intervenciones/decomisos: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras fiscalizaciones-intervenciones LCC</a></span>
-                                </li>
-                                <li class="flex items-center gap-2">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-[#00A240]"></span>
-                                    <span>Ensayos de control de calidad: <a href="#" class="text-[#00A240] underline hover:text-[#00560E]">Requisitos de recepción de muestras control de calidad LCC</a></span>
-                                </li>
-                            </ul>
+                        <!-- Alerta Sigatoka Negra -->
+                        <div>
+                            <h3 class="bg-green-600 text-white font-bold p-3 rounded-t-lg">ALERTA SIGATOKA NEGRA</h3>
+                            <div class="border border-gray-200 rounded-b-lg p-4">
+                                <p class="text-gray-700 mb-4">
+                                    El Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas, SENAVE, ante la alta presión de ingreso desde la república federativa del Brasil, de la enfermedad denominada sigatoka negra del banano (Mycosphaerella fijiensis) plaga cuarentenaria ausente en el país, declaró alerta fitosanitaria en las zonas productoras de banano del país.
+                                </p>
+                                <p class="text-gray-700 mb-4">
+                                    Mediante la resolución N° 12/2013, se declara la alerta que abarca a los departamentos con mayor producción de banano en el país (Cordillera, Caaguazú, San Pedro, Canindeyú y Concepción).
+                                </p>
+                                <SeccionDeDocumentos
+                                        items={[
+                                            { title: "Informe", url: "http://web.senave.gov.py:8081/docs/web/ALERTA%20FITOSANITARIA%20BANANO%20PAG%20WEB_FINAL.pdf" },
+                                            { title: "Resolución N° 12/2013", url: "http://web.senave.gov.py:8081/docs/resoluciones/senave/Res12-13.pdf" },
+                                            { title: "Resolución N° 163/2010", url: "http://web.senave.gov.py:8081/docs/resoluciones/senave/Resolucion%20N_163_Por%20la%20cual%20se%20Declara%20a%20las%20Zonas%20de%20Banano%20como%20Areas%20Protegidas.pdf" }
+                                        ]}
+                                        title=""
+                                        type="pdf"
+                                />
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <div class="bg-amber-50/70 border-l-4 border-amber-500 p-5 rounded-r-xl shadow-xs space-y-1.5">
-                    <p class="font-bold text-amber-900 text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                        </svg>
-                        Importante:
-                    </p>
-                    <p class="text-amber-800 italic leading-relaxed text-xs">• Las muestras que tengan pendiente el pago o la entrega de alguna documentación se almacenarán en la Mesa de Entradas por un periodo de 15 días hábiles, finalizado este plazo, el Laboratorio dispondrá de las mismas.</p>
-                    <p class="text-amber-800 italic leading-relaxed text-xs">• Solo se dará inicio al curso del ensayo a quienes hayan cumplido con el pago, la documentación y requisitos de recepción de muestras requeridos.</p>
+                    </Seccion>
                 </div>
-
-                <section class="grid sm:grid-cols-2 gap-6 text-xs">
-                    <div class="p-5 bg-white border border-gray-150 rounded-xl shadow-xs">
-                        <p class="font-bold text-gray-900 mb-1.5">¿Cuáles son los principios activos ensayos en el Laboratorio?</p>
-                        <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Listado de plaguicidas y productos Fertilizantes con principios activos en vigencia (Descargar)</a></p>
-                    </div>
-                    <div class="p-5 bg-white border border-gray-150 rounded-xl shadow-xs">
-                        <p class="font-bold text-gray-900 mb-1.5">¿Cuál es el costo de los ensayos?</p>
-                        <p><a href="#" class="text-[#00A240] underline font-medium hover:text-[#00560E]">Actualización Tarifaria (N° 532/24)</a></p>
-                    </div>
-                </section>
-
-                <section id="laboratorios-quimicos" class="scroll-mt-6 space-y-6 bg-white p-6 rounded-2xl border border-gray-100 shadow-xs">
-                    <h2 class="text-xl font-bold text-[#00A240] pb-2 border-b-2 border-gray-100">
-                        DEPARTAMENTO DE LABORATORIOS QUÍMICOS
-                    </h2>
-                    <p class="text-xs text-gray-600 leading-relaxed">
-                        El Laboratorio de Control de Calidad de Insumos de Uso Agrícola comprende las Áreas: Productos de Fitosanitarios y Fertilizantes y Laboratorio de Residuos de Plaguicidas y Micotoxinas.
-                    </p>
-
-                    <div class="space-y-2.5">
-                        <p class="font-bold text-gray-800 text-xs flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Ensayos de Plaguicida:
-                        </p>
-                        <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-xs">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead>
-                                <tr class="bg-gray-100 border-b border-gray-200 text-gray-700 font-bold uppercase tracking-wider">
-                                    <th class="py-3 px-4 w-16 text-center">Item</th>
-                                    <th class="py-3 px-4">Descripción</th>
-                                    <th class="py-3 px-4 w-44">Unidad de Medida</th>
-                                    <th class="py-3 px-4 w-64 text-right">Monto en Guaraníes (IVA inc.)</th>
-                                </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100 text-gray-600">
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">351</td>
-                                    <td class="py-3 px-4 leading-relaxed">Identificación o cuantificación de principio activo en product formulado y grado técnico de plaguicidas (Cuando el principio Activo está declarado)</td>
-                                    <td class="py-3 px-4 whitespace-nowrap">Por ingrediente activo</td>
-                                    <td class="py-3 px-4 text-right font-bold text-gray-900">933.277</td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">355</td>
-                                    <td class="py-3 px-4 leading-relaxed">Identificación y/o cuantificación de principio activo en producto formulado y grado técnico de plaguicidas (Cuando el Principio Activo no se encuentra declarado)</td>
-                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
-                                    <td class="py-3 px-4 text-right font-bold text-gray-900">3.115.380</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2.5 pt-2">
-                        <p class="font-bold text-gray-800 text-xs flex items-center gap-2">
-                            <span class="w-1.5 h-3 bg-[#00A240] rounded-xs inline-block"></span>Ensayos Fisicoquímicos:
-                        </p>
-                        <div class="overflow-x-auto border border-gray-200 rounded-xl shadow-xs">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead>
-                                <tr class="bg-gray-100 border-b border-gray-200 text-gray-700 font-bold uppercase tracking-wider">
-                                    <th class="py-3 px-4 w-16 text-center">Item</th>
-                                    <th class="py-3 px-4">Descripción</th>
-                                    <th class="py-3 px-4 w-44">Unidad de Medida</th>
-                                    <th class="py-3 px-4 w-64 text-right">Monto en Guaraníes (IVA inc.)</th>
-                                </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-100 text-gray-600">
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">356</td>
-                                    <td class="py-3 px-4 leading-relaxed">Determinación de pH (Para productos fitosanitarios y fertilizantes)</td>
-                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
-                                    <td class="py-3 px-4 text-right font-bold text-gray-900">187.555</td>
-                                </tr>
-                                <tr class="hover:bg-gray-50/50 transition-colors">
-                                    <td class="py-3 px-4 font-semibold text-gray-800 text-center">357</td>
-                                    <td class="py-3 px-4 leading-relaxed">Densidad (Para productos fitosanitarios y fertilizantes)</td>
-                                    <td class="py-3 px-4 whitespace-nowrap">Por muestra</td>
-                                    <td class="py-3 px-4 text-right font-bold text-gray-900">187.555</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="pt-4">
-                    <h2 class="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                        Información Complementaria
-                    </h2>
-                    <div class="bg-linear-to-r from-gray-50 to-white rounded-2xl border border-gray-150 p-5 text-xs space-y-2 text-gray-600 max-w-3xl shadow-xs">
-                        <p><span class="font-bold text-gray-800 text-sm block mb-1">Dirección de Laboratorios del SENAVE</span></p>
-                        <p><span class="font-semibold text-gray-800">Dirección:</span> Alfonso VI casi Ángela Barrio Cavallante. San Lorenzo - Paraguay.</p>
-                        <p><span class="font-semibold text-gray-800">Teléfonos:</span> (+595) 21 582-2210</p>
-                        <p><span class="font-semibold text-gray-800">Celular:</span> 0981 300 704</p>
-                        <p class="pt-1 text-gray-500 italic border-t border-gray-200/60 mt-1.5">Para consultas técnicas dirigirse a:</p>
-                        <p><span class="font-semibold text-gray-800">Correo electrónico:</span> <a href="mailto:laboratorio.quicos@senave.gov.py" class="text-[#00A240] hover:underline font-medium">laboratorio.quicos@senave.gov.py</a> o <a href="mailto:dicaosenave@gmail.com" class="text-[#00A240] hover:underline font-medium">dicaosenave@gmail.com</a></p>
-                        <p><span class="font-semibold text-gray-800">Horario de atención:</span> Lunes a viernes de 07:00 a 15:00 hs.</p>
-                    </div>
-                </section>
-
             </main>
         </div>
     </div>

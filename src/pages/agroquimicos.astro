@@ -6,6 +6,7 @@ import Seccion from "../components/Seccion.astro";
 import Remarcable from "../components/Remarcable.astro";
 import SeccionDeDocumentos from "../components/SeccionDeDocumentos.astro";
 import * as mockData from "../core/mocks/agroquimicos";
+import PrincipalImage from "../components/PrincipalImage.astro";
 
 // Items de navegación vinculados a las IDs de las secciones correspondientes
 const navItems = [
@@ -32,13 +33,15 @@ const navItems = [
 <Layout>
     <Header title="Dirección de Calidad, Inocuidad y Agricultura Orgánica (DICAO)" />
 
+    <PrincipalImage src="https://www.senave.gov.py/wp-content/uploads/2024/09/Agroquimicos-1000x562-1.jpg" alt="Dirección de Calidad, Inocuidad y Agricultura Orgánica"/>
+    <!--
     <div class="w-full">
         <img
                 src="https://www.senave.gov.py/wp-content/uploads/2024/09/Agroquimicos-1000x562-1.jpg"
                 alt="Dirección de Calidad, Inocuidad y Agricultura Orgánica"
                 class="w-full object-cover max-h-48 md:max-h-64"
         />
-    </div>
+    </div>-->
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div class="flex flex-col lg:flex-row gap-10">
