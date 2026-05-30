@@ -3,8 +3,80 @@
 
 // Estiramos todos los servicios de manera asíncrona desde el Service
 
-import {ServiciosService} from "../servicios/service";
-const servicios = await ServiciosService.getAll();
+const servicios = [
+    {
+        id: "01",
+        title: "Semillas",
+        slug: "semillas",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/semillas.png"
+    },
+    {
+        id: "02",
+        title: "Calidad, Inocuidad y Agricultura Orgánica",
+        slug: "calidad-inocuidad-y-agricultura-organica",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/calidadeino.png"
+    },
+    {
+        id: "03",
+        title: "Sistema de Trazabilidad Vegetal (DTVe)",
+        slug: "senave-dtv",
+        icono_url: "https://www.senave.gov.py/wp-content/uploads/2025/02/trazabillidad.png"
+    },
+    {
+        id: "04",
+        title: "Agroquímicos",
+        slug: "agroquimicos",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/agroquimicos.png"
+    },
+    {
+        id: "05",
+        title: "Laboratorios",
+        slug: "laboratorios",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/laboratorios.png"
+    },
+    {
+        id: "06",
+        title: "Bioseguridad Agrícola",
+        slug: "bioseguridad-agricola",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/biotecnologia.png"
+    },
+    {
+        id: "07",
+        title: "Protección Vegetal",
+        slug: "proteccion-vegetal",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/proteccionvegetal.png"
+    },
+    {
+        id: "08",
+        title: "Operaciones",
+        slug: "operaciones",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/operaciones.png"
+    },
+    {
+        id: "09",
+        title: "Geo-Estadísticas",
+        slug: "geo-estadisticas",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/geoestadisticas.png"
+    },
+    {
+        id: "10",
+        title: "Capacitaciones",
+        slug: "capacitaciones",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/capacitaciones.png"
+    },
+    {
+        id: "11",
+        title: "Normativas",
+        slug: "normativas",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/normativas.png"
+    },
+    {
+        id: "12",
+        title: "Unidad de Registros",
+        slug: "unidad-de-registros",
+        icono_url: "https://actimedia.top/demo/senave/wp-content/uploads/2024/08/registros.png"
+    }
+];
 ---
 
 <section class="bg-[#f8f9fa] py-16 px-4">
