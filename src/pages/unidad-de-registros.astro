@@ -1,149 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
+import SidebarNav from '../components/SidebarNav.astro';
+import Seccion from "../components/Seccion.astro";
+import SeccionDeDocumentos from "../components/SeccionDeDocumentos.astro";
+import PrincipalImage from "../components/PrincipalImage.astro";
 
-const formularios = [
-    {
-        nombre: "FORMULARIO – RESOLUCIÓN N° 830-2022- REGISTRO DE IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL – TRAMITE ELECTRONICO",
-        url: "https://www.senave.gov.py/docs/unidad-registros/FORMULARIO-RESOLUCION N-830-2022-REGISTRO DE IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL-TRAMITE ELECTRONICO.docx",
-    },
-    {
-        nombre: "FORMULARIO – VIVEROS – RESOLUCIÓN Nº 359-2023",
-        url: "https://www.senave.gov.py/docs/operaciones/FORMULARIO%20-%20VIVEROS%20-%20RESOLUCION%20N-359-2023.docx",
-    },
-    {
-        nombre: "FORMULARIOS – RESOLUCIÓN Nº 670-22 – SILOS – CENTROS DE ACOPIO Y PUERTYOS DE EMBARQUE",
-        url: "https://www.senave.gov.py/docs/operaciones/FORMULARIOS-RESOLUCION%20N-670-22-SILOSS-CENTROS%20DE%20ACOPIO%20Y%20PUERTYOS%20DE%20EMBARQUE.docx",
-    },
-    {
-        nombre: "FORMULARIO DE RESOLUCIÓN 794/14 – POR EL CUAL SE APRUEBA EL PROCEDIMIENTO PARA LA IMPORTACION DE PRODUCTOS VEGETALES POR DESPACHO MENOR (IDM) Y EL FORMULARIO DE REGISTRO DE IMPORTADOR",
-        url: "https://www.senave.gov.py/docs/unidad-registros/2025 - FORMULARIO - RESOLUCION N794-14 - DESPACHO MENOR.docx",
-    },
-    {
-        nombre: "SOLICITUD DE REGISTRO DE EMPRESA EXPORTADORA DE ARROZ A MEXICO",
-        url: "https://www.senave.gov.py/docs/operaciones/FOR%20DE%20REG%20RES%20N%C2%BA%20146-23.docx",
-    },
+// Items de navegación
+const navItems = [
+    { href: '#formularios', label: 'Formularios' },
+    { href: '#resoluciones-referentes', label: 'Resoluciones Referentes' }
 ];
 
-const resoluciones = [
+// ========== FORMULARIOS ==========
+const formularios = [
     {
-        numero: "RESOLUCIÓN Nº 359/2023",
-        descripcion: "POR LA CUAL SE ACTUALIZAN LOS PROCEDIMIENTOS PARA LA HABILITACION E INSPECCIÓN FITOSANITARIA DE VIVEROS FRUTALES, ORNAMENTALES, MEDICINALES, FORESTALES Y AFINES, Y SE ABROGA LA RESOLUCIÓN Nro. 314/2012 DE FECHA 11 DE ABRIL DEL 2012",
-        url: "https://www.senave.gov.py/docs/dicao/RESOLUCION-359-UR.pdf",
-        tipo: "pdf",
+        title: "FORMULARIO – RESOLUCIÓN N° 830-2022- REGISTRO DE IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL – TRAMITE ELECTRONICO",
+        url: "https://www.senave.gov.py/docs/unidad-registros/FORMULARIO-RESOLUCION N-830-2022-REGISTRO DE IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL-TRAMITE ELECTRONICO.docx"
     },
     {
-        numero: "RESOLUCIÓN Nº 146/2023",
-        descripcion: "POR LA CUAL SE CREA EL REGISTRO DE EMPRESAS EXPORTADORAS, PLANTAS DE PROCESAMIENTO O MOLINOS ARROCEROS, CON FINES DE EXPORTACIÓN DE ARROZ A MÉXICO, Y SE ESTABLECEN LOS REQUISITOS Y EL PROCEDIMIENTO RESPECTIVO, EN CUMPLIMIENTO AL PLAN DE TRABAJO PARA LA EXPORTACIÓN DE ARROZ (Oryza sativa) DE PARAGUAY A MÉXICO",
-        url: "https://www.senave.gov.py/docs/resoluciones/senave/Resolucion_146_Creaccion%20de%20registro%20exportadores%20de%20arroz.pdf",
-        tipo: "pdf",
+        title: "FORMULARIO – VIVEROS – RESOLUCIÓN Nº 359-2023",
+        url: "https://www.senave.gov.py/docs/operaciones/FORMULARIO%20-%20VIVEROS%20-%20RESOLUCION%20N-359-2023.docx"
     },
     {
-        numero: "RESOLUCIÓN N° 830/2022",
-        descripcion: "Por la cual se actualizan los requisitos y lineamientos para el registro y habilitación de personas físicas y jurídicas como importador de productos y subproductos de origen vegetal, de fecha 02 de diciembre de 2022.",
-        url: "https://www.senave.gov.py/docs/unidad-registros/RESOLUCION N830 - 2022 - REGISTRO DE IMPORTADOR DE VEGETALES.pdf",
-        tipo: "pdf",
+        title: "FORMULARIOS – RESOLUCIÓN Nº 670-22 – SILOS – CENTROS DE ACOPIO Y PUERTYOS DE EMBARQUE",
+        url: "https://www.senave.gov.py/docs/operaciones/FORMULARIOS-RESOLUCION%20N-670-22-SILOSS-CENTROS%20DE%20ACOPIO%20Y%20PUERTYOS%20DE%20EMBARQUE.docx"
     },
     {
-        numero: "RESOLUCIÓN Nº 670",
-        descripcion: "POR LA CUAL SE ACTUALIZAN LOS REQUISITOS Y LINEAMIENTOS PARA EL REGISTRO DE SILOS, CENTROS DE ACOPIO Y PUERTOS DE EMBARQUE, DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL; SE IMPLEMENTA LA MODALIDAD DE TRAMITACIÓN ELECTRÓNICA; Y SE ABROGA LA RESOLUCIÓN SENAVE N° 172/21 DE FECHA 14 DE ABRIL DE 2021",
-        url: "https://www.senave.gov.py/docs/resoluciones/senave/611c8c919bb6c62b1443b5b10a858c46.pdf",
-        tipo: "pdf",
+        title: "FORMULARIO DE RESOLUCIÓN 794/14 – POR EL CUAL SE APRUEBA EL PROCEDIMIENTO PARA LA IMPORTACION DE PRODUCTOS VEGETALES POR DESPACHO MENOR (IDM) Y EL FORMULARIO DE REGISTRO DE IMPORTADOR",
+        url: "https://www.senave.gov.py/docs/unidad-registros/2025 - FORMULARIO - RESOLUCION N794-14 - DESPACHO MENOR.docx"
     },
     {
-        numero: "RESOLUCIÓN Nº 439",
-        descripcion: "POR LA CUAL SE ACTUALIZAN LOS REQUISITOS PARA EL REGISTRO Y HABILITACIÓN DE EMPRESAS APLICADORAS DE TRATAMIENTOS CUARENTENARIOS A EMBALAJES DE MADERA (EMATREM), SEGÚN REQUERIMIENTOS DE LA NORMA INTERNACIONAL DE MEDIDAS FITOSANITARIAS NIMFs Nº 15 \"REGLAMENTACIÓN DEL EMBALAJE DE MADERA UTILIZADO EN EL COMERCIO INTERNACIONAL\" Y SE ABROGA LA RESOLUCIÓN SENAVE N° 43/05 DE FECHA 13 DE JULIO DE 2005",
-        url: "https://www.senave.gov.py/docs/resoluciones/senave/fecca37b91408f178fbe375967258968.pdf",
-        tipo: "pdf",
+        title: "SOLICITUD DE REGISTRO DE EMPRESA EXPORTADORA DE ARROZ A MEXICO",
+        url: "https://www.senave.gov.py/docs/operaciones/FOR%20DE%20REG%20RES%20N%C2%BA%20146-23.docx"
+    }
+];
+
+// ========== RESOLUCIONES REFERENTES ==========
+const resolucionesReferentes = [
+    {
+        title: "RESOLUCIÓN Nº 359/2023 - POR LA CUAL SE ACTUALIZAN LOS PROCEDIMIENTOS PARA LA HABILITACION E INSPECCIÓN FITOSANITARIA DE VIVEROS FRUTALES, ORNAMENTALES, MEDICINALES, FORESTALES Y AFINES",
+        url: "https://www.senave.gov.py/docs/dicao/RESOLUCION-359-UR.pdf"
     },
     {
-        numero: "RESOLUCIÓN Nº 839/2019",
-        descripcion: "POR LA CUAL SE ACTUALIZAN LOS REQUISITOS Y LINEAMIENTOS PARA EL REGISTRO Y HABILITACIÓN DE PERSONAS FÍSICAS Y/O JURÍDICAS COMO IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL, SE IMPLEMENTA LA MODALIDAD DE TRAMITACIÓN ELECTRÓNICA, Y SE ABROGA LA RESOLUCIÓN SENAVE Nº 613/19 DE FECHA 09 DE SETIEMBRE 2019",
-        url: "https://www.senave.gov.py/docs/resoluciones/senave/RESOLUCION-839-UR.pdf",
-        tipo: "pdf",
+        title: "RESOLUCIÓN Nº 146/2023 - POR LA CUAL SE CREA EL REGISTRO DE EMPRESAS EXPORTADORAS, PLANTAS DE PROCESAMIENTO O MOLINOS ARROCEROS, CON FINES DE EXPORTACIÓN DE ARROZ A MÉXICO",
+        url: "https://www.senave.gov.py/docs/resoluciones/senave/Resolucion_146_Creaccion%20de%20registro%20exportadores%20de%20arroz.pdf"
     },
     {
-        numero: "RESOLUCIÓN N° 718/19",
-        descripcion: "POR LA CUAL SE DISPONEN LOS LINEAMIENTOS PARA LA IMPORTACIÓN E INGRESO, ASÍ COMO LAS CONDICIONES PARA LA SIEMBRA Y TOMA DE MUESTRA DE LAS FLORES DEL CANNABIS SP; SE CREA EL REGISTRO DE IMPORTADOR DE CANNABIS SP; Y SE ESTABLECEN LAS CONDICIONES PARA LA INSCRIPCIÓN DE LA VARIEDAD, EN EL MARCO DEL PROGRAMA NACIONAL PARA EL ESTUDIO Y LA INVESTIGACIÓN MÉDICA Y CIENTÍFICA DEL USO MEDICINAL, PREVISTO EN LA LEY N° 6007/17 Y A SU DECRETO REGLAMENTARIO N° 9303/18",
-        url: "https://www.senave.gov.py/docs/resoluciones/senave/RESOLUCION%20N%20718%20-2019%20-%20%20IMPORTACION%20DE%20CANNABIS%20SP%20USO%20MEDICINAL%20-%20DINAVISA.pdf",
-        tipo: "pdf",
+        title: "RESOLUCIÓN N° 830/2022 - Por la cual se actualizan los requisitos y lineamientos para el registro y habilitación de personas físicas y jurídicas como importador de productos y subproductos de origen vegetal",
+        url: "https://www.senave.gov.py/docs/unidad-registros/RESOLUCION N830 - 2022 - REGISTRO DE IMPORTADOR DE VEGETALES.pdf"
     },
     {
-        numero: "RESOLUCIÓN 794/14",
-        descripcion: "POR LA CUAL SE APRUEBA EL PROCEDIMIENTO PARA LA IMPORTACIÓN DE PRODUCTOS VEGETALES POR DESPACHO MENOR (IDM) Y EL FORMULARIO DE REGISTRO DE IMPORTADOR",
-        url: "https://www.senave.gov.py/docs/unidad-registros/RESOLUCION N 794-2014 DESPACHO MENOR.pdf",
-        tipo: "pdf",
+        title: "RESOLUCIÓN Nº 670 - POR LA CUAL SE ACTUALIZAN LOS REQUISITOS Y LINEAMIENTOS PARA EL REGISTRO DE SILOS, CENTROS DE ACOPIO Y PUERTOS DE EMBARQUE, DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL",
+        url: "https://www.senave.gov.py/docs/resoluciones/senave/611c8c919bb6c62b1443b5b10a858c46.pdf"
     },
+    {
+        title: "RESOLUCIÓN Nº 439 - POR LA CUAL SE ACTUALIZAN LOS REQUISITOS PARA EL REGISTRO Y HABILITACIÓN DE EMPRESAS APLICADORAS DE TRATAMIENTOS CUARENTENARIOS A EMBALAJES DE MADERA (EMATREM)",
+        url: "https://www.senave.gov.py/docs/resoluciones/senave/fecca37b91408f178fbe375967258968.pdf"
+    },
+    {
+        title: "RESOLUCIÓN Nº 839/2019 - POR LA CUAL SE ACTUALIZAN LOS REQUISITOS Y LINEAMIENTOS PARA EL REGISTRO Y HABILITACIÓN DE PERSONAS FÍSICAS Y/O JURÍDICAS COMO IMPORTADOR DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL",
+        url: "https://www.senave.gov.py/docs/resoluciones/senave/RESOLUCION-839-UR.pdf"
+    },
+    {
+        title: "RESOLUCIÓN N° 718/19 - POR LA CUAL SE DISPONEN LOS LINEAMIENTOS PARA LA IMPORTACIÓN E INGRESO, ASÍ COMO LAS CONDICIONES PARA LA SIEMBRA Y TOMA DE MUESTRA DE LAS FLORES DEL CANNABIS SP",
+        url: "https://www.senave.gov.py/docs/resoluciones/senave/RESOLUCION%20N%20718%20-2019%20-%20%20IMPORTACION%20DE%20CANNABIS%20SP%20USO%20MEDICINAL%20-%20DINAVISA.pdf"
+    },
+    {
+        title: "RESOLUCIÓN 794/14 - POR LA CUAL SE APRUEBA EL PROCEDIMIENTO PARA LA IMPORTACIÓN DE PRODUCTOS VEGETALES POR DESPACHO MENOR (IDM) Y EL FORMULARIO DE REGISTRO DE IMPORTADOR",
+        url: "https://www.senave.gov.py/docs/unidad-registros/RESOLUCION N 794-2014 DESPACHO MENOR.pdf"
+    }
 ];
 ---
 
 <Layout>
     <Header title="Unidad de Registros" />
 
-    <div class="max-w-5xl mx-auto px-4 py-12 pb-20 text-gray-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col lg:flex-row gap-10">
 
-        <div class="bg-green-50 border border-[#00a240] rounded-lg p-5 mb-10">
-            <p class="font-bold text-gray-800 mb-3">Contenido de esta página:</p>
-            <ul class="space-y-2">
-                <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-[#00a240] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    <a href="#UNO" class="text-[#00a240] hover:underline">Formularios</a>
-                </li>
-                <li class="flex items-center gap-2">
-                    <svg class="w-4 h-4 text-[#00a240] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                    </svg>
-                    <a href="#DOS" class="text-[#00a240] hover:underline">Resoluciones Referentes</a>
-                </li>
-            </ul>
+            <SidebarNav navItems={navItems} />
+
+            <main class="flex-1 text-sm text-gray-700 space-y-12 leading-relaxed">
+
+                <!-- Formularios -->
+                <Seccion title="Formularios" id="formularios">
+                    <SeccionDeDocumentos
+                            items={formularios}
+                            title=""
+                            type="word"
+                    />
+                </Seccion>
+
+                <!-- Resoluciones Referentes -->
+                <Seccion title="Resoluciones Referentes" id="resoluciones-referentes">
+                    <SeccionDeDocumentos
+                            items={resolucionesReferentes}
+                            title=""
+                            type="pdf"
+                    />
+                </Seccion>
+
+            </main>
         </div>
-
-        <div id="UNO" class="scroll-mt-24 mb-12">
-            <h2 class="text-[#00a240] text-[22px] font-bold underline mb-6">Formularios</h2>
-            <ul class="divide-y divide-gray-100 border border-gray-200 rounded-lg overflow-hidden">
-                {formularios.map((item) => (
-                        <li class="flex items-start gap-3 px-5 py-4 hover:bg-green-50 transition-colors">
-                            <svg class="w-5 h-5 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h4M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
-                            </svg>
-                            <a
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-sm text-gray-700 hover:text-[#00a240] hover:underline leading-snug"
-                            >
-                                {item.nombre}
-                            </a>
-                        </li>
-                ))}
-            </ul>
-        </div>
-
-        <hr class="my-10 border-gray-300" />
-
-        <div id="DOS" class="scroll-mt-24">
-            <h2 class="text-[#00a240] text-[22px] font-bold underline mb-6">Resoluciones Referentes</h2>
-            <ul class="divide-y divide-gray-100 border border-gray-200 rounded-lg overflow-hidden">
-                {resoluciones.map((item) => (
-                        <li class="flex items-start gap-3 px-5 py-4 hover:bg-red-50 transition-colors">
-                            <svg class="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
-                            <a
-                                    href={item.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-sm text-gray-700 hover:text-[#00a240] hover:underline leading-snug"
-                            >
-                                <span class="font-bold">{item.numero} </span>
-                                {item.descripcion}
-                            </a>
-                        </li>
-                ))}
-            </ul>
-        </div>
-
     </div>
 </Layout>
