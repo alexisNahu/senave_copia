@@ -3,10 +3,11 @@ import Footer from "../features/index/Footer.astro";
 import '../styles/global.css'
 import Header from "../features/index/Header.astro";
 ---
+
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link
             rel="stylesheet"
@@ -17,29 +18,39 @@ import Header from "../features/index/Header.astro";
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>MECIP - SENAVE</title>
+
+    <!-- Script para Alpine.js (necesario para el menú móvil) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
-<!-- SE AÑADIÓ EL FONDO AQUÍ: bg-[url(...)] con propiedades de cobertura fija y suavizado -->
+<!-- Fondo del body -->
 <body class="bg-[url('https://www.senave.gov.py/mecip/Imagenes/bg-mecip.png')] bg-cover bg-center bg-no-repeat bg-fixed min-h-screen flex flex-col">
 
-<header class="bg-white/95 backdrop-blur-sm border-b-4 border-verde shadow-sm">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<!-- ════════════════════════════════════════
+     HEADER RESPONSIVO
+════════════════════════════════════════ -->
+<header class="bg-white/95 backdrop-blur-sm border-b-4 border-verde shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
 
         <!-- Logo SENAVE -->
-        <a href="/">
+        <a href="/" class="flex-shrink-0">
             <img
                     src="https://precdn.mitic.gov.py/cms/375/logo_web.png"
                     alt="SENAVE"
-                    class="h-16 w-auto object-contain"
+                    class="h-12 sm:h-14 md:h-16 w-auto object-contain"
             />
         </a>
 
-        <!-- Título MECIP -->
-        <div class="text-right">
-            <p class="text-3xl font-bold text-verde tracking-wide">MECIP</p>
-            <p class="text-sm text-gray-500 max-w-xs leading-snug">
+        <!-- Título MECIP (centrado en móvil, derecha en desktop) -->
+        <div class="text-center sm:text-right">
+            <p class="text-xl sm:text-2xl md:text-3xl font-bold text-verde tracking-wide">MECIP</p>
+            <p class="text-xs sm:text-sm text-gray-500 max-w-[250px] sm:max-w-xs leading-snug hidden sm:block">
                 Modelo Estándar de Control Interno para Instituciones Públicas del Paraguay
+            </p>
+            <!-- Versión corta para móvil -->
+            <p class="text-xs text-gray-500 max-w-[200px] leading-tight sm:hidden">
+                Modelo Estándar de Control Interno
             </p>
         </div>
 
@@ -47,30 +58,32 @@ import Header from "../features/index/Header.astro";
 </header>
 
 <!-- ════════════════════════════════════════
-     NAVEGACIÓN
+     NAVEGACIÓN RESPONSIVA CON HOVER MEJORADO
 ════════════════════════════════════════ -->
-<nav class="bg-slate-900 text-slate-100 shadow-md relative z-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="flex items-center justify-between h-14">
+<nav class="bg-slate-900 text-slate-100 shadow-md relative z-50 sticky top-16 sm:top-20 md:top-[84px]">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6">
+        <div class="flex items-center justify-between h-12 sm:h-14">
 
-            <!-- Logo o Nombre de la Institución -->
-            <div class="flex-shrink-0 font-bold text-lg tracking-wider text-white">
-                <a href="/mecip" class="hover:text-red-400 transition-colors">MECIP</a>
+            <!-- Logo o Nombre de la Institución (visible solo en móvil) -->
+            <div class="flex-shrink-0 font-bold text-base sm:text-lg tracking-wider text-white sm:hidden">
+                <a href="/mecip" class="hover:text-verde transition-colors">MECIP</a>
             </div>
 
             <!-- Menú desktop -->
-            <ul class="hidden sm:flex items-center gap-1 text-sm font-medium">
+            <ul class="hidden sm:flex items-center gap-0 md:gap-1 text-xs md:text-sm font-medium flex-wrap">
                 {[
-                    { href: '/mecip',                                           label: 'Inicio' },
-                    { href: '/mecip/socializacion',                             label: 'Implementación NRM MECIP:2015' },
-                    { href: 'https://www.senave.gov.py/mecip/procedimientos.php?page=1', label: 'Documentos' },
-                    { href: '/mecip/calificaciones',                                  label: 'Calificaciones' },
-                    { href: '#',                                                     label: 'Contacto' },
-                ].map(({ href, label }) => (
+                    { href: '/mecip', label: 'Inicio' },
+                    { href: '/mecip/socializacion', label: 'Implementación NRM MECIP:2015' },
+                    { href: 'https://www.senave.gov.py/mecip/procedimientos.php?page=1', label: 'Documentos', target: '_blank' },
+                    { href: '/mecip/calificaciones', label: 'Calificaciones' },
+                    { href: '/mecip/contacto', label: 'Contacto' },
+                ].map(({ href, label, target }) => (
                         <li>
                             <a
                                     href={href}
-                                    class="block px-3 py-2 rounded-md hover:bg-slate-800 hover:text-white transition-all duration-200"
+                                    target={target || '_self'}
+                                    rel={target === '_blank' ? 'noopener noreferrer' : ''}
+                                    class="block px-2 md:px-3 py-2 rounded-md hover:bg-slate-800 hover:text-verde transition-all duration-200"
                             >
                                 {label}
                             </a>
@@ -82,7 +95,7 @@ import Header from "../features/index/Header.astro";
             <div class="sm:hidden flex items-center" x-data="{ open: false }">
                 <button
                         @click="open = !open"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500 transition-colors"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-verde transition-colors"
                         aria-label="Abrir menú"
                 >
                     <span class="sr-only">Menu</span>
@@ -94,25 +107,33 @@ import Header from "../features/index/Header.astro";
                     </svg>
                 </button>
 
-                <!-- Desplegable móvil -->
+                <!-- Desplegable móvil con animación -->
                 <div
                         x-show="open"
                         x-cloak
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 -translate-y-2"
+                        x-transition:enter-end="opacity-100 translate-y-0"
+                        x-transition:leave="transition ease-in duration-150"
+                        x-transition:leave-start="opacity-100 translate-y-0"
+                        x-transition:leave-end="opacity-0 -translate-y-2"
                         @click.away="open = false"
-                        class="absolute top-14 left-0 w-full bg-slate-900 border-t border-slate-800 z-50 shadow-xl"
+                        class="absolute top-12 left-0 w-full bg-slate-900 border-t border-slate-800 z-50 shadow-xl"
                 >
                     <ul class="px-2 pt-2 pb-4 space-y-1 text-sm font-medium">
                         {[
-                            { href: '/index.html',     label: 'Inicio' },
-                            { href: '/socializacion.php', label: 'Implementación NRM MECIP:2015' },
-                            { href: 'https://www.senave.gov.py/mecip/procedimientos.php?page=1', label: 'Documentos' },
-                            { href: '/calificaciones.html', label: 'Calificaciones' },
-                            { href: '#',              label: 'Contacto' },
-                        ].map(({ href, label }) => (
+                            { href: '/mecip', label: 'Inicio' },
+                            { href: '/mecip/socializacion', label: 'Implementación NRM MECIP:2015' },
+                            { href: 'https://www.senave.gov.py/mecip/procedimientos.php?page=1', label: 'Documentos', target: '_blank' },
+                            { href: '/mecip/calificaciones', label: 'Calificaciones' },
+                            { href: '/mecip/contacto', label: 'Contacto' },
+                        ].map(({ href, label, target }) => (
                                 <li>
                                     <a
                                             href={href}
-                                            class="block px-4 py-2.5 rounded-md hover:bg-slate-800 hover:text-white transition-colors"
+                                            target={target || '_self'}
+                                            rel={target === '_blank' ? 'noopener noreferrer' : ''}
+                                            class="block px-4 py-2.5 rounded-md hover:bg-slate-800 hover:text-verde transition-colors"
                                     >
                                         {label}
                                     </a>
@@ -122,29 +143,41 @@ import Header from "../features/index/Header.astro";
                 </div>
             </div>
 
+            <!-- Botón de búsqueda opcional en desktop -->
+            <div class="hidden sm:block">
+                <button class="p-2 rounded-full hover:bg-slate-800 transition-colors text-slate-400 hover:text-verde">
+                    <i class="fas fa-search text-sm"></i>
+                </button>
+            </div>
+
         </div>
     </div>
 </nav>
 
 <!-- ════════════════════════════════════════
-     BANNER
+     BANNER RESPONSIVO
 ════════════════════════════════════════ -->
-<div class="w-full overflow-hidden max-h-52 sm:max-h-72 shadow-inner">
+<div class="w-full overflow-hidden shadow-inner">
     <img
             src="https://www.senave.gov.py/mecip/Imagenes/banner.jpg"
             alt="Banner SENAVE"
-            class="w-full h-full object-cover object-center"
+            class="w-full h-32 sm:h-44 md:h-52 object-cover object-center"
+            loading="eager"
     />
 </div>
 
 <!-- ════════════════════════════════════════
-     CONTENIDO PRINCIPAL (Se renderiza sobre el fondo del body)
+     CONTENIDO PRINCIPAL
 ════════════════════════════════════════ -->
 <main class="flex-1 w-full relative z-10">
     <slot />
 </main>
 
 <Footer />
+
+<!-- ════════════════════════════════════════
+     ESTILOS ADICIONALES
+════════════════════════════════════════ -->
 </body>
 </html>
 
@@ -154,8 +187,49 @@ import Header from "../features/index/Header.astro";
         margin: 0;
         width: 100%;
     }
-    /* Evitamos forzar el height al 100% en el body para que el fondo scrollee de forma natural si el contenido crece */
+
     body {
         min-height: 100vh;
+    }
+
+    /* Evitar que el contenido se esconda detrás del header sticky */
+    * {
+        scroll-margin-top: 120px;
+    }
+
+    /* Para móvil */
+    @media (max-width: 640px) {
+        * {
+            scroll-margin-top: 100px;
+        }
+    }
+
+    /* Clase para Alpine.js (elementos ocultos inicialmente) */
+    [x-cloak] {
+        display: none !important;
+    }
+
+    /* Mejoras de accesibilidad y transiciones */
+    .nav-links-container a {
+        position: relative;
+    }
+
+    /* Efecto de subrayado al hover en desktop */
+    @media (min-width: 640px) {
+        .nav-links-container a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #22c55e;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links-container a:hover::after {
+            width: 80%;
+        }
     }
 </style>
