@@ -1,11 +1,15 @@
-<header class="bg-white pt-6 border-b-8 border-[#ee2d24]">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-center lg:items-end pb-4">
+<!-- CONTENEDOR MAESTRO FIJO -->
+<header class="fixed top-0 left-0 w-full z-50 bg-white border-b-8 border-[#ee2d24] transition-all duration-300 pt-4" id="main-header">
+
+    <!-- SECCIÓN INTERNA 1: LOGO Y BUSCADOR -->
+    <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-center lg:items-end transition-all duration-300" id="header-container">
 
         <div class="w-full lg:w-2/3 flex justify-between items-center">
             <a href="/" class="block">
                 <img src="https://precdn.mitic.gov.py/cms/375/logo_web.png"
                      alt="MITIC Logo"
-                     class="h-auto max-w-full md:max-w-[640px] object-contain">
+                     class="h-auto max-w-full md:max-w-[640px] object-contain transition-all duration-300"
+                     id="logo-img">
             </a>
 
             <button class="lg:hidden p-2 bg-gray-800 text-white rounded">
@@ -14,9 +18,10 @@
                 </svg>
             </button>
         </div>
-        <div class="w-full lg:w-1/3 flex flex-col space-y-4 mt-6 lg:mt-0">
 
-            <div class="flex space-x-3 text-[#ee2d24] text-lg justify-start">
+        <div class="w-full lg:w-1/3 flex flex-col space-y-4 mt-6 lg:mt-0 transition-all duration-300" id="right-content">
+            <!-- Íconos de accesibilidad -->
+            <div class="flex space-x-3 text-[#ee2d24] text-lg justify-start transition-all duration-300 accessibility-wrapper">
                 <i class="fab fa-accessible-icon" aria-label="Ícono de accesibilidad"></i>
                 <i class="fas fa-blind" aria-label="Ícono de accesibilidad"></i>
                 <i class="fas fa-low-vision" aria-label="Ícono de accesibilidad"></i>
@@ -26,19 +31,19 @@
                 <i class="fas fa-deaf" aria-label="Ícono de accesibilidad"></i>
             </div>
 
-            <form class="w-full flex flex-col items-start">
-                <label class="text-sm mb-1 w-full text-start" for="search">
+            <form class="w-full flex flex-col items-start search-form">
+                <label class="text-sm mb-1 w-full text-start transition-all duration-300" for="search">
                     Buscar en el sitio web
                 </label>
                 <div class="flex w-full border border-gray-300 rounded overflow-hidden">
-                    <input type="text" id="search" placeholder="Buscar" class="w-full px-3 py-2 outline-none">
+                    <input type="text" id="search" placeholder="Buscar" class="w-full px-3 py-2 outline-none transition-all duration-300">
                     <button type="submit" class="bg-[#00529b] px-6 text-white hover:bg-blue-900 transition-colors">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
             </form>
 
-            <div class="flex flex-col items-end">
+            <div class="flex flex-col items-end flags-wrapper">
                 <ul class="flex space-x-1 mb-2">
                     <li class="w-[22px] h-[16px] overflow-hidden border border-gray-100">
                         <a href="javascript:;" onclick="PrisnaGWT.translate('eng');" title="English"
@@ -60,7 +65,184 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </div>
+
+    <!-- SECCIÓN INTERNA 2: MENÚ DE NAVEGACIÓN (NAV) -->
+    <!-- Reemplacé bg-rojo-mitic por bg-[#ee2d24] temporalmente si no tienes configurado el alias, y quité mt-9 manual -->
+    <nav class="bg-[#ee2d24] text-white py-3 transition-all duration-300" id="main-nav">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+
+            <!-- Controlamos la altura del menú dinámicamente, quité h-[68px] fijo -->
+            <ul class="flex flex-wrap text-[15px] justify-center items-center space-x-6 font-bold nav-links-container transition-all duration-300">
+                <li><a href="/" class="hover:underline">Inicio</a></li>
+
+                <!-- Institucional -->
+                <li class="relative group">
+                    <button class="flex items-center hover:underline focus:outline-none py-2">
+                        Institucional
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="absolute left-0 top-full mt-1 w-56 bg-white text-gray-800 shadow-lg rounded-md
+                       opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                       transition-all duration-200 z-50">
+                        <li><a href="/institucional" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Quiénes somos</a></li>
+                        <li><a href="/autoridades" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Autoridades</a></li>
+                        <li><a href="/institucional" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Organigrama</a></li>
+                        <li><a href="/convenios-del-senave" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Convenios</a></li>
+                        <li><a href="/llamados-a-concursos" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Llamados a Concursos</a></li>
+                        <li><a href="/audiovisual" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Audiovisual</a></li>
+                    </ul>
+                </li>
+
+                <!-- Marco Jurídico -->
+                <li class="relative group">
+                    <button class="flex items-center hover:underline focus:outline-none py-2">
+                        Marco Jurídico
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <ul class="absolute left-0 top-full mt-1 w-64 bg-white text-gray-800 shadow-lg rounded-md
+                       opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                       transition-all duration-200 z-50">
+                        <li><a href="/leyes" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Leyes</a></li>
+                        <li><a href="/decretos" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Decretos</a></li>
+                        <li><a href="/resoluciones-del-senave" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones del SENAVE</a></li>
+                        <li><a href="/resoluciones-del-mercosur" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones del MERCOSUR</a></li>
+                        <li><a href="/resoluciones-mag" class="block px-4 py-2 hover:bg-red-50 hover:text-[#ee2d24]">Resoluciones MAG</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="/oficinas-regionales" class="hover:underline">Oficinas Regionales</a></li>
+                <li><a href="/contacto" class="hover:underline">Contacto</a></li>
+            </ul>
+
+            <div class="flex items-center space-x-4 mt-4 md:mt-0 nav-buttons-container transition-all duration-300">
+                <button class="w-10 h-10 border-2 border-white rounded-full flex items-center justify-center hover:bg-white hover:text-[#ee2d24] transition-colors btn-search-nav">
+                    <i class="fas fa-search text-sm"></i>
+                </button>
+                <button class="bg-[#006400] hover:bg-green-900 text-white font-bold py-4 px-6 rounded-md uppercase text-sm tracking-wider flex items-center shadow-lg btn-cta-nav transition-all duration-300">
+                    ¿Qué estás buscando?
+                </button>
+            </div>
+
+        </div>
+    </nav>
 </header>
+
+<!-- COLCHÓN DE ESPACIO INICIAL (Evita que el header tape tu contenido al cargar la página) -->
+<div class="h-[280px] lg:h-[240px]"></div>
+
+<style>
+    /* Transición general para suavizar los cambios de tamaño */
+    #main-header, #main-nav, #logo-img, .nav-links-container, .btn-cta-nav {
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* ==========================================
+       ESTADOS COMPACTOS AL HACER SCROLL (.scrolled)
+       ========================================== */
+
+    /* 1. Reducción drástica de paddings en la zona superior */
+    #main-header.scrolled {
+        padding-top: 0.15rem !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    /* El logo se reduce significativamente */
+    #main-header.scrolled #logo-img {
+        max-width: 230px;
+    }
+
+    /* Ocultamos accesibilidad y banderas para dar espacio vertical */
+    #main-header.scrolled .accessibility-wrapper,
+    #main-header.scrolled .flags-wrapper {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        margin: 0 !important;
+    }
+
+    /* Rediseño del formulario superior en modo compacto */
+    #main-header.scrolled #right-content {
+        margin-top: 0 !important;
+    }
+    #main-header.scrolled .search-form label {
+        display: none; /* Quitamos el texto para ahorrar espacio */
+    }
+    #main-header.scrolled .search-form input,
+    #main-header.scrolled .search-form button {
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+        font-size: 0.75rem;
+    }
+
+    /* 2. Compactación de la barra de Navegación (NAV) */
+    #main-header.scrolled #main-nav {
+        margin-top: 0.25rem !important; /* Pegamos el nav al logo */
+        padding-top: 0.15rem !important;  /* Casi sin padding vertical */
+        padding-bottom: 0.15rem !important;
+    }
+
+    /* Reducción de los enlaces de navegación */
+    #main-header.scrolled .nav-links-container a,
+    #main-header.scrolled .nav-links-container button {
+        padding-top: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+        font-size: 14px; /* Un punto más pequeño */
+    }
+
+    /* El gran botón verde se encoge a un tamaño discreto */
+    #main-header.scrolled .btn-cta-nav {
+        padding-top: 0.4rem !important;
+        padding-bottom: 0.4rem !important;
+        font-size: 11px;
+    }
+
+    /* El botón circular de lupa del nav también se ajusta */
+    #main-header.scrolled .btn-search-nav {
+        width: 2rem;
+        height: 2rem;
+    }
+</style>
+
+<script>
+    // Creamos la lógica en una función reutilizable
+    function initHeaderScroll() {
+        const header = document.getElementById('main-header');
+        if (!header) return;
+
+        function handleScroll() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || window.scrollY;
+
+            if (scrollTop > 60) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Escuchar el scroll en la página actual
+        window.removeEventListener('scroll', handleScroll); // Limpieza preventiva para evitar duplicados
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // ¡ESTA ES LA CLAVE! Evaluamos la posición inmediatamente al cambiar de página
+        handleScroll();
+    }
+
+    // 1. Ejecutar en la carga inicial de la web (F5 clásico)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initHeaderScroll);
+    } else {
+        initHeaderScroll();
+    }
+
+    // 2. Ejecutar CADA VEZ que Astro cambie de página dinámicamente
+    document.addEventListener('astro:page-load', initHeaderScroll);
+
+    // 3. Respaldo por si usas librerías como Turbo, Livewire o Barba.js
+    document.addEventListener('popstate', initHeaderScroll);
+</script>

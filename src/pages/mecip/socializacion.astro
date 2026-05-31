@@ -1,47 +1,185 @@
 ---
 import MecipLayout from "../../layouts/MecipLayout.astro";
+import Seccion from "../../components/Seccion.astro";
+import SeccionDeDocumentos from "../../components/SeccionDeDocumentos.astro";
 
-// Agrupamos los enlaces por componentes para mantener el código limpio y mantenible
+// Datos estructurados con subsecciones y sus documentos
 const seccionesMecip = [
     {
+        id: "ambiente-control",
         titulo: "Ambiente de Control",
-        enlaces: [
-            { href: "#", label: "Compromiso de la Alta Dirección" },
-            { href: "#", label: "Acuerdo y Compromisos Éticos" },
-            { href: "#", label: "Protocolo de Buen Gobierno" },
-            { href: "#", label: "Política de Gestión y Desarrollo de las Personas del SENAVE" }
+        subsecciones: [
+            {
+                titulo: "Compromiso de la Alta Dirección",
+                documentos: [
+                    { title: "Acta Compromiso Ing. Luis Samaniego.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/4a217fe2da12040767e56edbde68b584.pdf" },
+                    { title: "Resolución SENAVE N° 438-25 Nuevos lineamientos para ECECI y equipara al Comite de Buen Gobierno.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/566b3f24b858cbffbfca08fbcc0b99e1.pdf" },
+                    { title: "Resolución SENAVE N° 674-25 - Politica de Control Interno (PCI) - Versión 05.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/1c1feb5327c5fb679962fc0b40d0ef25.pdf" }
+                ]
+            },
+            {
+                titulo: "Acuerdo y Compromisos Éticos",
+                documentos: [
+                    { title: "A.2.1 Resolucion SENAVE N° 603-25 - Actualizacion del Codigo de Etica - Version 06.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/72665429f508266a4013bec4b080099a.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion Administrativa (DA).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/ce40f820a3df4fe451e1fb342f40de9e.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Auditoria Tecnica Institucional (AII).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/f5f7a2ca7df4c0654a41b57f19edd8d5.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Contabilidad-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/52038bcb81e5ba5a059114f60d32209a.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Patrimonio-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/bd9f792dda5ef4cf2a044f6d64a8f057.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Presupuesto-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/16772aa98ea4f68058750405750993da.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Recaudaciones-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/95ede36b7940de242794172c392f0a93.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Rendicion de Cuentas-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/cf359df878bf7d523958392c30324288.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Departamento de Tesoreria-DF.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/7f6fa3f219644c95667a2507c0c40dfb.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Agroquimicos (DAG).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/63f1e098386c6598b2ab1ed3b683d08b.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Bioseguridad Agricola (DBA).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/34976d0e14b9d3bd84803f9b1eff78fe.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Calidad, Inocuidad y Agricultura Organica (DICAO).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/096888a25e95deb70c7a18e7315bea47.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Finanzas (DF).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/48f7e13ec5dfe01026b419e0f5fd924b.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Gestion de Personas (DGP).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/6cee3854cbd9365fec19638d17d48f3c.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Laboratorios (DL).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/44d8e7aa46f1ba86aa7a7d64236ee839.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Oficinas Regionales (DOR).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/3690c2af47e9eaf4608930f334a8794d.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Operaciones (DO).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/cb6d0d42700a64e03a8a4d87f18fa704.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Proteccion Vegetal (DPV).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/66e35b67a4d343fa7c62c0170d35a56a.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Semillas (DISE).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/a9240bf8cb95bde62b40ed1527f009fd.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion de Tecnologia de la Informacion y la Comunicacion (DTIC).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/848e3414448fda594ec2e700b6c3e3ac.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion General de Administracion y Finanzas (DGAF).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/db04f178805cf59ff9b0c29d2aae2618.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion General de Asuntos Juridicos (DGAJ).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/7f8ee78107602730e84ccf36f2608ba5.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Direccion General Tecnica (DGT).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/f297bf868b1607f4f54318ead400f5fc.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Secretaria de Gabinete (S. Gab).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/d9e76488f6e93b48c01fcc2b1d615c22.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Secretaria de Planificacion (SP).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/28208a249ea19ccbbc8545efae3f8e35.pdf" },
+                    { title: "Acuerdos y Compromisos Eticos - Secretaria General (S. Gral).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/6a37504a58542d613e40e5efb511d410.pdf" }
+                ]
+            },
+            {
+                titulo: "Protocolo de Buen Gobierno",
+                documentos: [
+                    { title: "Resolucion SENAVE N° 681-25 - Actualizacion del Codigo de Buen Gobierno - Version 05.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/0bdf48e6cde605f7b27e4e6ff44d8d9b.pdf" }
+                ]
+            },
+            {
+                titulo: "Política de Gestión y Desarrollo de las Personas del SENAVE",
+                documentos: [
+                    { title: "Resolución SENAVE N° 682-25 Política de Desarrollo del Talento Humano-Versión 4.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/15053914ced3032180d836dee30be2b8.pdf" }
+                ]
+            }
         ]
     },
     {
+        id: "control-planificacion",
         titulo: "Componente de Control de la Planificación",
-        enlaces: [
-            { href: "#", label: "Direccionamiento estratégico" },
-            { href: "#", label: "Estructura organizacional" },
-            { href: "#", label: "Gestión por procesos" },
-            { href: "#", label: "Identificación y evaluación de riesgos" }
+        subsecciones: [
+            {
+                titulo: "Direccionamiento estratégico",
+                documentos: [
+                    { title: "Resolución SENAVE 041_2025 Aprobación del POA Plan Operativo Anual.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/f2f0fee56d4381fe17662259eb5d7c42.pdf" },
+                    { title: "Resolución SENAVE N° 604_2025 PEI 2026-2028.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/d50a661e15253f0dffa62846551ab3aa.pdf" }
+                ]
+            },
+            {
+                titulo: "Estructura organizacional",
+                documentos: [
+                    { title: "Organigrama General del SENAVE - APROBADO - Resolución SENAVE N° 124-24.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/b9c23514fde181fda203556a960c0d42.pdf" },
+                    { title: "Resolución SENAVE N° 124-24 Modificación de Estructura y aprobación del Organigrama Institucional.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/8ca24025616c34495b6a9c11e9e12145.pdf" }
+                ]
+            },
+            {
+                titulo: "Gestión por procesos",
+                documentos: [
+                    { title: "Resolucion SENAVE N° 683-25 Act. mapa y ficha macroprocesos, tabla de mapa de procesos.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/c6624e9ada90419b3553a5f144860437.pdf" }
+                ]
+            },
+            {
+                titulo: "Identificación y evaluación de riesgos",
+                documentos: [
+                    { title: "PRO-DSGC-005 Procedimiento de Gestión de Riesgos y Oportunidades.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/e8ab18c976accc196c824f44ac9c7925.pdf" },
+                    { title: "Resolucion SENAVE Nro-420-23. Gestion de Riesgos y Oportunidades.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/30b17b6eae9a8b6c49a4fd6e50bb2d81.pdf" }
+                ]
+            }
         ]
     },
     {
+        id: "control-implementacion",
         titulo: "Componente de Control de la Implementación",
-        enlaces: [
-            { href: "#", label: "Control operacional" },
-            { href: "#", label: "Competencia, Formación y toma de conciencia" },
-            { href: "#", label: "Gestión de la información" },
-            { href: "#", label: "Comunicación" }
+        subsecciones: [
+            {
+                titulo: "Control operacional",
+                documentos: [
+                    { title: "Resolución SENAVE Nro. 456-23 Politica Operacional del SENAVE.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/5050f5c3480469efd0c36d88bb9ec1c6.pdf" }
+                ]
+            },
+            {
+                titulo: "Competencia, Formación y toma de conciencia",
+                documentos: [
+                    { title: "Procedimiento-PRO-DAP-002-Registro Mov del Personal - (Asignación de Funciones).pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/c55daa13b56ac592ce27aaaa6570acb2.pdf" },
+                    { title: "Resolución SENAVE Nro.294-25 Plan de Capacitación Anual -Periodo fiscal 2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/0f8440a79fe888d7f368cdd4efe01a48.pdf" },
+                    { title: "Resolución SENAVE Nro. 204-25 Procedimiento Gestión de Legajos.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/19a98b2e496eec4673957f0bb5aee0ff.pdf" },
+                    { title: "Resolución SENAVE Nro. 319-18-Reglamento Interno del SENAVE.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/000fe05592480700af032d3237c72395.pdf" },
+                    { title: "Resolución SENAVE Nro. 457-23 Capacitación del Personal del SENAVE.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/d3fe3296c356839a49fa7727e12f9c74.pdf" }
+                ]
+            },
+            {
+                titulo: "Gestión de la información",
+                documentos: [
+                    { title: "ITR-DSGC-002 Acceso a documentos desde la página web del SENAVE.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/2b58d744cec86bc2aea67bef7b50da0b.pdf" },
+                    { title: "MCI-SB-001-Manual de Comunicación Institucional V3-2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/ed1e2fc626ab393586cf11bd7409e86b.pdf" },
+                    { title: "Resolucion SENAVE Nro. 434-25-Control de Documentos V=07-2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/456fd19137d51c5fc3c5d864f701b47f.pdf" },
+                    { title: "SP-PRO-DSGC-001 CONTROL DE DOCUMENTOS_V07-20025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/a787196a8b07e7123a21710bb4467780.pdf" }
+                ]
+            },
+            {
+                titulo: "Comunicación",
+                documentos: [
+                    { title: "MCI-SB-001-Manual de Comunicación Institucional V3-2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/5886d9d6ef1c06e41980872b67543548.pdf" },
+                    { title: "PRO-DPC-001-Gestión de comunicación institucional.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/8d2feb7b5ef3d1d2d09182a09f6f992e.pdf" },
+                    { title: "PRO-DSGC-007 Tratamiento de Quejas.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/ab42667811821c005520d3e96f367d3b.pdf" },
+                    { title: "PRO-DSGC-009-Satisfacción del Usuario.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/4f1c807ab659192260fc21d141493ae8.pdf" },
+                    { title: "Resolución SENAVE Nro. 053.25. Plan Anual de Transparencia e Integridad, ejercicio fiscal 2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/a30a4c6f14bd97970987d2c514fa3bdf.pdf" },
+                    { title: "Resolución SENAVE Nro. 601-25 Gestión de Comunicación-2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/da4a981c4895a5144d4b0a9f1ad29e2a.pdf" },
+                    { title: "Resolución SENAVE Nro. 51-13 Uso obligatorio de Correo Institucional Zimbra.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/f99e351c4446408fb30dfa623d841a01.pdf" },
+                    { title: "Resolución SENAVE Nro. 098-2020-Comité de Rendición de Cuenta al Ciudadano.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/05127e134d5a4f2104fdd0872f2db32c.pdf" },
+                    { title: "Resolución SENAVE Nro. 205-19 Consejo Consultivo del SENAVE.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/ca3e0ff7b56ddcbf06d7a6c7f3233c5d.pdf" },
+                    { title: "Resolución SENAVE Nro. 225-25 - Plan de Rendición de cuenta al ciudadano 2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/70fb704d090cf266879ed02106ae9774.pdf" },
+                    { title: "Resolución SENAVE Nro. 711-25 Manual de Comunicación Institucional.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/6fd5ab7c1e66b1f4a6d351a84f0353ca.pdf" },
+                    { title: "Resolución SENAVE Nro. 1189-24. Proc. para la Rendición de cuenta al ciudadano.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/145a54468a730b534f3099cefe8d7b8b.pdf" }
+                ]
+            }
         ]
     },
     {
+        id: "control-evaluacion",
         titulo: "Componente de Control de Evaluación",
-        enlaces: [
-            { href: "#", label: "Seguimiento y medición del control interno" },
-            { href: "#", label: "Auditoría Interna" }
+        subsecciones: [
+            {
+                titulo: "Seguimiento y medición del control interno",
+                documentos: [
+                    { title: "Resolución SENAVE 525-25 - Elaboración, Monitoreo y Evaluación del PEI.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/db380b7fe06b141c2f81e15cf99aec79.pdf" },
+                    { title: "Resolución SENAVE N°449-25. Procedimiento POA.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/7b44e46bed78d466d76482f487faefc6.pdf" }
+                ]
+            },
+            {
+                titulo: "Auditoría Interna",
+                documentos: [
+                    { title: "Resolución SENAVE N° 058-26 Procedimiento del PTA.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/3da523c6863ecbcc8ac49ea6d2b698f4.pdf" },
+                    { title: "Resolución SENAVE N° 060-26 Procedimiento de Seguimiento y Evaluación del PMI.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/9b7c80e625dcf0bf63188f4e1f3819b2.pdf" },
+                    { title: "Resolución SENAVE N° 153-25 Modificación del Plan Anual de la AII 2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/74d7fdd61b1460449d2a653424bccd75.pdf" }
+                ]
+            }
         ]
     },
     {
+        id: "control-mejora",
         titulo: "Componente de Control para la Mejora",
-        enlaces: [
-            { href: "#", label: "Análisis crítico del sistema de control interno" },
-            { href: "#", label: "Mejora continua" }
+        subsecciones: [
+            {
+                titulo: "Análisis crítico del sistema de control interno",
+                documentos: [
+                    { title: "PRO-DSGC-003 REVISION POR LA DIRECCION-2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/9d71cfe29b2d30bb64063bbebec0e9a6.pdf" }
+                ]
+            },
+            {
+                titulo: "Mejora continua",
+                documentos: [
+                    { title: "Cronograma de Implementación NRM MECIP.2015 - 2025.pdf", url: "https://www.senave.gov.py/docs/sistema-gestion-calidad/903313f990d4b503012e0817cbbd0e77.pdf" }
+                ]
+            }
         ]
     }
 ];
@@ -49,50 +187,65 @@ const seccionesMecip = [
 
 <MecipLayout>
     <main class="max-w-4xl mx-auto px-6 py-10">
-
         <div class="border-b-2 border-slate-200 pb-4 mb-8">
             <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-wide uppercase">
                 Implementación de la NRM / MECIP 2015
             </h1>
         </div>
 
-        <div class="space-y-8">
+        <div class="space-y-6">
             {seccionesMecip.map((seccion) => (
-                    <section class="bg-white/80 backdrop-blur-xs p-6 rounded-xl shadow-xs border border-slate-100 transition-all hover:shadow-md">
+                    <details class="group bg-white/80 rounded-xl shadow-sm border border-slate-100 transition-all hover:shadow-md" open>
+                        <summary class="flex items-center justify-between cursor-pointer list-none p-5 rounded-xl">
+                            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+                                <span class="w-2 h-5 bg-verde rounded-xs inline-block"></span>
+                                {seccion.titulo}
+                            </h2>
+                            <svg
+                                    class="w-5 h-5 text-gray-500 transition-transform duration-300 group-open:rotate-180"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </summary>
 
-                        <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                            <span class="w-2 h-5 bg-verde rounded-xs inline-block"></span>
-                            {seccion.titulo}
-                        </h2>
-
-                        <ul class="grid gap-2.5 pl-2">
-                            {seccion.enlaces.map((enlace) => (
-                                    <li>
-                                        <a
-                                                href={enlace.href}
-                                                class="group flex items-start gap-2.5 text-blue-600 hover:text-blue-800 font-medium transition-colors duration-150 text-[15px]"
-                                        >
-                                            <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    class="h-4 w-4 text-amber-500 shrink-0 mt-1 transition-transform group-hover:translate-x-0.5"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    stroke-width="3"
-                                            >
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                            </svg>
-                                            <span class="underline decoration-blue-300 group-hover:decoration-blue-600 transition-colors">
-                    {enlace.label}
-                  </span>
-                                        </a>
-                                    </li>
-                            ))}
-                        </ul>
-
-                    </section>
+                        <div class="px-5 pb-5 pt-2 border-t border-slate-100">
+                            <div class="space-y-4">
+                                {seccion.subsecciones.map((subseccion) => (
+                                        <details class="group/sub">
+                                            <summary class="text-md font-semibold text-gray-700 mb-2 flex items-center gap-2 cursor-pointer list-none">
+                                                <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        class="w-4 h-4 text-green-600 flex-shrink-0 transition-transform duration-300 group-open/sub:rotate-90"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        stroke-width="2.5"
+                                                >
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                                {subseccion.titulo}
+                                                <span class="text-xs text-gray-400 ml-2">
+                                            ({subseccion.documentos.length} {subseccion.documentos.length === 1 ? 'documento' : 'documentos'})
+                                        </span>
+                                            </summary>
+                                            <div class="pl-6 mt-2">
+                                                {subseccion.documentos && subseccion.documentos.length > 0 && (
+                                                        <SeccionDeDocumentos
+                                                                items={subseccion.documentos}
+                                                                title=""
+                                                                type="pdf"
+                                                        />
+                                                )}
+                                            </div>
+                                        </details>
+                                ))}
+                            </div>
+                        </div>
+                    </details>
             ))}
         </div>
-
     </main>
 </MecipLayout>

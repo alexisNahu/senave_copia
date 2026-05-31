@@ -1,0 +1,128 @@
+<!-- CONTENEDOR FONDO OSCURITO TRANSLÚCIDO -->
+<div
+        id="modal-comunicado"
+        class="hidden fixed inset-0 z-[100] flex items-center justify-center px-4 custom-modal-overlay"
+>
+    <!-- TARJETA DEL MODAL -->
+    <div class="relative w-full max-w-xl bg-white shadow-2xl border border-gray-200 animate-fade-in p-6 sm:p-8">
+
+        <!-- Botón de Cerrar Flotante (Esquina superior derecha externa) -->
+        <button
+                id="close-modal-btn"
+                class="absolute -top-3 -right-3 w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-900 text-white rounded-full border-2 border-white shadow-md transition-colors focus:outline-none"
+                aria-label="Cerrar comunicado"
+        >
+            <i class="fas fa-times text-sm"></i>
+        </button>
+
+        <!-- Borde decorativo interno gris -->
+        <div class="border-2 border-gray-300 p-5 sm:p-6 flex flex-col items-center text-center">
+
+            <!-- Logo Superior -->
+            <div class="mb-4">
+                <img src="https://precdn.mitic.gov.py/cms/375/logo_web.png" alt="Logo Institucional" class="h-12 object-contain mx-auto" />
+            </div>
+
+            <!-- Título Encabezado -->
+            <h2 class="text-xl sm:text-2xl font-serif font-bold tracking-widest text-gray-800 uppercase mb-4">
+                Comunicado
+            </h2>
+
+            <!-- Cuerpo del Texto Oficial -->
+            <div class="text-sm sm:text-base text-gray-700 leading-relaxed text-justify space-y-4 mb-5 font-sans">
+                <p>
+                    El <strong>SENAVE</strong> recuerda a sus usuarios que continúa en Consulta Pública el proyecto
+                    <span class="italic font-semibold text-gray-900">
+            "POR LA CUAL SE ACTUALIZAN LOS REQUISITOS Y LINEAMIENTOS PARA LA HABILITACIÓN DE IMPORTADORES DE PRODUCTOS Y SUBPRODUCTOS DE ORIGEN VEGETAL"
+          </span>.
+                </p>
+                <p class="text-center text-xs sm:text-sm text-gray-600">
+                    Acceda al proyecto mencionado en la sección de Consulta Pública a través de este enlace:
+                </p>
+            </div>
+
+            <!-- Sección de Código QR -->
+            <div class="flex flex-col items-center mb-6">
+                <div class="border-4 border-black p-2 bg-white max-w-[160px]">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.senave.gov.py" alt="Código QR Consulta Pública" class="w-full h-auto" />
+                </div>
+                <span class="mt-2 bg-black text-white text-xs font-bold px-4 py-1 uppercase tracking-wider">
+          Consulta Pública
+        </span>
+            </div>
+
+            <!-- Pie de página con fecha y firmas institucionales -->
+            <div class="w-full flex flex-col items-center mt-2 border-t border-gray-100 pt-4">
+                <p class="text-xs text-gray-500 mb-3 self-end">
+                    Asunción, 20 de mayo de 2026
+                </p>
+                <div class="flex justify-center items-center space-x-4 grayscale opacity-80">
+                    <p class="text-[10px] uppercase tracking-tighter text-gray-500 font-bold border-l-2 border-gray-400 pl-2 text-left">
+                        Gobierno del Paraguay <br>
+                        <span class="text-gray-400 font-normal text-[9px]">Servicio Nacional de Calidad y Sanidad Vegetal y de Semillas</span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Forzamos el fondo con un color negro al 55% de opacidad y añadimos soporte blur */
+    .custom-modal-overlay {
+        background-color: rgba(0, 0, 0, 0.55) !important;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px); /* Soporte adicional para Safari */
+    }
+
+    /* Animación de entrada para la tarjeta blanca */
+    .animate-fade-in {
+        animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+</style>
+
+<script>
+    function initModal() {
+        const modal = document.getElementById('modal-comunicado');
+        const closeBtn = document.getElementById('close-modal-btn');
+
+        if (!modal || !closeBtn) return;
+
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initModal);
+    document.addEventListener('astro:page-load', initModal);
+</script>

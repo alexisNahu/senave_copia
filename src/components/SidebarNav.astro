@@ -6,22 +6,68 @@ interface Props {
 const { navItems } = Astro.props;
 ---
 
-<aside class="lg:w-64 shrink-0">
-    <div class="sticky top-6 bg-white rounded-2xl shadow-md border border-green-100 overflow-hidden max-h-[calc(100vh-3rem)] overflow-y-auto">
-        <div class="bg-[#00A240] px-5 py-4 sticky top-0 z-10"> <p class="text-white font-semibold text-sm uppercase tracking-wider">Contenido</p>
+<aside class="lg:w-72 shrink-0">
+    <div class="sticky top-30 bg-white rounded-2xl shadow-lg border border-green-100 overflow-hidden max-h-[calc(100vh-2rem)] overflow-y-auto">
+
+        {/* Header con efecto de gradiente sutil */}
+        <div class="bg-[#00A240] px-5 py-4 sticky top-0 z-10">
+            <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+                </svg>
+                <p class="text-white font-semibold text-sm uppercase tracking-wider">Contenido</p>
+            </div>
         </div>
+
+        {/* Lista de navegación */}
         <ul class="divide-y divide-gray-100">
-            {navItems.map((item) => (
+            {navItems.map((item, index) => (
                     <li>
                         <a
                                 href={item.href}
-                                class="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-[#00A240] transition-colors group"
+                                class="flex items-center gap-3 px-5 py-3.5 text-sm text-gray-700 hover:bg-green-50 hover:text-[#00A240] transition-all duration-200 group border-l-2 border-l-transparent hover:border-l-[#00A240]"
                         >
-                            <span class="w-2 h-2 rounded-full bg-[#00A240] shrink-0 group-hover:scale-125 transition-transform"></span>
-                            {item.label}
+                            {/* Ícono de flecha/chevrón en lugar de círculo */}
+                            <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-3.5 w-3.5 text-[#00A240] shrink-0 transition-all duration-200 group-hover:translate-x-0.5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                            >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                            </svg>
+                            <span class="flex-1">{item.label}</span>
+
+                            {/* Indicador de posición (opcional: número o badge) */}
+                            <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                            {String(index + 1).padStart(2, '0')}
+                        </span>
                         </a>
                     </li>
             ))}
         </ul>
     </div>
 </aside>
+
+<style>
+    /* Scrollbar personalizada */
+    .overflow-y-auto::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-thumb {
+        background: #00A240;
+        border-radius: 4px;
+    }
+
+    .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+        background: #008a35;
+    }
+</style>
