@@ -3,24 +3,61 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../features/servicios/Header.astro';
 import { ResolutionsService } from "../features/resoluciones/services";
 import ResolucionesPage from "../features/resoluciones/senave/react/ResolucionesPage";
+import SidebarNav from '../components/SidebarNav.astro';
 
 const response = await ResolutionsService.search({ section: 'resolutions-senave', page: 1, per_page: 10 });
 const resoluciones = response?.data || [];
 const meta = response?.meta || { current_page: 1, last_page: 1, per_page: 10 };
 const currentPath = Astro.url.pathname;
+
+// Items de navegación para el sidebar
+const navItems = [
+    { href: '#resoluciones', label: 'Resoluciones SENAVE' },
+    { href: '#buscar', label: 'Buscar Resolución' },
+    { href: '#administracion', label: 'Administración' }
+];
 ---
 
 <Layout>
     <Header title="Resoluciones" />
 
-    <main class="bg-white text-gray-800">
-        <ResolucionesPage
-                client:load
-                initialResoluciones={resoluciones}
-                initialMeta={meta}
-                currentPath={currentPath}
-        />
-    </main>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+
+            <!-- Sidebar - Oculto en móvil, visible en desktop -->
+            <aside class="lg:w-72 shrink-0 hidden lg:block">
+                <div class="sticky top-24 bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-[#00A240] px-5 py-4">
+                        <p class="text-white font-semibold text-sm uppercase tracking-wider">Contenido</p>
+                    </div>
+                    <ul class="divide-y divide-gray-100">
+                        {navItems.map((item) => (
+                                <li>
+                                    <a
+                                            href={item.href}
+                                            class="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-[#00A240] transition-colors group"
+                                    >
+                                        <span class="w-2 h-2 rounded-full bg-[#00A240] shrink-0"></span>
+                                        {item.label}
+                                    </a>
+                                </li>
+                        ))}
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Contenido principal - Ocupa todo el ancho en móvil -->
+            <main class="flex-1 min-w-0 bg-white rounded-xl shadow-sm overflow-hidden">
+                <ResolucionesPage
+                        client:load
+                        initialResoluciones={resoluciones}
+                        initialMeta={meta}
+                        currentPath={currentPath}
+                />
+            </main>
+
+        </div>
+    </div>
 </Layout>
 
 <style>
@@ -29,5 +66,34 @@ const currentPath = Astro.url.pathname;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Asegurar que el contenido no se desborde en móvil */
+    .min-w-0 {
+        min-width: 0;
+    }
+
+    /* Forzar que el contenido del ResolucionesPage sea responsivo */
+    :global(.resoluciones-container) {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    :global(table) {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    /* Mejoras para móvil */
+    @media (max-width: 768px) {
+        :global(.resoluciones-container) {
+            padding: 0.5rem;
+        }
+
+        :global(.pagination) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     }
 </style>
