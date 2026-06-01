@@ -6,9 +6,9 @@ interface Props {
 const { navItems } = Astro.props;
 ---
 
-<aside class="w-full lg:w-72 shrink-0 sticky lg:sticky top-[108px] md:top-[118px] lg:top-30 z-40 lg:z-10 transition-all duration-300">
-    <div class="bg-white lg:rounded-2xl shadow-md lg:shadow-lg border-b lg:border border-gray-200 lg:border-green-100 overflow-hidden flex flex-col w-full">
-
+<aside
+        class="w-full lg:w-72 shrink-0 self-start lg:sticky lg:top-[120px] z-10 transition-all duration-300"
+>    <div class="bg-white lg:rounded-2xl shadow-md lg:shadow-lg border-b lg:border border-gray-200 lg:border-green-100 overflow-hidden flex flex-col w-full">
         {/* Header con efecto: En móvil actúa como BOTÓN para abrir/cerrar */}
         <button
                 id="sidebar-toggle-btn"
